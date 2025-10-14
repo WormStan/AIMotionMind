@@ -7,6 +7,9 @@
 ### 关键帧检测与分析
 ![关键帧检测](docs/imgs/key_frame.png)
 
+### 关键帧比对
+![关键帧检测](docs/imgs/compare.png)
+
 ### 详细分析界面
 ![详细分析](docs/imgs/details.png)
 
