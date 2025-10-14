@@ -1,6 +1,6 @@
 # 篮球投篮动作分析系统
 
-基于 MediaPipe 的篮球投篮动作分析工具，提供关键帧检测、运动学分析和对比功能。
+基于 MediaPipe 的体育运动动作分析工具，提供关键帧检测、运动学分析和对比功能。
 
 ## 功能特性
 
@@ -25,7 +25,7 @@
 1. 克隆仓库
 ```bash
 git clone <repository-url>
-cd MediaPipe
+cd AIMotionMind
 ```
 
 2. 创建虚拟环境（推荐）
@@ -65,7 +65,6 @@ python main.py
 ## 项目结构
 
 ```
-MediaPipe/
 ├── core/                      # 核心模块
 │   ├── video_processor.py     # 视频处理
 │   ├── pose_detector.py       # 姿态检测
