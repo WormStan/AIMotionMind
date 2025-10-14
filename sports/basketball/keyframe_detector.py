@@ -485,7 +485,7 @@ class KeyframeDetector:
         return {
             "index": idx,
             "frame_data": frames_data[idx],
-            "description": f"出手定点（得分:{scores[idx]:.1f}）"
+            "description": "出手定点"
         }
 
     @staticmethod
@@ -640,7 +640,7 @@ class KeyframeDetector:
         return {
             "index": idx,
             "frame_data": frames_data[idx],
-            "description": f"出手瞬间（得分:{scores[idx]:.1f}）"
+            "description": "出手瞬间"
         }
 
     @staticmethod

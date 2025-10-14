@@ -289,14 +289,6 @@ class ReportGenerator:
         <p><strong>对比对象:</strong> {label1} vs {label2}</p>
         <p><strong>生成时间:</strong> {template_data['generation_time']}</p>
         
-        <h2>📊 整体相似度评分</h2>
-        <div class="similarity-score">
-            {comparison.get('curve_similarity', {}).get('overall_similarity_score', 0)*100:.1f}%
-        </div>
-        <p style="text-align: center; color: #7f8c8d;">
-            基于角度和速度曲线的整体相似度分析
-        </p>
-        
         <h2>⏱️ 整体指标对比</h2>
         <div class="metric-grid">
 """

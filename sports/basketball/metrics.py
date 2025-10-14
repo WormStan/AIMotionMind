@@ -606,15 +606,12 @@ class BasketballMetrics:
                 if frame_diff > 0:
                     first = pair['joint1_cn']
                     sequence = f"{pair['joint1_cn']} → {pair['joint2_cn']}"
-                    evaluation = "正常" if pair['category'] == 'upper_arm' else "较好"
                 elif frame_diff < 0:
                     first = pair['joint2_cn']
                     sequence = f"{pair['joint2_cn']} → {pair['joint1_cn']}"
-                    evaluation = "较好" if pair['category'] == 'upper_arm' else "需注意"
                 else:
                     first = "同时"
                     sequence = f"{pair['joint1_cn']} ≈ {pair['joint2_cn']}"
-                    evaluation = "协调"
 
                 pairs_result.append({
                     'pair_name': pair['name'],
@@ -628,7 +625,6 @@ class BasketballMetrics:
                     'time_diff_seconds': time_diff,
                     'first_to_move': first,
                     'sequence': sequence,
-                    'evaluation': evaluation,
                     'category': pair['category']
                 })
             else:
@@ -645,7 +641,6 @@ class BasketballMetrics:
                     'time_diff_seconds': None,
                     'first_to_move': '未检测',
                     'sequence': '数据缺失',
-                    'evaluation': '无法评估',
                     'category': pair['category']
                 })
 
@@ -704,7 +699,6 @@ class BasketballMetrics:
             return {
                 'pattern_type': 'incomplete_data',
                 'description': '数据不完整，无法判断运动模式',
-                'quality': 'unknown',
                 'key_parts': {
                     'lower': None,
                     'hip': None,
@@ -736,51 +730,42 @@ class BasketballMetrics:
             'upper_vs_lower': upper_start - lower_start
         }
 
-        # 判断模式类型和质量
+        # 判断模式类型
         if initiation_order == ['lower', 'hip', 'upper']:
             # 理想顺序：下肢 → 髋部 → 上肢
             pattern_type = 'lower_hip_upper'
-            description = '✓ 理想发力链：下肢 → 髋部 → 上肢，符合良好投篮力学'
-            quality = 'excellent'
+            description = '下肢 → 髋部 → 上肢'
         elif initiation_order[0] == 'hip':
             # 髋部先启动
             if initiation_order == ['hip', 'lower', 'upper']:
                 pattern_type = 'hip_lower_upper'
-                description = '髋部主导发力，下肢紧随，整体协调性较好'
-                quality = 'good'
+                description = '髋部 → 下肢 → 上肢'
             elif initiation_order == ['hip', 'upper', 'lower']:
                 pattern_type = 'hip_upper_lower'
-                description = '⚠ 髋部先发力但上肢过早介入，下肢参与不足'
-                quality = 'needs_improvement'
+                description = '髋部 → 上肢 → 下肢'
             else:
                 pattern_type = 'hip_first'
                 description = '髋部主导发力'
-                quality = 'good'
         elif initiation_order[0] == 'lower':
             # 下肢先启动
             if abs(time_diffs['upper_vs_lower']) <= 2:
                 # 如果上下肢时间差很小（≤2帧）
                 pattern_type = 'lower_synchronized'
-                description = '下肢启动，上下肢协同发力良好'
-                quality = 'good'
+                description = '下肢启动，上下肢协同发力'
             else:
                 pattern_type = 'lower_first'
-                description = '下肢主导发力，力量传递顺畅'
-                quality = 'good'
+                description = '下肢主导发力'
         elif initiation_order[0] == 'upper':
-            # 上肢先启动（不理想）
+            # 上肢先启动
             pattern_type = 'upper_first'
-            description = '⚠ 上肢过早发力，建议加强下肢和髋部参与'
-            quality = 'needs_improvement'
+            description = '上肢先启动'
         else:
             pattern_type = 'unknown'
             description = '运动模式无法分类'
-            quality = 'unknown'
 
         return {
             'pattern_type': pattern_type,
             'description': description,
-            'quality': quality,
             'initiation_order': initiation_order,
             'key_parts': {
                 'lower': lower_start,
@@ -796,7 +781,7 @@ class BasketballMetrics:
         """
         计算能量传递效率
 
-        改进版：不再使用"效率百分比"，而是分析：
+        分析：
         1. 下肢是否产生了初始动能
         2. 上肢是否获得了加速（力量传递的证据）
         3. 整体协调性（速度峰值的时间顺序）
@@ -822,7 +807,6 @@ class BasketballMetrics:
 
         if start_frame >= end_frame:
             return {
-                'transfer_quality': 'insufficient_data',
                 'lower_body_peak_velocity': 0.0,
                 'upper_body_peak_velocity': 0.0,
                 'velocity_ratio': 0.0,
@@ -830,7 +814,6 @@ class BasketballMetrics:
                 'lower_peak_frame': 0,
                 'upper_peak_frame': 0,
                 'timing_difference': 0,
-                'coordination_score': 0.0,
                 'analysis_range': {
                     'start_frame': start_frame,
                     'end_frame': end_frame,
@@ -861,7 +844,6 @@ class BasketballMetrics:
 
         if not lower_body_velocities or not upper_body_velocities:
             return {
-                'transfer_quality': 'insufficient_data',
                 'lower_body_peak_velocity': 0.0,
                 'upper_body_peak_velocity': 0.0,
                 'velocity_ratio': 0.0,
@@ -869,7 +851,6 @@ class BasketballMetrics:
                 'lower_peak_frame': 0,
                 'upper_peak_frame': 0,
                 'timing_difference': 0,
-                'coordination_score': 0.0,
                 'analysis_range': {
                     'start_frame': start_frame,
                     'end_frame': end_frame,
@@ -893,76 +874,22 @@ class BasketballMetrics:
         if timing_difference > 3:
             # 上肢峰值明显晚于下肢（正常的力量传递链）
             transfer_timing = 'sequential'
-            timing_quality = 'good'
         elif timing_difference >= 0:
             # 上肢峰值稍晚或同时
             transfer_timing = 'synchronized'
-            timing_quality = 'acceptable'
         else:
-            # 上肢峰值早于下肢（不理想）
+            # 上肢峰值早于下肢
             transfer_timing = 'reversed'
-            timing_quality = 'poor'
 
         # 计算速度放大比（上肢相对于下肢的加速效果）
-        # 正常情况下上肢速度应该更大（末端加速原理）
         velocity_ratio = upper_peak_velocity / \
             lower_peak_velocity if lower_peak_velocity > 0 else 0.0
 
-        # 判断速度放大是否合理
-        if velocity_ratio >= 1.2:
-            # 上肢速度显著大于下肢（良好的末端加速）
-            amplification_quality = 'good'
-        elif velocity_ratio >= 0.8:
-            # 速度相当
-            amplification_quality = 'acceptable'
-        else:
-            # 上肢速度不足
-            amplification_quality = 'poor'
-
-        # 综合协调性评分（0-100分）
-        # 基于时序和速度放大的综合评价
-        timing_score = 0
-        if timing_quality == 'good':
-            timing_score = 60
-        elif timing_quality == 'acceptable':
-            timing_score = 40
-        else:
-            timing_score = 20
-
-        amplification_score = 0
-        if amplification_quality == 'good':
-            amplification_score = 40
-        elif amplification_quality == 'acceptable':
-            amplification_score = 25
-        else:
-            amplification_score = 10
-
-        coordination_score = timing_score + amplification_score
-
-        # 综合质量评价
-        if coordination_score >= 80:
-            transfer_quality = 'excellent'
-            quality_description = '力量传递顺畅，动作协调性优秀'
-        elif coordination_score >= 60:
-            transfer_quality = 'good'
-            quality_description = '力量传递良好，整体协调'
-        elif coordination_score >= 40:
-            transfer_quality = 'acceptable'
-            quality_description = '力量传递基本合理，有改进空间'
-        else:
-            transfer_quality = 'poor'
-            quality_description = '力量传递不足，需要改进动作连贯性'
-
         return {
-            'transfer_quality': transfer_quality,
-            'quality_description': quality_description,
-            'coordination_score': float(coordination_score),
             'lower_body_peak_velocity': float(lower_peak_velocity),
             'upper_body_peak_velocity': float(upper_peak_velocity),
             'velocity_ratio': float(velocity_ratio),
             'transfer_timing': transfer_timing,
-            'timing_quality': timing_quality,
-            'amplification_quality': amplification_quality,
             'lower_peak_frame': int(lower_peak_frame),
             'upper_peak_frame': int(upper_peak_frame),
             'timing_difference': int(timing_difference),

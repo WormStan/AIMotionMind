@@ -311,15 +311,14 @@ def perform_analysis() -> Optional[str]:
             print(f"  🎯 节奏一致性: {rhythm.get('rhythm_consistency', 0):.3f}")
 
         force_seq = analysis_results.get('force_sequence', {})
-        if force_seq:
-            print(
-                f"  ⚡ 发力顺序: {'✓ 正确' if force_seq.get('sequence_correct') else '✗ 需改进'}")
-            print(f"  🔗 发力链效率: {force_seq.get('chain_efficiency', 0):.2f}")
+        if force_seq and 'movement_pattern' in force_seq:
+            pattern = force_seq['movement_pattern']
+            print(f"  ⚡ 发力模式: {pattern.get('description', '未知')}")
 
         energy = analysis_results.get('energy_transfer', {})
         if energy:
-            print(f"  💪 能量传递效率: {energy.get('efficiency', 0)*100:.1f}%")
-            print(f"  📉 能量损失: {energy.get('energy_loss', 0)*100:.1f}%")
+            print(f"  💪 速度放大比: {energy.get('velocity_ratio', 0):.2f}x")
+            print(f"  ⏱️  传递时序: {energy.get('transfer_timing', '未知')}")
 
         # 4. 生成报表
         if generate_report:
