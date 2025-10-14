@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>篮球投篮动作分析报告</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🏀 篮球投篮动作分析报告</h1>
+            <p>基于 MediaPipe 姿态检测的运动学分析</p>
+        </div>
+
+        <!-- 主要分析区域：左侧视频，右侧实时图表 -->
+        <div class="main-analysis">
+            <!-- 左侧：视频播放器 -->
+            <div class="video-section">
+                <h2>📹 投篮视频</h2>
+                <video id="video-player" controls>
+                    <source src="{{ video_path }}" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+                
+                <div class="video-info">
+                    <p><strong>帧率:</strong> {{ fps }} FPS</p>
+                    <p><strong>总帧数:</strong> {{ total_frames }} 帧</p>
+                    <p><strong>时长:</strong> {{ duration }} 秒</p>
+                </div>
+                
+                <!-- 当前帧数据显示 -->
+                <div id="current-data-display" class="video-info" style="margin-top: 15px;">
+                    <h4>当前帧数据</h4>
+                    <p>等待视频播放...</p>
+                </div>
+            </div>
+
+            <!-- 右侧：实时同步图表 -->
+            <div class="realtime-charts">
+                <h2>📊 实时数据曲线</h2>
+                <p style="color: #666; margin-bottom: 10px;">
+                    <small>📍 红线表示当前播放位置 | 虚线表示关键帧</small>
+                </p>
+                <div class="chart-container">
+                    <canvas id="realtime-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 详细数据图表区域 -->
+        <div class="detailed-charts">
+            <h2>📈 详细运动数据分析</h2>
+            
+            <div class="charts-grid">
+                <!-- 膝关节角度 -->
+                <div class="chart-item">
+                    <h3>膝关节角度变化</h3>
+                    <canvas id="knee-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肘关节角度 -->
+                <div class="chart-item">
+                    <h3>肘关节角度变化</h3>
+                    <canvas id="elbow-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肩关节角度 -->
+                <div class="chart-item">
+                    <h3>肩关节角度变化</h3>
+                    <canvas id="shoulder-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 手腕速度 -->
+                <div class="chart-item">
+                    <h3>手腕速度变化</h3>
+                    <canvas id="wrist-velocity-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肘部速度 -->
+                <div class="chart-item">
+                    <h3>肘部速度变化</h3>
+                    <canvas id="elbow-velocity-chart" height="250"></canvas>
+                </div>
+
+                <!-- 躯干倾斜 -->
+                <div class="chart-item">
+                    <h3>躯干倾斜角度变化</h3>
+                    <canvas id="trunk-lean-chart" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 高级分析指标区域 -->
+        <div class="advanced-analysis">
+            <h2>🔬 高级运动学分析</h2>
+            
+            <div class="analysis-grid">
+                <!-- 动作节奏分析 -->
+                <div class="analysis-card">
+                    <h3>⏱️ 动作节奏分析</h3>
+                    {% if rhythm_analysis %}
+                    <div class="metric-item" style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #1976d2; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>开始
+                        </span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">投篮时长</span>
+                        <span class="metric-value">{{ "%.2f"|format(rhythm_analysis.get('shooting_duration', rhythm_analysis.get('total_duration', 0))) }} 秒</span>
+                        <small class="metric-hint">(从球最低点到结束)</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">节奏一致性</span>
+                        <span class="metric-value {% if rhythm_analysis.get('rhythm_consistency', 1) < 0.2 %}good{% elif rhythm_analysis.get('rhythm_consistency', 1) < 0.5 %}medium{% else %}poor{% endif %}">
+                            {{ "%.3f"|format(rhythm_analysis.get('rhythm_consistency', 0)) }}
+                        </span>
+                        <small class="metric-hint">(越小越好)</small>
+                    </div>
+                    
+                    {% if rhythm_analysis.get('key_phases') %}
+                    <h4 style="margin-top: 15px; color: #555;">关键阶段时长</h4>
+                    {% for phase_name, duration in rhythm_analysis['key_phases'].items() %}
+                    <div class="metric-item">
+                        <span class="metric-label">
+                            {% if phase_name == 'preparation' %}预备阶段
+                            {% elif phase_name == 'power_phase' %}发力阶段
+                            {% elif phase_name == 'follow_through' %}跟随阶段
+                            {% else %}{{ phase_name }}{% endif %}
+                        </span>
+                        <span class="metric-value">{{ "%.2f"|format(duration) }} 秒</span>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% else %}
+                    <p style="color: #999;">暂无数据</p>
+                    {% endif %}
+                </div>
+
+                <!-- 关节运动启动顺序 -->
+                <div class="analysis-card">
+                    <h3>⚡ 发力启动顺序分析</h3>
+                    {% if force_sequence %}
+                    <div class="metric-item" style="background: #e8f5e9; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #2e7d32; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>开始，检测三个关键部位的发力启动时机
+                        </span>
+                    </div>
+                    
+                    {% if force_sequence.get('pattern_analysis') %}
+                    {% set pattern = force_sequence['pattern_analysis'] %}
+                    
+                    <!-- 发力启动顺序可视化 -->
+                    <div style="background: #f9fbe7; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #827717;">
+                        <h4 style="margin: 0 0 10px 0; color: #827717; font-size: 14px;">发力启动顺序</h4>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; font-weight: bold;">
+                            {% if pattern.get('initiation_order') %}
+                                {% for part in pattern['initiation_order'] %}
+                                    <span style="background: {% if part == 'lower' %}#4caf50{% elif part == 'hip' %}#ff9800{% else %}#2196f3{% endif %}; 
+                                                 color: white; padding: 8px 16px; border-radius: 20px;">
+                                        {% if part == 'lower' %}下肢
+                                        {% elif part == 'hip' %}髋部
+                                        {% elif part == 'upper' %}上肢
+                                        {% endif %}
+                                    </span>
+                                    {% if not loop.last %}
+                                        <span style="color: #666; font-size: 20px;">→</span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <span style="color: #999;">顺序未检测到</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <!-- 各部位启动时刻 -->
+                    {% if pattern.get('key_parts') %}
+                    <div class="metric-item">
+                        <span class="metric-label">下肢启动</span>
+                        <span class="metric-value">第 {{ pattern['key_parts']['lower'] }} 帧</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">髋部启动</span>
+                        <span class="metric-value">第 {{ pattern['key_parts']['hip'] }} 帧</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">上肢启动</span>
+                        <span class="metric-value">第 {{ pattern['key_parts']['upper'] }} 帧</span>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- 模式评价 -->
+                    <div class="metric-item" style="margin-top: 15px; padding: 12px; background: 
+                        {% if pattern['quality'] == 'excellent' %}#e8f5e9
+                        {% elif pattern['quality'] == 'good' %}#fff3e0
+                        {% elif pattern['quality'] == 'needs_improvement' %}#ffebee
+                        {% else %}#f5f5f5{% endif %}; border-radius: 6px;">
+                        <span style="display: block; font-weight: bold; margin-bottom: 5px; color: 
+                            {% if pattern['quality'] == 'excellent' %}#2e7d32
+                            {% elif pattern['quality'] == 'good' %}#f57c00
+                            {% elif pattern['quality'] == 'needs_improvement' %}#c62828
+                            {% else %}#666{% endif %};">
+                            质量评价: 
+                            {% if pattern['quality'] == 'excellent' %}优秀
+                            {% elif pattern['quality'] == 'good' %}良好
+                            {% elif pattern['quality'] == 'needs_improvement' %}需改进
+                            {% else %}未知{% endif %}
+                        </span>
+                        <span style="font-size: 13px; color: #555;">{{ pattern['description'] }}</span>
+                    </div>
+                    {% endif %}
+                    
+                    {% if force_sequence.get('actual_sequence') %}
+                    <h4 style="margin-top: 15px; color: #555;">实际运动启动顺序</h4>
+                    <div class="force-chain">
+                        {% for joint in force_sequence['actual_sequence'] %}
+                        <div class="chain-item">
+                            {% if joint == 'right_ankle' %}脚踝
+                            {% elif joint == 'right_knee' %}膝盖
+                            {% elif joint == 'right_hip' %}髋部
+                            {% elif joint == 'right_shoulder' %}肩部
+                            {% elif joint == 'right_elbow' %}肘部
+                            {% elif joint == 'right_wrist' %}手腕
+                            {% else %}{{ joint.replace('right_', '').replace('_', ' ').title() }}{% endif %}
+                            {% if not loop.last %}<span class="arrow">→</span>{% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="metric-item small" style="margin-top: 8px;">
+                        <span style="font-size: 12px; color: #666;">
+                            💡 运动阈值: {{ force_sequence.get('movement_threshold', 20) }} 像素/帧
+                        </span>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- 关键关节对启动顺序分析 -->
+                    {% if force_sequence.get('joint_pairs_analysis') %}
+                    <h4 style="margin-top: 20px; color: #555; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px;">
+                        🎯 关键关节对启动顺序
+                    </h4>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                        <small style="color: #666;">
+                            💡 分析同一肢体内相邻关节的启动先后，判断发力传递方向
+                        </small>
+                    </div>
+                    
+                    {% set pairs = force_sequence['joint_pairs_analysis']['pairs'] %}
+                    {% for pair in pairs %}
+                    <div style="background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-weight: bold; color: #333; font-size: 14px;">
+                                {{ pair['pair_name'] }}
+                            </span>
+                            <span style="background: 
+                                {% if pair['evaluation'] == '较好' or pair['evaluation'] == '协调' %}#4caf50
+                                {% elif pair['evaluation'] == '正常' %}#ff9800
+                                {% elif pair['evaluation'] == '需注意' %}#f44336
+                                {% else %}#9e9e9e{% endif %}; 
+                                color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px;">
+                                {{ pair['evaluation'] }}
+                            </span>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 16px; font-weight: bold; color: #555;">
+                                    {{ pair['sequence'] }}
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                {% if pair['frame_diff'] is not none %}
+                                <div style="font-size: 13px; color: #666;">
+                                    时间差: <strong>{{ "%.3f"|format(pair['time_diff_seconds']) }}秒</strong>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">
+                                    ({{ pair['frame_diff'] }}帧)
+                                </div>
+                                {% else %}
+                                <div style="font-size: 13px; color: #999;">数据缺失</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        {% if pair['frame_diff'] is not none %}
+                        <div style="font-size: 12px; color: #777;">
+                            {{ pair['joint1_cn'] }}: 第{{ pair['joint1_frame'] }}帧 | 
+                            {{ pair['joint2_cn'] }}: 第{{ pair['joint2_frame'] }}帧
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    
+                    <div class="metric-item" style="background: #e3f2fd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                        <span style="font-size: 13px; color: #1565c0;">
+                            📊 总结: {{ force_sequence['joint_pairs_analysis']['summary'] }}
+                        </span>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <p style="color: #999;">暂无数据</p>
+                    {% endif %}
+                </div>
+
+                <!-- 能量传递效率 -->
+                <div class="analysis-card">
+                    <h3>💪 力量传递协调性</h3>
+                    {% if energy_transfer %}
+                    <div class="metric-item" style="background: #fff3e0; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #e65100; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>到出手，观察下肢→上肢的力量传递
+                        </span>
+                    </div>
+                    
+                    <!-- 综合评价 -->
+                    {% if energy_transfer.get('transfer_quality') %}
+                    <div class="metric-item" style="padding: 12px; background: #e3f2fd; border-radius: 6px; margin-bottom: 15px;">
+                        <span style="display: block; font-weight: bold; margin-bottom: 5px; color: #1565c0;">
+                            传递质量: {{ energy_transfer.get('transfer_quality', '未知') }}
+                        </span>
+                        <span style="font-size: 13px; color: #555;">
+                            {{ energy_transfer.get('quality_description', '暂无评价') }}
+                        </span>
+                    </div>
+                    
+                    <!-- 协调性评分 -->
+                    <div class="metric-item">
+                        <span class="metric-label">协调性评分</span>
+                        <span class="metric-value good">
+                            {{ "%.0f"|format(energy_transfer.get('coordination_score', 0)) }} 分
+                        </span>
+                    </div>
+                    
+                    <h4 style="margin-top: 15px; color: #555;">速度分析</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">下肢峰值速度</span>
+                        <span class="metric-value">{{ "%.1f"|format(energy_transfer.get('lower_body_peak_velocity', 0)) }}</span>
+                        <small class="metric-hint">第{{ energy_transfer.get('lower_peak_frame', 0) }}帧</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">上肢峰值速度</span>
+                        <span class="metric-value">{{ "%.1f"|format(energy_transfer.get('upper_body_peak_velocity', 0)) }}</span>
+                        <small class="metric-hint">第{{ energy_transfer.get('upper_peak_frame', 0) }}帧</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">速度放大比</span>
+                        <span class="metric-value">{{ "%.2f"|format(energy_transfer.get('velocity_ratio', 0)) }}x</span>
+                        <small class="metric-hint">{{ energy_transfer.get('amplification_quality', '') }}</small>
+                    </div>
+                    
+                    <h4 style="margin-top: 15px; color: #555;">时序分析</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">峰值时间差</span>
+                        <span class="metric-value">{{ energy_transfer.get('timing_difference', 0) }} 帧</span>
+                        <small class="metric-hint">{{ energy_transfer.get('transfer_timing', '') }}</small>
+                    </div>
+                    {% else %}
+                    <!-- 旧版本数据兼容 -->
+                    <div class="metric-item">
+                        <span class="metric-label">传递效率</span>
+                        <span class="metric-value">{{ "%.1f"|format(energy_transfer.get('efficiency', 0) * 100) }}%</span>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <p style="color: #999;">暂无数据</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- 关键帧分析区域 -->
+        <div class="keyframes-section">
+            <h2>🎯 关键帧分析</h2>
+            
+            <div class="keyframes-grid">
+                {% for kf_name, kf_data in keyframes.items() %}
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_{{ kf_name }}.jpg" alt="{{ kf_data['description'] }}">
+                    <div class="keyframe-info">
+                        <h3>{{ kf_data['description'] }}</h3>
+                        <p><strong>时间:</strong> {{ "%.2f"|format(kf_data['frame_data']['timestamp']) }} 秒</p>
+                        <p><strong>帧号:</strong> {{ kf_data['index'] }}</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            {% if kf_data['frame_data'].get('angles') %}
+                                {% for angle_name, angle_value in kf_data['frame_data']['angles'].items() %}
+                                <div class="data-item">
+                                    <span class="data-label">{{ angle_name_map.get(angle_name, angle_name) }}</span>
+                                    <span class="data-value">{{ "%.1f"|format(angle_value) }}°</span>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>© 2025 篮球投篮分析系统 | 基于 MediaPipe & OpenCV</p>
+            <p>生成时间: {{ generation_time }}</p>
+        </div>
+    </div>
+
+    <!-- 加载分析数据 -->
+    <script>
+        // 从后端注入的分析数据
+        const analysisData = {{ analysis_data_json | safe }};
+    </script>
+
+    <!-- 加载自定义脚本 -->
+    <script src="assets/js/video_sync.js"></script>
+    <script src="assets/js/charts.js"></script>
+
+    <!-- 初始化 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化视频同步控制器
+            const video = document.getElementById('video-player');
+            const syncController = new VideoSyncController(video, analysisData);
+            
+            // 初始化图表管理器
+            const chartsManager = new ChartsManager(analysisData, syncController);
+            
+            // 创建实时图表
+            chartsManager.createRealtimeChart('realtime-chart');
+            
+            // 创建详细图表
+            chartsManager.createAngleChart('knee-angle-chart', 'knee_angle');
+            chartsManager.createAngleChart('elbow-angle-chart', 'elbow_angle');
+            chartsManager.createAngleChart('shoulder-angle-chart', 'shoulder_angle');
+            chartsManager.createAngleChart('trunk-lean-chart', 'trunk_lean');
+            
+            chartsManager.createVelocityChart('wrist-velocity-chart', 'right_wrist');
+            chartsManager.createVelocityChart('elbow-velocity-chart', 'right_elbow');
+            
+            console.log('Basketball shot analysis report initialized!');
+        });
+    </script>
+</body>
+</html>
