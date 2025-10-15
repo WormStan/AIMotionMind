@@ -419,6 +419,7 @@ const getVideoUrl = () => {
       return videoPath
     }
     
+    // 提取文件名（去除路径）
     const filename = videoPath.split(/[/\\]/).pop()
     return getFileUrl('upload', filename)
   }

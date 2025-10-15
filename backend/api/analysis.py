@@ -7,6 +7,7 @@ import json
 
 from services.task_manager import task_manager
 from services.analysis_service import analysis_service
+from .auth import get_device_id
 
 analysis_bp = Blueprint('analysis', __name__)
 
@@ -20,6 +21,7 @@ def start_analysis():
         {
             "file_id": "uuid",
             "file_path": "/path/to/video.mp4",
+            "device_id": "guest_xxx",
             "options": {
                 "frame_interval": 5,
                 "sport_type": "basketball"
@@ -38,6 +40,14 @@ def start_analysis():
     """
     try:
         data = request.get_json()
+        
+        # 获取设备ID
+        device_id = get_device_id()
+        if not device_id:
+            return jsonify({
+                'code': 401,
+                'message': '缺少设备ID，请先验证设备'
+            }), 401
 
         # 验证参数
         file_path = data.get('file_path')
@@ -54,8 +64,9 @@ def start_analysis():
                 'message': '视频文件不存在'
             }), 404
 
-        # 获取分析选项
+        # 获取分析选项，并添加device_id
         options = data.get('options', {})
+        options['device_id'] = device_id
 
         # 创建分析任务
         def analysis_callback(video_path, opts, progress_cb):
@@ -72,7 +83,8 @@ def start_analysis():
             'message': '分析任务已创建',
             'data': {
                 'task_id': task_id,
-                'status': 'pending'
+                'status': 'pending',
+                'device_id': device_id
             }
         })
 
@@ -145,6 +157,10 @@ def get_analysis_result(analysis_id):
     """
     获取分析结果
 
+    查询参数：
+        sport_type: 运动类型（默认basketball）
+        device_id: 设备ID
+
     响应：
         {
             "code": 200,
@@ -157,9 +173,17 @@ def get_analysis_result(analysis_id):
         }
     """
     try:
+        # 获取设备ID
+        device_id = get_device_id()
+        if not device_id:
+            return jsonify({
+                'code': 401,
+                'message': '缺少设备ID，请先验证设备'
+            }), 401
+        
         sport_type = request.args.get('sport_type', 'basketball')
 
-        result = analysis_service.get_analysis_result(analysis_id, sport_type)
+        result = analysis_service.get_analysis_result(analysis_id, sport_type, device_id)
 
         return jsonify({
             'code': 200,

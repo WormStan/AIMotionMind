@@ -1,4 +1,5 @@
 import request from './request'
+import { getDeviceId } from '@/utils/device'
 
 /**
  * 上传视频文件
@@ -106,7 +107,17 @@ export function getTaskList() {
  */
 export function getFileUrl(fileType, filename) {
   const baseURL = import.meta.env.VITE_API_BASE_URL || '/api'
-  return `${baseURL}/files/${fileType}/${filename}`
+  
+  // 获取设备ID
+  const deviceId = getDeviceId()
+  
+  // 如果filename不包含device_id，添加device_id前缀
+  let fullPath = filename
+  if (!filename.includes(deviceId) && !filename.includes('curry_demo')) {
+    fullPath = `${deviceId}/${filename}`
+  }
+  
+  return `${baseURL}/files/${fileType}/${fullPath}?device_id=${deviceId}`
 }
 
 /**

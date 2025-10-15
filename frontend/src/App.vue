@@ -8,7 +8,12 @@
             <el-icon class="logo-icon"><Basketball /></el-icon>
             <span class="logo-text">AIMotionMind</span>
           </div>
-          <router-link to="/" class="nav-link">首页</router-link>
+          <div class="nav-links">
+            <router-link to="/" class="nav-link">首页</router-link>
+            <router-link to="/history" class="nav-link">
+              <el-icon><Document /></el-icon> 历史记录
+            </router-link>
+          </div>
         </div>
       </el-header>
 
@@ -30,11 +35,40 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { getDeviceId } from '@/utils/device'
+import { verifyDevice } from '@/api/auth'
+import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const activeMenu = computed(() => route.path)
+
+// 初始化设备ID
+onMounted(async () => {
+  const deviceId = getDeviceId()
+  console.log('🎯 当前设备ID:', deviceId)
+  
+  // 验证设备
+  try {
+    const result = await verifyDevice(deviceId)
+    if (result && result.data) {
+      const { is_new, upload_count, analysis_count } = result.data
+      
+      if (is_new) {
+        ElMessage({
+          message: '👋 欢迎使用 AIMotionMind！',
+          type: 'success',
+          duration: 3000
+        })
+      } else {
+        console.log(`📊 用户数据: ${upload_count}个视频, ${analysis_count}个分析`)
+      }
+    }
+  } catch (error) {
+    console.error('设备验证失败:', error)
+  }
+})
 </script>
 
 <style scoped>
@@ -71,14 +105,23 @@ const activeMenu = computed(() => route.path)
   margin-right: 10px;
 }
 
+.nav-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .nav-link {
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 4px;
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .nav-link:hover {

@@ -47,6 +47,23 @@
         <div v-if="selectedFile" class="options-section">
           <h3>分析选项</h3>
           <el-form :model="options" label-width="120px">
+            <el-form-item label="分析名称">
+              <el-input
+                v-model="options.analysis_name"
+                placeholder="输入自定义名称（可选）"
+                clearable
+              >
+                <template #append>
+                  <el-button @click="generateName">
+                    <el-icon><Refresh /></el-icon> 自动生成
+                  </el-button>
+                </template>
+              </el-input>
+              <div class="form-tip">
+                为本次分析设置一个易于识别的名称，如"库里投篮训练-第1天"
+              </div>
+            </el-form-item>
+            
             <el-form-item label="帧提取间隔">
               <el-input-number
                 v-model="options.frame_interval"
@@ -139,12 +156,49 @@ const analyzing = ref(false)
 const uploadProgress = ref(0)
 const options = ref({
   frame_interval: 5,
-  sport_type: 'basketball'
+  sport_type: 'basketball',
+  analysis_name: '' // 用户自定义名称
 })
 
 // 文件选择
 const handleFileChange = (file) => {
   selectedFile.value = file.raw
+  // 自动从文件名提取建议名称（去掉扩展名）
+  if (file.raw && !options.value.analysis_name) {
+    const fileName = file.raw.name
+    const nameWithoutExt = fileName.substring(0, fileName.lastIndexOf('.')) || fileName
+    // 清理文件名中的特殊字符
+    options.value.analysis_name = nameWithoutExt.replace(/[^a-zA-Z0-9\u4e00-\u9fa5-_]/g, '_')
+  }
+}
+
+// 自动生成名称
+const generateName = () => {
+  const now = new Date()
+  const dateStr = now.toLocaleDateString('zh-CN').replace(/\//g, '')
+  const timeStr = now.toLocaleTimeString('zh-CN', { hour12: false }).replace(/:/g, '')
+  options.value.analysis_name = `投篮分析_${dateStr}_${timeStr}`
+}
+
+// 生成唯一的分析ID
+const generateAnalysisId = (customName) => {
+  const timestamp = new Date().toISOString()
+    .replace(/[-:]/g, '')
+    .replace('T', '_')
+    .split('.')[0]
+  
+  if (customName && customName.trim()) {
+    // 清理用户输入的名称，只保留字母、数字、中文、下划线和短横线
+    const cleanName = customName.trim()
+      .replace(/\s+/g, '_') // 空格转下划线
+      .replace(/[^a-zA-Z0-9\u4e00-\u9fa5_-]/g, '') // 移除特殊字符
+      .substring(0, 50) // 限制长度
+    
+    return `${cleanName}_${timestamp}`
+  }
+  
+  // 如果没有自定义名称，使用默认格式
+  return `analysis_${timestamp}`
 }
 
 // 上传前验证
@@ -195,10 +249,20 @@ const startUploadAndAnalysis = async () => {
     analyzing.value = true
     uploading.value = false
 
+    // 生成唯一的分析ID
+    const analysisId = generateAnalysisId(options.value.analysis_name)
+
     const analysisData = {
       file_id: uploadRes.data.file_id,
       file_path: uploadRes.data.file_path,
-      options: options.value
+      analysis_name: options.value.analysis_name || '',
+      analysis_id: analysisId, // 传递自定义的分析ID
+      options: {
+        frame_interval: options.value.frame_interval,
+        sport_type: options.value.sport_type,
+        analysis_name: options.value.analysis_name,
+        analysis_id: analysisId
+      }
     }
 
     const analysisRes = await startAnalysis(analysisData)

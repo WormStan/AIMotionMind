@@ -1,8 +1,10 @@
 """
-文件服务API - 提供静态文件访问
+文件服务API - 提供静态文件访问（带用户权限控制）
 """
-from flask import Blueprint, send_file, current_app, jsonify
+from flask import Blueprint, send_file, current_app, jsonify, request
 import os
+
+from .auth import get_device_id
 
 files_bp = Blueprint('files', __name__)
 
@@ -10,18 +12,19 @@ files_bp = Blueprint('files', __name__)
 @files_bp.route('/files/<file_type>/<path:filename>', methods=['GET'])
 def get_file(file_type, filename):
     """
-    获取文件
+    获取文件（带用户权限控制）
 
     参数：
         file_type: 文件类型 (upload, frame, keyframe, report)
         filename: 文件路径（可能包含子目录）
+        device_id: 设备ID（查询参数）
 
     示例：
-        /api/files/keyframe/basketball/analysis_20251014_110258/keyframes/keyframe_ball_at_chest.jpg
+        /api/files/keyframe/guest_xxx/basketball/analysis_20251014_110258/keyframes/keyframe_ball_at_chest.jpg
         /api/files/keyframe/basketball/curry_demo/keyframes/keyframe_release.jpg (示例)
     """
     try:
-        # 特殊处理：如果是curry_demo，从frontend/public读取
+        # 特殊处理：如果是curry_demo，从frontend/public读取（无需权限控制）
         if 'curry_demo' in filename:
             frontend_public = os.path.join(
                 os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 
@@ -40,6 +43,21 @@ def get_file(file_type, filename):
                     'message': '无效的curry_demo路径'
                 }), 400
         else:
+            # 获取设备ID进行权限验证
+            device_id = get_device_id()
+            if not device_id:
+                return jsonify({
+                    'code': 401,
+                    'message': '缺少设备ID'
+                }), 401
+            
+            # 检查文件路径是否包含用户的device_id
+            if not filename.startswith(device_id + '/'):
+                return jsonify({
+                    'code': 403,
+                    'message': '无权访问该文件'
+                }), 403
+            
             # 根据文件类型确定基础目录
             if file_type == 'upload':
                 base_dir = current_app.config['UPLOAD_FOLDER']

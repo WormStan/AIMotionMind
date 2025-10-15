@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
+import { getDeviceId } from '@/utils/device'
 
 // 创建axios实例
 const request = axios.create({
@@ -15,6 +16,34 @@ const request = axios.create({
 request.interceptors.request.use(
   (config) => {
     NProgress.start()
+    
+    // 自动添加设备ID到请求头
+    const deviceId = getDeviceId()
+    config.headers['X-Device-ID'] = deviceId
+    
+    // 如果是POST请求且有body
+    if (config.method === 'post' && config.data) {
+      // 判断是否是FormData（文件上传）
+      if (config.data instanceof FormData) {
+        // FormData对象，直接append
+        config.data.append('device_id', deviceId)
+      } else {
+        // 普通JSON对象，添加到data中
+        config.data = {
+          ...config.data,
+          device_id: deviceId
+        }
+      }
+    }
+    
+    // 如果是GET请求，添加到查询参数
+    if (config.method === 'get') {
+      config.params = {
+        ...config.params,
+        device_id: deviceId
+      }
+    }
+    
     return config
   },
   (error) => {

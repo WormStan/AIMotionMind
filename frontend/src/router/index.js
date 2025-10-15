@@ -27,6 +27,12 @@ const routes = [
     meta: { title: '分析结果' }
   },
   {
+    path: '/history',
+    name: 'History',
+    component: () => import('../views/History.vue'),
+    meta: { title: '历史记录' }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../views/NotFound.vue'),

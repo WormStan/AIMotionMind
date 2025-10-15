@@ -7,8 +7,10 @@ import os
 import uuid
 from datetime import datetime
 import cv2
+import json
 
 from config_backend import Config
+from .auth import get_device_id, ensure_user_folder, get_user_folder
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -22,6 +24,7 @@ def upload_video():
         - multipart/form-data
         - file: 视频文件
         - sport_type: 运动类型（可选，默认basketball）
+        - device_id: 设备ID（必需）
 
     响应：
         {
@@ -39,6 +42,17 @@ def upload_video():
         }
     """
     try:
+        # 获取设备ID
+        device_id = get_device_id()
+        if not device_id:
+            return jsonify({
+                'code': 401,
+                'message': '缺少设备ID，请先验证设备'
+            }), 401
+        
+        # 确保用户文件夹存在
+        upload_folder, _ = ensure_user_folder(device_id)
+        
         # 检查是否有文件
         if 'file' not in request.files:
             return jsonify({
@@ -68,13 +82,26 @@ def upload_video():
         file_extension = original_filename.rsplit('.', 1)[1].lower()
         filename = f"{file_id}.{file_extension}"
 
-        # 保存文件
-        upload_folder = current_app.config['UPLOAD_FOLDER']
+        # 保存文件到用户文件夹
         file_path = os.path.join(upload_folder, filename)
         file.save(file_path)
 
         # 获取视频信息
         video_info = get_video_info(file_path)
+        
+        # 保存元数据
+        metadata = {
+            'file_id': file_id,
+            'original_filename': original_filename,
+            'upload_time': datetime.now().isoformat(),
+            'device_id': device_id,
+            'sport_type': request.form.get('sport_type', 'basketball'),
+            'video_info': video_info
+        }
+        
+        metadata_path = os.path.join(upload_folder, f"{file_id}.json")
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
 
         # 返回结果
         return jsonify({
@@ -88,7 +115,8 @@ def upload_video():
                 'duration': video_info.get('duration', 0),
                 'fps': video_info.get('fps', 0),
                 'resolution': f"{video_info.get('width', 0)}x{video_info.get('height', 0)}",
-                'frame_count': video_info.get('frame_count', 0)
+                'frame_count': video_info.get('frame_count', 0),
+                'device_id': device_id
             }
         })
 
@@ -139,7 +167,10 @@ def get_video_info(video_path):
 @upload_bp.route('/upload/list', methods=['GET'])
 def list_uploads():
     """
-    获取已上传的文件列表
+    获取已上传的文件列表（仅返回当前用户的文件）
+
+    查询参数：
+        device_id: 设备ID
 
     响应：
         {
@@ -154,25 +185,61 @@ def list_uploads():
         }
     """
     try:
-        upload_folder = current_app.config['UPLOAD_FOLDER']
+        # 获取设备ID
+        device_id = get_device_id()
+        if not device_id:
+            return jsonify({
+                'code': 401,
+                'message': '缺少设备ID，请先验证设备'
+            }), 401
+        
+        # 获取用户上传文件夹
+        upload_folder = get_user_folder(device_id, 'upload')
         files = []
 
-        for filename in os.listdir(upload_folder):
-            file_path = os.path.join(upload_folder, filename)
-            if os.path.isfile(file_path):
-                stat = os.stat(file_path)
-                files.append({
-                    'filename': filename,
-                    'size': stat.st_size,
-                    'upload_time': datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d %H:%M:%S')
-                })
+        if os.path.exists(upload_folder):
+            for filename in os.listdir(upload_folder):
+                # 跳过元数据文件
+                if filename.endswith('.json'):
+                    continue
+                    
+                file_path = os.path.join(upload_folder, filename)
+                if os.path.isfile(file_path):
+                    stat = os.stat(file_path)
+                    
+                    # 尝试读取元数据
+                    file_id = filename.rsplit('.', 1)[0]
+                    metadata_path = os.path.join(upload_folder, f"{file_id}.json")
+                    original_filename = filename
+                    
+                    if os.path.exists(metadata_path):
+                        try:
+                            with open(metadata_path, 'r', encoding='utf-8') as f:
+                                metadata = json.load(f)
+                                original_filename = metadata.get('original_filename', filename)
+                        except:
+                            pass
+                    
+                    files.append({
+                        'file_id': file_id,
+                        'filename': filename,
+                        'original_filename': original_filename,
+                        'size': stat.st_size,
+                        'upload_time': datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d %H:%M:%S'),
+                        'file_path': file_path
+                    })
 
         # 按上传时间倒序排序
         files.sort(key=lambda x: x['upload_time'], reverse=True)
 
         return jsonify({
             'code': 200,
-            'data': files
+            'message': '获取文件列表成功',
+            'data': {
+                'device_id': device_id,
+                'files': files,
+                'total': len(files)
+            }
         })
 
     except Exception as e:

@@ -34,6 +34,9 @@ class AnalysisService:
             options: 分析选项
                 - frame_interval: 帧间隔（默认5）
                 - sport_type: 运动类型（默认basketball）
+                - device_id: 设备ID（用于确定输出目录）
+                - analysis_name: 自定义分析名称（可选）
+                - analysis_id: 自定义分析ID（可选）
             progress_callback: 进度回调函数 callback(progress: int, message: str)
 
         Returns:
@@ -57,11 +60,29 @@ class AnalysisService:
             if progress_callback:
                 progress_callback(5, f'视频信息获取完成: {video_info["frame_count"]}帧')
 
-            # 2. 创建输出目录
+            # 2. 创建输出目录（支持用户隔离和自定义名称）
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            analysis_id = f"analysis_{timestamp}"
+            
+            # 如果提供了自定义分析ID，使用它；否则生成默认ID
+            if options.get('analysis_id'):
+                analysis_id = options.get('analysis_id')
+            elif options.get('analysis_name'):
+                # 清理分析名称，确保文件系统安全
+                clean_name = options.get('analysis_name', '').strip()
+                clean_name = ''.join(c for c in clean_name if c.isalnum() or c in ('_', '-', ' '))
+                clean_name = clean_name.replace(' ', '_')[:50]  # 限制长度
+                analysis_id = f"{clean_name}_{timestamp}" if clean_name else f"analysis_{timestamp}"
+            else:
+                analysis_id = f"analysis_{timestamp}"
+            
             sport_type = options.get('sport_type', 'basketball')
-            output_dir = os.path.join(self.output_dir, sport_type, analysis_id)
+            device_id = options.get('device_id', '')
+            
+            # 如果有device_id，输出到用户文件夹
+            if device_id:
+                output_dir = os.path.join(self.output_dir, device_id, sport_type, analysis_id)
+            else:
+                output_dir = os.path.join(self.output_dir, sport_type, analysis_id)
 
             # 更新进度：10%
             if progress_callback:
@@ -135,11 +156,29 @@ class AnalysisService:
                 'video_info': video_info,
                 'analysis_results': analysis_results,
                 'keyframes': keyframes,
-                'timestamp': timestamp
+                'timestamp': timestamp,
+                'device_id': device_id,
+                'sport_type': sport_type,
+                'analysis_name': options.get('analysis_name', '')
             }
             os.makedirs(os.path.dirname(complete_json_path), exist_ok=True)
             with open(complete_json_path, 'w', encoding='utf-8') as f:
                 json.dump(complete_data, f, ensure_ascii=False, indent=2, default=str)
+            
+            # 保存元数据到单独的文件
+            metadata_path = os.path.join(output_dir, 'metadata.json')
+            metadata = {
+                'analysis_id': analysis_id,
+                'analysis_name': options.get('analysis_name', ''),
+                'analysis_time': datetime.now().isoformat(),
+                'video_file': os.path.basename(video_path),
+                'sport_type': sport_type,
+                'device_id': device_id,
+                'output_dir': output_dir,
+                'frame_interval': options.get('frame_interval', 5)
+            }
+            with open(metadata_path, 'w', encoding='utf-8') as f:
+                json.dump(metadata, f, ensure_ascii=False, indent=2)
 
             # 更新进度：90%
             if progress_callback:
@@ -183,19 +222,24 @@ class AnalysisService:
                 progress_callback(-1, f'分析失败: {str(e)}')
             raise
 
-    def get_analysis_result(self, analysis_id: str, sport_type: str = 'basketball'):
+    def get_analysis_result(self, analysis_id: str, sport_type: str = 'basketball', device_id: str = None):
         """
         获取分析结果
 
         Args:
             analysis_id: 分析ID
             sport_type: 运动类型
+            device_id: 设备ID（用于定位用户文件夹）
 
         Returns:
             dict: 分析结果
         """
         try:
-            output_dir = os.path.join(self.output_dir, sport_type, analysis_id)
+            # 如果有device_id，从用户文件夹读取
+            if device_id:
+                output_dir = os.path.join(self.output_dir, device_id, sport_type, analysis_id)
+            else:
+                output_dir = os.path.join(self.output_dir, sport_type, analysis_id)
 
             if not os.path.exists(output_dir):
                 raise FileNotFoundError(f"分析结果不存在: {analysis_id}")
