@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>篮球投篮动作分析报告</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>🏀 篮球投篮动作分析报告</h1>            
+        </div>
+
+        <!-- 主要分析区域：左侧视频，右侧实时图表 -->
+        <div class="main-analysis">
+            <!-- 左侧：视频播放器 -->
+            <div class="video-section">
+                <h2>📹 投篮视频</h2>
+                <video id="video-player" controls>
+                    <source src="79ffbe93-c341-457a-b9df-c621824ad7e2.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+                
+                <div class="video-info">
+                    <p><strong>帧率:</strong> 30 FPS</p>
+                    <p><strong>总帧数:</strong> 32 帧</p>
+                    <p><strong>时长:</strong> 1.07 秒</p>
+                </div>
+                
+                <!-- 当前帧数据显示 -->
+                <div id="current-data-display" class="video-info" style="margin-top: 15px;">
+                    <h4>当前帧数据</h4>
+                    <p>等待视频播放...</p>
+                </div>
+            </div>
+
+            <!-- 右侧：实时同步图表 -->
+            <div class="realtime-charts">
+                <h2>📊 实时数据曲线</h2>
+                <p style="color: #666; margin-bottom: 10px;">
+                    <small>📍 红线表示当前播放位置 | 虚线表示关键帧</small>
+                </p>
+                <div class="chart-container">
+                    <canvas id="realtime-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 详细数据图表区域 -->
+        <div class="detailed-charts">
+            <h2>📈 详细运动数据分析</h2>
+            
+            <div class="charts-grid">
+                <!-- 膝关节角度 -->
+                <div class="chart-item">
+                    <h3>膝关节角度变化</h3>
+                    <canvas id="knee-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肘关节角度 -->
+                <div class="chart-item">
+                    <h3>肘关节角度变化</h3>
+                    <canvas id="elbow-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肩关节角度 -->
+                <div class="chart-item">
+                    <h3>肩关节角度变化</h3>
+                    <canvas id="shoulder-angle-chart" height="250"></canvas>
+                </div>
+
+                <!-- 手腕速度 -->
+                <div class="chart-item">
+                    <h3>手腕速度变化</h3>
+                    <canvas id="wrist-velocity-chart" height="250"></canvas>
+                </div>
+
+                <!-- 肘部速度 -->
+                <div class="chart-item">
+                    <h3>肘部速度变化</h3>
+                    <canvas id="elbow-velocity-chart" height="250"></canvas>
+                </div>
+
+                <!-- 躯干倾斜 -->
+                <div class="chart-item">
+                    <h3>躯干倾斜角度变化</h3>
+                    <canvas id="trunk-lean-chart" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 高级分析指标区域 -->
+        <div class="advanced-analysis">
+            <h2>🔬 高级运动学分析</h2>
+            
+            <div class="analysis-grid">
+                <!-- 动作节奏分析 -->
+                <div class="analysis-card">
+                    <h3>⏱️ 动作节奏分析</h3>
+                    
+                    <div class="metric-item" style="background: #e3f2fd; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #1976d2; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>开始
+                        </span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">投篮时长</span>
+                        <span class="metric-value">0.80 秒</span>
+                        <small class="metric-hint">(从球最低点到结束)</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">节奏一致性</span>
+                        <span class="metric-value poor">
+                            0.819
+                        </span>
+                        <small class="metric-hint">(越小越好)</small>
+                    </div>
+                    
+                    
+                    <h4 style="margin-top: 15px; color: #555;">关键阶段时长</h4>
+                    
+                    <div class="metric-item">
+                        <span class="metric-label">
+                            预备阶段
+                            
+                        </span>
+                        <span class="metric-value">0.30 秒</span>
+                    </div>
+                    
+                    
+                    
+                </div>
+
+                <!-- 关节运动启动顺序 -->
+                <div class="analysis-card">
+                    <h3>⚡ 发力启动顺序分析</h3>
+                    
+                    <div class="metric-item" style="background: #e8f5e9; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #2e7d32; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>开始，检测三个关键部位的发力启动时机
+                        </span>
+                    </div>
+                    
+                    
+                    
+                    
+                    <!-- 发力启动顺序可视化 -->
+                    <div style="background: #f9fbe7; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #827717;">
+                        <h4 style="margin: 0 0 10px 0; color: #827717; font-size: 14px;">发力启动顺序</h4>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; font-weight: bold;">
+                            
+                                
+                                    <span style="background: #ff9800; 
+                                                 color: white; padding: 8px 16px; border-radius: 20px;">
+                                        髋部
+                                        
+                                    </span>
+                                    
+                                        <span style="color: #666; font-size: 20px;">→</span>
+                                    
+                                
+                                    <span style="background: #2196f3; 
+                                                 color: white; padding: 8px 16px; border-radius: 20px;">
+                                        上肢
+                                        
+                                    </span>
+                                    
+                                        <span style="color: #666; font-size: 20px;">→</span>
+                                    
+                                
+                                    <span style="background: #4caf50; 
+                                                 color: white; padding: 8px 16px; border-radius: 20px;">
+                                        下肢
+                                        
+                                    </span>
+                                    
+                                
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- 各部位启动时刻 -->
+                    
+                    <div class="metric-item">
+                        <span class="metric-label">下肢启动</span>
+                        <span class="metric-value">第 14 帧</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">髋部启动</span>
+                        <span class="metric-value">第 8 帧</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">上肢启动</span>
+                        <span class="metric-value">第 9 帧</span>
+                    </div>
+                    
+                    
+                    
+                    <h4 style="margin-top: 15px; color: #555;">实际运动启动顺序</h4>
+                    <div class="force-chain">
+                        
+                        <div class="chain-item">
+                            髋部
+                            
+                            <span class="arrow">→</span>
+                        </div>
+                        
+                        <div class="chain-item">
+                            手腕
+                            
+                            <span class="arrow">→</span>
+                        </div>
+                        
+                        <div class="chain-item">
+                            肘部
+                            
+                            <span class="arrow">→</span>
+                        </div>
+                        
+                        <div class="chain-item">
+                            肩部
+                            
+                            <span class="arrow">→</span>
+                        </div>
+                        
+                        <div class="chain-item">
+                            脚踝
+                            
+                            <span class="arrow">→</span>
+                        </div>
+                        
+                        <div class="chain-item">
+                            膝盖
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="metric-item small" style="margin-top: 8px;">
+                        <span style="font-size: 12px; color: #666;">
+                            💡 运动阈值: 20.0 像素/帧
+                        </span>
+                    </div>
+                    
+                    
+                    <!-- 关键关节对启动顺序分析 -->
+                    
+                    <h4 style="margin-top: 20px; color: #555; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px;">
+                        🎯 关键关节对启动顺序
+                    </h4>
+                    <div style="background: #fafafa; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                        <small style="color: #666;">
+                            💡 分析同一肢体内相邻关节的启动先后，判断发力传递方向
+                        </small>
+                    </div>
+                    
+                    
+                    
+                    <div style="background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-weight: bold; color: #333; font-size: 14px;">
+                                手腕-肘部
+                            </span>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 16px; font-weight: bold; color: #555;">
+                                    手腕 → 肘部
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                
+                                <div style="font-size: 13px; color: #666;">
+                                    时间差: <strong>0.033秒</strong>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">
+                                    (1帧)
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        <div style="font-size: 12px; color: #777;">
+                            手腕: 第9帧 | 
+                            肘部: 第10帧
+                        </div>
+                        
+                    </div>
+                    
+                    <div style="background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-weight: bold; color: #333; font-size: 14px;">
+                                肘部-肩部
+                            </span>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 16px; font-weight: bold; color: #555;">
+                                    肘部 → 肩部
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                
+                                <div style="font-size: 13px; color: #666;">
+                                    时间差: <strong>0.067秒</strong>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">
+                                    (2帧)
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        <div style="font-size: 12px; color: #777;">
+                            肘部: 第10帧 | 
+                            肩部: 第12帧
+                        </div>
+                        
+                    </div>
+                    
+                    <div style="background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-weight: bold; color: #333; font-size: 14px;">
+                                髋部-膝盖
+                            </span>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <div style="flex: 1;">
+                                <div style="font-size: 16px; font-weight: bold; color: #555;">
+                                    髋部 → 膝盖
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                
+                                <div style="font-size: 13px; color: #666;">
+                                    时间差: <strong>0.367秒</strong>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">
+                                    (11帧)
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                        <div style="font-size: 12px; color: #777;">
+                            髋部: 第8帧 | 
+                            膝盖: 第19帧
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    <div class="metric-item" style="background: #e3f2fd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                        <span style="font-size: 13px; color: #1565c0;">
+                            📊 总结: 手腕-肘部: 手腕先动 (时间差 1帧); 肘部-肩部: 肘部先动 (时间差 2帧); 髋部-膝盖: 髋部先动 (时间差 11帧)
+                        </span>
+                    </div>
+                    
+                    
+                </div>
+
+                <!-- 能量传递效率 -->
+                <div class="analysis-card">
+                    <h3>💪 力量传递协调性</h3>
+                    
+                    <div class="metric-item" style="background: #fff3e0; padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #e65100; font-size: 12px;">
+                            📍 分析范围: 从<strong>球最低点</strong>到出手，观察下肢→上肢的力量传递
+                        </span>
+                    </div>
+                    
+                    <h4 style="margin-top: 15px; color: #555;">速度分析</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">下肢峰值速度</span>
+                        <span class="metric-value">561.8</span>
+                        <small class="metric-hint">第22帧</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">上肢峰值速度</span>
+                        <span class="metric-value">1015.5</span>
+                        <small class="metric-hint">第18帧</small>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">速度放大比</span>
+                        <span class="metric-value">1.81x</span>
+                    </div>
+                    
+                    <h4 style="margin-top: 15px; color: #555;">时序分析</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">峰值时间差</span>
+                        <span class="metric-value">-4 帧</span>
+                        <small class="metric-hint">reversed</small>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- 关键帧分析区域 -->
+        <div class="keyframes-section">
+            <h2>🎯 关键帧分析</h2>
+            
+            <div class="keyframes-grid">
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_ball_lowest.jpg" alt="球的最低点">
+                    <div class="keyframe-info">
+                        <h3>球的最低点</h3>
+                        <p><strong>时间:</strong> 1.17 秒</p>
+                        <p><strong>帧号:</strong> 7</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">99.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">94.3°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">71.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">13.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">162.3°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">94.0°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_lift_start.jpg" alt="开始持续抬球">
+                    <div class="keyframe-info">
+                        <h3>开始持续抬球</h3>
+                        <p><strong>时间:</strong> 1.33 秒</p>
+                        <p><strong>帧号:</strong> 8</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">96.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">93.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">73.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">17.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">162.9°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">92.9°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_ball_rising_mid.jpg" alt="球上升中点">
+                    <div class="keyframe-info">
+                        <h3>球上升中点</h3>
+                        <p><strong>时间:</strong> 1.83 秒</p>
+                        <p><strong>帧号:</strong> 11</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">90.3°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">93.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">85.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">37.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">164.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">94.2°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_ball_at_chest.jpg" alt="球到胸部高度">
+                    <div class="keyframe-info">
+                        <h3>球到胸部高度</h3>
+                        <p><strong>时间:</strong> 2.33 秒</p>
+                        <p><strong>帧号:</strong> 14</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">84.5°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">97.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">95.0°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">64.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">162.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">95.9°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_squat_deepest.jpg" alt="重心最低点（下蹲最深）">
+                    <div class="keyframe-info">
+                        <h3>重心最低点（下蹲最深）</h3>
+                        <p><strong>时间:</strong> 2.67 秒</p>
+                        <p><strong>帧号:</strong> 16</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">82.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">101.5°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">93.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">80.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">168.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">100.6°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_ball_at_shoulder.jpg" alt="球到肩部高度">
+                    <div class="keyframe-info">
+                        <h3>球到肩部高度</h3>
+                        <p><strong>时间:</strong> 2.67 秒</p>
+                        <p><strong>帧号:</strong> 16</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">82.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">101.5°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">93.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">80.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">168.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">100.6°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_leg_power_start.jpg" alt="腿部开始发力（蹬伸）">
+                    <div class="keyframe-info">
+                        <h3>腿部开始发力（蹬伸）</h3>
+                        <p><strong>时间:</strong> 2.67 秒</p>
+                        <p><strong>帧号:</strong> 16</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">82.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">101.5°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">93.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">80.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">168.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">100.6°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_power_transfer.jpg" alt="力量传递">
+                    <div class="keyframe-info">
+                        <h3>力量传递</h3>
+                        <p><strong>时间:</strong> 3.17 秒</p>
+                        <p><strong>帧号:</strong> 19</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">94.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">122.9°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">69.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">86.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">131.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">122.2°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_elbow_max_bend.jpg" alt="肘关节最大弯曲（39.0°）">
+                    <div class="keyframe-info">
+                        <h3>肘关节最大弯曲（39.0°）</h3>
+                        <p><strong>时间:</strong> 3.83 秒</p>
+                        <p><strong>帧号:</strong> 23</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">128.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">155.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">39.0°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">87.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">159.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">143.1°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_wrist_snap.jpg" alt="手腕下压（snap）">
+                    <div class="keyframe-info">
+                        <h3>手腕下压（snap）</h3>
+                        <p><strong>时间:</strong> 4.00 秒</p>
+                        <p><strong>帧号:</strong> 24</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">134.9°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">159.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">41.2°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">91.3°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">158.3°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">149.5°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_release_prepare.jpg" alt="出手准备">
+                    <div class="keyframe-info">
+                        <h3>出手准备</h3>
+                        <p><strong>时间:</strong> 4.50 秒</p>
+                        <p><strong>帧号:</strong> 27</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">153.0°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">171.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">55.1°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">94.6°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">162.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">160.4°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_elbow_extension_max.jpg" alt="肘关节伸展最快（24.0°/帧）">
+                    <div class="keyframe-info">
+                        <h3>肘关节伸展最快（24.0°/帧）</h3>
+                        <p><strong>时间:</strong> 5.17 秒</p>
+                        <p><strong>帧号:</strong> 31</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">162.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">177.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">134.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">109.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">171.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">164.3°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_release.jpg" alt="出手瞬间">
+                    <div class="keyframe-info">
+                        <h3>出手瞬间</h3>
+                        <p><strong>时间:</strong> 5.17 秒</p>
+                        <p><strong>帧号:</strong> 31</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">162.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">177.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">134.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">109.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">171.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">164.3°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="keyframe-card">
+                    <img src="keyframes/keyframe_follow_through.jpg" alt="随球动作完成（手腕最高点）">
+                    <div class="keyframe-info">
+                        <h3>随球动作完成（手腕最高点）</h3>
+                        <p><strong>时间:</strong> 5.17 秒</p>
+                        <p><strong>帧号:</strong> 31</p>
+                        
+                        <div class="keyframe-data">
+                            <h4>关节角度数据</h4>
+                            
+                                
+                                <div class="data-item">
+                                    <span class="data-label">膝关节角度</span>
+                                    <span class="data-value">162.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">髋关节角度</span>
+                                    <span class="data-value">177.4°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肘关节角度</span>
+                                    <span class="data-value">134.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">肩关节角度</span>
+                                    <span class="data-value">109.8°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">手腕角度</span>
+                                    <span class="data-value">171.7°</span>
+                                </div>
+                                
+                                <div class="data-item">
+                                    <span class="data-label">躯干倾斜</span>
+                                    <span class="data-value">164.3°</span>
+                                </div>
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>© 2025 篮球投篮分析系统 | 基于 MediaPipe & OpenCV</p>
+            <p>生成时间: 2025-10-15 14:20:45</p>
+        </div>
+    </div>
+
+    <!-- 加载分析数据 -->
+    <script>
+        // 从后端注入的分析数据
+        const analysisData = {"fps": 30, "total_frames": 32, "frames": [{"frame_number": 0, "timestamp": 0.0, "pose_detected": true, "angles": {"knee_angle": 137.52506093938982, "hip_angle": 130.83806426610684, "elbow_angle": 121.43889116713794, "shoulder_angle": 43.60916280251101, "wrist_angle": 143.793723538311, "trunk_lean": 100.12986354714613}, "velocities": {"right_hip": 312.1297807002722, "right_knee": 300.3747659175118, "right_ankle": 30.0, "right_shoulder": 816.7772034037189, "right_elbow": 300.0, "right_wrist": 300.0, "right_index": 465.2418725781247, "nose": 61.84658438426491, "left_shoulder": 138.2931668593933, "left_hip": 275.3633962602873}, "accelerations": {"right_hip": 0.0, "right_knee": 0.0, "right_ankle": 0.0, "right_shoulder": 0.0, "right_elbow": 0.0, "right_wrist": 0.0, "right_index": 0.0, "nose": 0.0, "left_shoulder": 0.0, "left_hip": 0.0}}, {"frame_number": 5, "timestamp": 0.16666666666666666, "pose_detected": true, "angles": {"knee_angle": 128.41910694047726, "hip_angle": 115.98906438025857, "elbow_angle": 86.33481632983403, "shoulder_angle": 21.05937493095115, "wrist_angle": 151.80557147515927, "trunk_lean": 102.2932137394297}, "velocities": {"right_hip": 726.7386196624457, "right_knee": 321.90509455097225, "right_ankle": 51.622776601683796, "right_shoulder": 777.7562113962913, "right_elbow": 352.9705854077836, "right_wrist": 380.0, "right_index": 663.7146389786902, "nose": 82.46211251235322, "left_shoulder": 999.1684320427875, "left_hip": 747.9336398877567}, "accelerations": {"right_hip": 12438.265168865204, "right_knee": 645.9098590038133, "right_ankle": 648.6832980505139, "right_shoulder": -1170.6297602228278, "right_elbow": 1589.1175622335072, "right_wrist": 2400.0, "right_index": 5954.182992016967, "nose": 618.4658438426492, "left_shoulder": 25826.257955501824, "left_hip": 14177.107308824083}}, {"frame_number": 10, "timestamp": 0.3333333333333333, "pose_detected": true, "angles": {"knee_angle": 121.5190360900295, "hip_angle": 114.7087737879533, "elbow_angle": 77.33465071329286, "shoulder_angle": 8.281433397544612, "wrist_angle": 165.13093278269048, "trunk_lean": 104.43035007591938}, "velocities": {"right_hip": 1011.1678727290035, "right_knee": 532.1430549672586, "right_ankle": 146.49110640673518, "right_shoulder": 899.8217675536283, "right_elbow": 576.5773831577626, "right_wrist": 557.2004514666935, "right_index": 844.8223417414387, "nose": 174.65755708528206, "left_shoulder": 1331.5838348146806, "left_hip": 1027.9336398877567}, "accelerations": {"right_hip": 8532.877591996736, "right_knee": 6307.138812488592, "right_ankle": 2846.0498941515416, "right_shoulder": 3661.9666847201106, "right_elbow": 6708.203932499371, "right_wrist": 5316.013544000805, "right_index": 5433.231082882453, "nose": 2765.8633371878655, "left_shoulder": 9972.462083156794, "left_hip": 8400.0}}, {"frame_number": 15, "timestamp": 0.5, "pose_detected": true, "angles": {"knee_angle": 109.24608392145728, "hip_angle": 107.36448959136385, "elbow_angle": 78.83034312855068, "shoulder_angle": 10.00521647894183, "wrist_angle": 166.78473933651858, "trunk_lean": 98.22816163366427}, "velocities": {"right_hip": 963.3935476809693, "right_knee": 422.447062403625, "right_ankle": 126.49110640673518, "right_shoulder": 463.4701702150687, "right_elbow": 434.88690210621553, "right_wrist": 483.6915578734286, "right_index": 677.8393039887857, "nose": 197.45774320343398, "left_shoulder": 1494.339365921391, "left_hip": 915.0687204995533}, "accelerations": {"right_hip": -1433.2297514410277, "right_knee": -3290.8797769090093, "right_ankle": -600.0, "right_shoulder": -13090.547920156789, "right_elbow": -4250.714431546412, "right_wrist": -2205.266807797946, "right_index": -5009.491132579589, "nose": 684.0055835445573, "left_shoulder": 4882.6659332013105, "left_hip": -3385.9475816461045}}, {"frame_number": 20, "timestamp": 0.6666666666666666, "pose_detected": true, "angles": {"knee_angle": 106.41829810376345, "hip_angle": 102.69632856564425, "elbow_angle": 79.91692129926254, "shoulder_angle": 9.874440765011432, "wrist_angle": 161.2427734051571, "trunk_lean": 95.91567175825718}, "velocities": {"right_hip": 474.7414484853718, "right_knee": 386.8150644680868, "right_ankle": 114.86832980505137, "right_shoulder": 358.2945791699137, "right_elbow": 392.3699268703046, "right_wrist": 405.6719481452844, "right_index": 406.74802590786516, "nose": 166.22668694725735, "left_shoulder": 720.7830190927958, "left_hip": 370.7106781186547}, "accelerations": {"right_hip": -14659.562975867924, "right_knee": -1068.9599380661462, "right_ankle": -348.6832980505143, "right_shoulder": -3155.2677313546515, "right_elbow": -1275.5092570773281, "right_wrist": -2340.5882918443276, "right_index": -8132.738342427616, "nose": -936.9316876852988, "left_shoulder": -23206.690404857854, "left_hip": -16330.741271426956}}, {"frame_number": 25, "timestamp": 0.8333333333333334, "pose_detected": true, "angles": {"knee_angle": 102.3676859791389, "hip_angle": 97.31992097521716, "elbow_angle": 75.96146422869305, "shoulder_angle": 10.33854639102941, "wrist_angle": 161.2595433706537, "trunk_lean": 93.83118326715321}, "velocities": {"right_hip": 200.31219541881399, "right_knee": 234.88662300025348, "right_ankle": 30.0, "right_shoulder": 350.24656552249047, "right_elbow": 285.8101282275219, "right_wrist": 306.5739934376574, "right_index": 282.20886564004053, "nose": 94.03124237432849, "left_shoulder": 455.44965564589637, "left_hip": 113.07135789365266}, "accelerations": {"right_hip": -8232.877591996734, "right_knee": -4557.853244035, "right_ankle": -2546.049894151541, "right_shoulder": -241.44040942269612, "right_elbow": -3196.7939592834814, "right_wrist": -2972.938641228809, "right_index": -3736.174808034739, "nose": -2165.863337187866, "left_shoulder": -7960.0009034069835, "left_hip": -7729.179606750062}}, {"frame_number": 30, "timestamp": 1.0, "pose_detected": true, "angles": {"knee_angle": 100.95877316941095, "hip_angle": 94.24365470290185, "elbow_angle": 72.25985732558924, "shoulder_angle": 11.130425762617115, "wrist_angle": 160.59006206185856, "trunk_lean": 93.45389743647041}, "velocities": {"right_hip": 76.05551275463989, "right_knee": 189.05413116887507, "right_ankle": 40.0, "right_shoulder": 312.08002725857074, "right_elbow": 312.9406467322442, "right_wrist": 230.08288703092225, "right_index": 199.85828031025918, "nose": 52.3606797749979, "left_shoulder": 300.49867996625704, "left_hip": 93.35087491092575}, "accelerations": {"right_hip": -3727.7004799252227, "right_knee": -1374.974754941352, "right_ankle": 300.0, "right_shoulder": -1144.996147917592, "right_elbow": 813.9155551416695, "right_wrist": -2294.733192202055, "right_index": -2470.5175598934406, "nose": -1250.1168779799177, "left_shoulder": -4648.52927038918, "left_hip": -591.6144894818071}}, {"frame_number": 35, "timestamp": 1.1666666666666667, "pose_detected": true, "angles": {"knee_angle": 99.63378889443301, "hip_angle": 94.32887926683367, "elbow_angle": 71.7404375278272, "shoulder_angle": 13.136286880685796, "wrist_angle": 162.2748510126106, "trunk_lean": 93.9778061484758}, "velocities": {"right_hip": 97.04570789056773, "right_knee": 167.06212087277729, "right_ankle": 30.0, "right_shoulder": 248.04878488424228, "right_elbow": 280.5895333194381, "right_wrist": 220.2979413319954, "right_index": 234.015205694812, "nose": 64.7213595499958, "left_shoulder": 198.7048159266775, "left_hip": 134.17850021390794}, "accelerations": {"right_hip": 629.705854077835, "right_knee": -659.7603088829337, "right_ankle": -300.0, "right_shoulder": -1920.9372712298536, "right_elbow": -970.5334023841834, "right_wrist": -293.54837096780585, "right_index": 1024.7077615365852, "nose": 370.82039324993696, "left_shoulder": -3053.8159211873863, "left_hip": 1224.8287590894656}}, {"frame_number": 40, "timestamp": 1.3333333333333333, "pose_detected": true, "angles": {"knee_angle": 96.41143205198257, "hip_angle": 93.62016138820961, "elbow_angle": 73.56222998934683, "shoulder_angle": 17.189427284392966, "wrist_angle": 162.94650745755908, "trunk_lean": 92.90624320929601}, "velocities": {"right_hip": 177.04570789056774, "right_knee": 165.3211444192481, "right_ankle": 30.0, "right_shoulder": 175.26229863050511, "right_elbow": 262.0311122302029, "right_wrist": 263.02590430887454, "right_index": 280.4029646097582, "nose": 95.71155468592364, "left_shoulder": 182.61297173761167, "left_hip": 204.0132650118389}, "accelerations": {"right_hip": 2400.0000000000005, "right_knee": -52.22929360587557, "right_ankle": 0.0, "right_shoulder": -2183.594587612115, "right_elbow": -556.7526326770559, "right_wrist": 1281.8388893063748, "right_index": 1391.6327674483862, "nose": 929.7058540778355, "left_shoulder": -482.75532567197473, "left_hip": 2095.042943937929}}, {"frame_number": 45, "timestamp": 1.5, "pose_detected": true, "angles": {"knee_angle": 92.76290523274346, "hip_angle": 92.15378276125998, "elbow_angle": 75.11012681013257, "shoulder_angle": 20.9685769148886, "wrist_angle": 164.4341451427399, "trunk_lean": 92.46281980106835}, "velocities": {"right_hip": 210.99019513592785, "right_knee": 160.5997848692523, "right_ankle": 40.0, "right_shoulder": 141.31781138514498, "right_elbow": 298.2463253829919, "right_wrist": 358.628102094485, "right_index": 368.2360267799611, "nose": 127.20252298227079, "left_shoulder": 127.33433128760744, "left_hip": 223.7337479945658}, "accelerations": {"right_hip": 1018.3346173608032, "right_knee": -141.6407864998743, "right_ankle": 300.0, "right_shoulder": -1018.334617360804, "right_elbow": 1086.456394583671, "right_wrist": 2868.065933568313, "right_index": 2634.991865106086, "nose": 944.7290488904144, "left_shoulder": -1658.359213500127, "left_hip": 591.6144894818063}}, {"frame_number": 50, "timestamp": 1.6666666666666667, "pose_detected": true, "angles": {"knee_angle": 92.17605226945497, "hip_angle": 92.9630129200706, "elbow_angle": 81.47223085199731, "shoulder_angle": 28.246443015757112, "wrist_angle": 160.93901548246322, "trunk_lean": 93.45202082662908}, "velocities": {"right_hip": 180.0, "right_knee": 132.6240552495637, "right_ankle": 30.0, "right_shoulder": 99.6472487858144, "right_elbow": 350.52787672797837, "right_wrist": 476.6706179378425, "right_index": 463.51318988722596, "nose": 199.71017301232428, "left_shoulder": 149.56320275726867, "left_hip": 204.13717894776025}, "accelerations": {"right_hip": -929.7058540778355, "right_knee": -839.2718885906578, "right_ankle": -300.0, "right_shoulder": -1250.1168779799175, "right_elbow": 1568.4465403495933, "right_wrist": 3541.275475300726, "right_index": 2858.314893217946, "nose": 2175.2295009016043, "left_shoulder": 666.8661440898369, "left_hip": -587.8970714041662}}, {"frame_number": 55, "timestamp": 1.8333333333333333, "pose_detected": true, "angles": {"knee_angle": 90.33715877249513, "hip_angle": 93.2347965200178, "elbow_angle": 85.12197936221418, "shoulder_angle": 37.14911450098576, "wrist_angle": 164.70014673081147, "trunk_lean": 94.2226519887087}, "velocities": {"right_hip": 112.3606797749979, "right_knee": 98.41619252963778, "right_ankle": 34.14213562373095, "right_shoulder": 72.55832815336875, "right_elbow": 352.5380549212262, "right_wrist": 485.8401582018967, "right_index": 484.2500572458857, "nose": 209.5476031793786, "left_shoulder": 120.93368739633873, "left_hip": 121.94173437483136}, "accelerations": {"right_hip": -2029.179606750063, "right_knee": -1026.2358815977773, "right_ankle": 124.26406871192853, "right_shoulder": -812.6676189733695, "right_elbow": 60.305345797435166, "right_wrist": 275.08620792162617, "right_index": 622.106020759793, "nose": 295.12290501162965, "left_shoulder": -858.8854608278983, "left_hip": -2465.863337187867}}, {"frame_number": 60, "timestamp": 2.0, "pose_detected": true, "angles": {"knee_angle": 89.18282933168416, "hip_angle": 93.30610817074368, "elbow_angle": 87.24416589723938, "shoulder_angle": 42.99863893752618, "wrist_angle": 167.32478801191994, "trunk_lean": 94.78534686695772}, "velocities": {"right_hip": 72.3606797749979, "right_knee": 122.44743490396627, "right_ankle": 24.14213562373095, "right_shoulder": 127.05666678010304, "right_elbow": 350.88280431526186, "right_wrist": 581.8988798881778, "right_index": 646.0728636979012, "nose": 216.52358041101573, "left_shoulder": 98.57300762134084, "left_hip": 82.8538328578604}, "accelerations": {"right_hip": -1200.0, "right_knee": 720.9372712298546, "right_ankle": -300.0, "right_shoulder": 1634.950158802029, "right_elbow": -49.65751817893022, "right_wrist": 2881.761650588433, "right_index": 4854.684193560464, "nose": 209.27931694911393, "left_shoulder": -670.8203932499367, "left_hip": -1172.6370455091287}}, {"frame_number": 65, "timestamp": 2.1666666666666665, "pose_detected": true, "angles": {"knee_angle": 86.19259573476063, "hip_angle": 94.88721801312467, "elbow_angle": 91.79492496374056, "shoulder_angle": 52.723663199295395, "wrist_angle": 167.2023557332391, "trunk_lean": 95.05985517246256}, "velocities": {"right_hip": 83.9834563766817, "right_knee": 100.53405777305734, "right_ankle": 68.86349517372675, "right_shoulder": 205.194743216314, "right_elbow": 431.4489873084988, "right_wrist": 654.5036319465104, "right_index": 787.730053287004, "nose": 182.48287590894657, "left_shoulder": 58.863495173726754, "left_hip": 77.67828935632369}, "accelerations": {"right_hip": 348.6832980505139, "right_knee": -657.4013139272678, "right_ankle": 1341.640786499874, "right_shoulder": 2344.142293086329, "right_elbow": 2416.985489797107, "right_wrist": 2178.142561749977, "right_index": 4249.715687673084, "nose": -1021.2211350620748, "left_shoulder": -1191.2853734284224, "left_hip": -155.26630504610125}}, {"frame_number": 70, "timestamp": 2.3333333333333335, "pose_detected": true, "angles": {"knee_angle": 84.47451127491807, "hip_angle": 97.20599800432414, "elbow_angle": 95.03367029653037, "shoulder_angle": 64.7807728476332, "wrist_angle": 162.4404549401541, "trunk_lean": 95.88828750239213}, "velocities": {"right_hip": 75.76491222541475, "right_knee": 108.17337799805944, "right_ankle": 184.7213595499958, "right_shoulder": 311.4685533805061, "right_elbow": 507.8682912268312, "right_wrist": 844.5036319465104, "right_index": 1054.5493683138068, "nose": 232.10886077783698, "left_shoulder": 107.21349351738361, "left_hip": 99.30106595800748}, "accelerations": {"right_hip": -246.55632453800862, "right_knee": 229.17960675006285, "right_ankle": 3475.7359312880717, "right_shoulder": 3188.214304925762, "right_elbow": 2292.5791175499735, "right_wrist": 5700.0, "right_index": 8004.5794508040835, "nose": 1488.7795460667123, "left_shoulder": 1450.4999503097058, "left_hip": 648.6832980505139}}, {"frame_number": 75, "timestamp": 2.5, "pose_detected": true, "angles": {"knee_angle": 82.16322092405585, "hip_angle": 100.33229615092209, "elbow_angle": 95.35259847494875, "shoulder_angle": 72.75323150502044, "wrist_angle": 164.47825752492517, "trunk_lean": 97.78383716985468}, "velocities": {"right_hip": 68.12559200041265, "right_knee": 75.76491222541475, "right_ankle": 203.0056307974577, "right_shoulder": 230.91470199913184, "right_elbow": 660.9982969017846, "right_wrist": 992.9708965372423, "right_index": 1128.7735556220332, "nose": 261.835086856229, "left_shoulder": 256.0252414286226, "left_hip": 87.67828935632367}, "accelerations": {"right_hip": -229.17960675006285, "right_knee": -972.2539731793406, "right_ankle": 548.5281374238571, "right_shoulder": -2416.6155414412274, "right_elbow": 4593.9001702486, "right_wrist": 4454.017937721957, "right_index": 2226.7256192467926, "nose": 891.7867823517605, "left_shoulder": 4464.352437337171, "left_hip": -348.6832980505143}}, {"frame_number": 80, "timestamp": 2.6666666666666665, "pose_detected": true, "angles": {"knee_angle": 82.72851710251118, "hip_angle": 101.48022161997355, "elbow_angle": 93.71919181951095, "shoulder_angle": 80.11696372944763, "wrist_angle": 168.6068568651375, "trunk_lean": 100.62393850207974}, "velocities": {"right_hip": 86.50281539872886, "right_knee": 75.76491222541475, "right_ankle": 214.8528137423857, "right_shoulder": 336.328548607663, "right_elbow": 918.2360622332795, "right_wrist": 1270.9311797750213, "right_index": 1433.855117031764, "nose": 371.00746155324686, "left_shoulder": 355.9006483148055, "left_hip": 101.62277660168381}, "accelerations": {"right_hip": 551.3167019494861, "right_knee": 0.0, "right_ankle": 355.4154883478398, "right_shoulder": 3162.415398255934, "right_elbow": 7717.132959944849, "right_wrist": 8338.80849713337, "right_index": 9152.446842291922, "nose": 3275.1712409105357, "left_shoulder": 2996.262206585486, "left_hip": 418.3346173608041}}, {"frame_number": 85, "timestamp": 2.8333333333333335, "pose_detected": true, "angles": {"knee_angle": 83.88795280883576, "hip_angle": 108.1328625321419, "elbow_angle": 90.83650176529997, "shoulder_angle": 86.22498848441387, "wrist_angle": 121.75544414477415, "trunk_lean": 106.29394423952945}, "velocities": {"right_hip": 202.74472787905088, "right_knee": 77.38768882709854, "right_ankle": 94.8528137423857, "right_shoulder": 396.1901665929395, "right_elbow": 1003.806097071872, "right_wrist": 1291.0782068089202, "right_index": 1415.364137991197, "nose": 449.23347402250624, "left_shoulder": 476.2397019415787, "left_hip": 130.82762530298217}, "accelerations": {"right_hip": 3487.2573744096608, "right_knee": 48.68329805051388, "right_ankle": -3600.0, "right_shoulder": 1795.8485395582948, "right_elbow": 2567.101045157775, "right_wrist": 604.4108110169668, "right_index": -554.7293712170108, "nose": 2346.7803740777817, "left_shoulder": 3610.171608803196, "left_hip": 876.1454610389508}}, {"frame_number": 90, "timestamp": 3.0, "pose_detected": true, "angles": {"knee_angle": 88.3183514285941, "hip_angle": 114.64986035534098, "elbow_angle": 77.44415751699111, "shoulder_angle": 86.15956900031436, "wrist_angle": 124.21617881385205, "trunk_lean": 114.01137631748026}, "velocities": {"right_hip": 351.26412301040364, "right_knee": 123.86740898448129, "right_ankle": 94.8528137423857, "right_shoulder": 619.6425171915145, "right_elbow": 1141.1636064323945, "right_wrist": 1285.657703979724, "right_index": 1382.9347558339407, "nose": 547.359245282264, "left_shoulder": 583.9937878749688, "left_hip": 280.8276253029822}, "accelerations": {"right_hip": 4455.581853940583, "right_knee": 1394.3916047214823, "right_ankle": 0.0, "right_shoulder": 6703.57051795725, "right_elbow": 4120.725280815675, "right_wrist": -162.615084875888, "right_index": -972.8814647176864, "nose": 2943.7731377927344, "left_shoulder": 3232.6225780017035, "left_hip": 4500.000000000001}}, {"frame_number": 95, "timestamp": 3.1666666666666665, "pose_detected": true, "angles": {"knee_angle": 94.15401680180148, "hip_angle": 122.88801193966158, "elbow_angle": 69.80266382133004, "shoulder_angle": 86.55135278729905, "wrist_angle": 131.24633300925314, "trunk_lean": 122.1985869537742}, "velocities": {"right_hip": 512.2143541076935, "right_knee": 326.0583498885897, "right_ankle": 124.30752391788816, "right_shoulder": 682.0580716717492, "right_elbow": 1115.8074065133003, "right_wrist": 1124.4795323210876, "right_index": 1074.2998038309363, "nose": 554.5596967489577, "left_shoulder": 695.5865288186246, "left_hip": 511.5410022553462}, "accelerations": {"right_hip": 4828.5069329186945, "right_knee": 6065.7282271232525, "right_ankle": 883.6413052650737, "right_shoulder": 1872.466634407042, "right_elbow": -760.6859975728275, "right_wrist": -4835.345149759089, "right_index": -9259.048560090132, "nose": 216.01354400080822, "left_shoulder": 3347.782228309675, "left_hip": 6921.40130857092}}, {"frame_number": 100, "timestamp": 3.3333333333333335, "pose_detected": true, "angles": {"knee_angle": 101.41033446294844, "hip_angle": 131.81860544496624, "elbow_angle": 61.041134382317075, "shoulder_angle": 86.93648149175442, "wrist_angle": 140.08286655232982, "trunk_lean": 128.16768254381}, "velocities": {"right_hip": 601.8303060036405, "right_knee": 502.52209375375406, "right_ankle": 226.11092279287766, "right_shoulder": 717.6508393477789, "right_elbow": 1213.4581736525486, "right_wrist": 1097.382022137159, "right_index": 1021.3394217470471, "nose": 576.8303052051155, "left_shoulder": 695.5865288186246, "left_hip": 710.713376952364}, "accelerations": {"right_hip": 2688.4785568784127, "right_knee": 5293.912315954931, "right_ankle": 3054.101966249685, "right_shoulder": 1067.78303028089, "right_elbow": 2929.523014177448, "right_wrist": -812.925305517856, "right_index": -1588.8114625166747, "nose": 668.1182536847336, "left_shoulder": 0.0, "left_hip": 5975.171240910534}}, {"frame_number": 105, "timestamp": 3.5, "pose_detected": true, "angles": {"knee_angle": 108.80470363594448, "hip_angle": 137.31314708195035, "elbow_angle": 53.015351567433626, "shoulder_angle": 88.96724880798082, "wrist_angle": 147.70975539595267, "trunk_lean": 132.7763971987393}, "velocities": {"right_hip": 640.9502310972899, "right_knee": 652.4546820145151, "right_ankle": 342.04870256397527, "right_shoulder": 735.9920549894873, "right_elbow": 1174.1848824824845, "right_wrist": 1095.4275250838252, "right_index": 1017.9163935211245, "nose": 611.7574803139623, "left_shoulder": 669.8397932224408, "left_hip": 742.9508611139308}, "accelerations": {"right_hip": 1173.5977528094816, "right_knee": 4497.977647822832, "right_ankle": 3478.133393132928, "right_shoulder": 550.2364692512538, "right_elbow": -1178.1987351019234, "right_wrist": -58.634911600015585, "right_index": -102.69084677767864, "nose": 1047.8152532654065, "left_shoulder": -772.4020678855152, "left_hip": 967.1245248470052}}, {"frame_number": 110, "timestamp": 3.6666666666666665, "pose_detected": true, "angles": {"knee_angle": 118.73788703784751, "hip_angle": 144.92905599217838, "elbow_angle": 44.617503242869944, "shoulder_angle": 90.95460054840827, "wrist_angle": 153.63693849848235, "trunk_lean": 138.23130891049172}, "velocities": {"right_hip": 660.2172886644267, "right_knee": 648.7245217413688, "right_ankle": 376.441395681472, "right_shoulder": 812.4826906808457, "right_elbow": 1081.3530859727937, "right_wrist": 1050.4856580494272, "right_index": 1057.0179226879989, "nose": 694.7492654724227, "left_shoulder": 883.5471624986473, "left_hip": 610.8981716347519}, "accelerations": {"right_hip": 578.0117270141045, "right_knee": -111.90480819439017, "right_ankle": 1031.7807935249016, "right_shoulder": 2294.7190707407526, "right_elbow": -2784.9538952907233, "right_wrist": -1348.25601103194, "right_index": 1173.0458750062303, "nose": 2489.753554753812, "left_shoulder": 6411.221078286194, "left_hip": -3961.5806843753694}}, {"frame_number": 115, "timestamp": 3.8333333333333335, "pose_detected": true, "angles": {"knee_angle": 128.7204163329853, "hip_angle": 155.40991828358267, "elbow_angle": 38.97072581318317, "shoulder_angle": 87.21906736633179, "wrist_angle": 159.39431306476297, "trunk_lean": 143.07566204437168}, "velocities": {"right_hip": 595.459035627027, "right_knee": 570.6380012745207, "right_ankle": 344.63799680648253, "right_shoulder": 769.2391242479375, "right_elbow": 1122.3376462680433, "right_wrist": 1127.56432526208, "right_index": 1089.2401614221285, "nose": 578.6673641801841, "left_shoulder": 852.4974307532192, "left_hip": 594.2086728466807}, "accelerations": {"right_hip": -1942.7475911219926, "right_knee": -2342.595614005444, "right_ankle": -954.1019662496836, "right_shoulder": -1297.3069929872463, "right_elbow": 1229.5368088574878, "right_wrist": 2312.3600163795845, "right_index": 966.667162023889, "nose": -3482.457038767159, "left_shoulder": -931.4919523628419, "left_hip": -500.68496364213615}}, {"frame_number": 120, "timestamp": 4.0, "pose_detected": true, "angles": {"knee_angle": 134.94386592211336, "hip_angle": 159.41268155710276, "elbow_angle": 41.20116029785123, "shoulder_angle": 91.30567464622872, "wrist_angle": 158.29457104248894, "trunk_lean": 149.52495388679944}, "velocities": {"right_hip": 493.1623317697171, "right_knee": 509.0360860256255, "right_ankle": 314.43348829783673, "right_shoulder": 656.7294407794952, "right_elbow": 1020.3816627593568, "right_wrist": 1090.0646711146285, "right_index": 1095.4905086631743, "nose": 495.4172549063871, "left_shoulder": 871.3470629044847, "left_hip": 515.6643574536437}, "accelerations": {"right_hip": -3068.901115719296, "right_knee": -1848.0574574668553, "right_ankle": -906.135255259374, "right_shoulder": -3375.2905040532687, "right_elbow": -3058.679505260594, "right_wrist": -1124.989624423547, "right_index": 187.51041723137405, "nose": -2497.5032782139106, "left_shoulder": 565.4889645379649, "left_hip": -2356.3294617911097}}, {"frame_number": 125, "timestamp": 4.166666666666667, "pose_detected": true, "angles": {"knee_angle": 145.34713857751254, "hip_angle": 164.39122672672403, "elbow_angle": 45.22035906089282, "shoulder_angle": 93.67838712606094, "wrist_angle": 157.08597797181386, "trunk_lean": 156.1450177395568}, "velocities": {"right_hip": 323.7726684082725, "right_knee": 424.4956545195894, "right_ankle": 337.19575314267735, "right_shoulder": 384.71174668096705, "right_elbow": 966.5235206585736, "right_wrist": 1108.744808147154, "right_index": 1084.938844111254, "nose": 289.0766663525784, "left_shoulder": 696.0369858235905, "left_hip": 430.2492231838262}, "accelerations": {"right_hip": -5081.689900843338, "right_knee": -2536.212945181083, "right_ankle": 682.8679453452185, "right_shoulder": -8160.530822955845, "right_elbow": -1615.744263023496, "right_wrist": 560.4041109757623, "right_index": -316.5499365576102, "nose": -6190.217656614261, "left_shoulder": -5259.302312426826, "left_hip": -2562.454028094525}}, {"frame_number": 130, "timestamp": 4.333333333333333, "pose_detected": true, "angles": {"knee_angle": 154.12251009989075, "hip_angle": 168.99124529042848, "elbow_angle": 50.789612824715086, "shoulder_angle": 96.75303053547205, "wrist_angle": 156.49538953729763, "trunk_lean": 160.52210147375035}, "velocities": {"right_hip": 258.5309214456723, "right_knee": 376.95776703194264, "right_ankle": 337.81833062566284, "right_shoulder": 319.78827780733644, "right_elbow": 675.8537084278148, "right_wrist": 922.5774046282422, "right_index": 1027.764306103303, "nose": 311.2553356547233, "left_shoulder": 694.1508688320096, "left_hip": 287.4374781831063}, "accelerations": {"right_hip": -1957.2524088780074, "right_knee": -1426.1366246294024, "right_ankle": 18.67732448956474, "right_shoulder": -1947.7040662089184, "right_elbow": -8720.094366922764, "right_wrist": -5585.02210556735, "right_index": -1715.2361402385304, "nose": 665.3600790643469, "left_shoulder": -56.583509747428025, "left_hip": -4284.352350021597}}, {"frame_number": 135, "timestamp": 4.5, "pose_detected": true, "angles": {"knee_angle": 153.02379747096032, "hip_angle": 171.05065215144134, "elbow_angle": 55.11438712737567, "shoulder_angle": 94.63149136379762, "wrist_angle": 162.8018953874575, "trunk_lean": 160.42668069461644}, "velocities": {"right_hip": 221.53830342163693, "right_knee": 260.5245972610102, "right_ankle": 313.80078811574907, "right_shoulder": 258.60689179456176, "right_elbow": 681.1860724260092, "right_wrist": 975.8210514990263, "right_index": 1172.7586780140082, "nose": 241.60932529719605, "left_shoulder": 482.9490839602829, "left_hip": 224.57193471755866}, "accelerations": {"right_hip": -1109.7785407210606, "right_knee": -3492.995093127974, "right_ankle": -720.526275297413, "right_shoulder": -1835.4415803832403, "right_elbow": 159.9709199458323, "right_wrist": 1597.3094061235236, "right_index": 4349.831157321158, "nose": -2089.3803107258173, "left_shoulder": -6336.053546151799, "left_hip": -1885.966303966429}}, {"frame_number": 140, "timestamp": 4.666666666666667, "pose_detected": true, "angles": {"knee_angle": 155.92993671068575, "hip_angle": 174.9276847825412, "elbow_angle": 69.08542291056017, "shoulder_angle": 96.03831930506482, "wrist_angle": 157.32447309242508, "trunk_lean": 162.40937076496155}, "velocities": {"right_hip": 310.71067811865476, "right_knee": 221.9048316123448, "right_ankle": 280.6225774829855, "right_shoulder": 256.51647102041136, "right_elbow": 735.6151773859543, "right_wrist": 1024.476914367321, "right_index": 1190.4410685222333, "nose": 278.31152860722517, "left_shoulder": 388.94150831140115, "left_hip": 291.3263815141911}, "accelerations": {"right_hip": 2675.171240910535, "right_knee": -1158.5929694599613, "right_ankle": -995.3463189829074, "right_shoulder": -62.71262322451207, "right_elbow": 1632.8731487983532, "right_wrist": 1459.6758860488364, "right_index": 530.4717152467538, "nose": 1101.0660993008737, "left_shoulder": -2820.2272694664525, "left_hip": 2002.633403898973}}, {"frame_number": 145, "timestamp": 4.833333333333333, "pose_detected": true, "angles": {"knee_angle": 159.69472800159983, "hip_angle": 177.56000925881355, "elbow_angle": 90.01473187713871, "shoulder_angle": 100.02591020816683, "wrist_angle": 140.4699084026681, "trunk_lean": 164.63187519289409}, "velocities": {"right_hip": 340.71067811865476, "right_knee": 221.9048316123448, "right_ankle": 280.6225774829855, "right_shoulder": 253.21623996682683, "right_elbow": 900.2978970580338, "right_wrist": 1103.5355677853074, "right_index": 1271.6987327076477, "nose": 253.4599740729578, "left_shoulder": 329.82257466909886, "left_hip": 310.8276253029822}, "accelerations": {"right_hip": 900.0, "right_knee": 0.0, "right_ankle": 0.0, "right_shoulder": -99.00693160753576, "right_elbow": 4940.481590162382, "right_wrist": 2371.759602539596, "right_index": 2437.7299255624303, "nose": -745.5466360280209, "left_shoulder": -1773.5680092690689, "left_hip": 585.037313663733}}, {"frame_number": 150, "timestamp": 5.0, "pose_detected": true, "angles": {"knee_angle": 162.1236549699284, "hip_angle": 177.48995677139325, "elbow_angle": 110.72250203402733, "shoulder_angle": 104.56973404612843, "wrist_angle": 138.56554331496835, "trunk_lean": 165.1326707865142}, "velocities": {"right_hip": 380.0, "right_knee": 291.9048316123448, "right_ankle": 266.7803085416246, "right_shoulder": 206.73651980944408, "right_elbow": 929.8454192180252, "right_wrist": 1001.1802487810988, "right_index": 1217.1321309045577, "nose": 303.165241742226, "left_shoulder": 402.41159000737997, "left_hip": 361.80339887498945}, "accelerations": {"right_hip": 1178.6796564403573, "right_knee": 2100.000000000001, "right_ankle": -415.26806824082655, "right_shoulder": -1394.3916047214827, "right_elbow": 886.4256647997433, "right_wrist": -3070.6595701262577, "right_index": -1636.9980540926986, "nose": 1491.1580300780454, "left_shoulder": 2177.6704601484334, "left_hip": 1529.2732071602177}}, {"frame_number": 155, "timestamp": 5.166666666666667, "pose_detected": true, "angles": {"knee_angle": 162.75355427901493, "hip_angle": 177.38104903178936, "elbow_angle": 134.72045700563015, "shoulder_angle": 109.81053492170024, "wrist_angle": 171.7045056313849, "trunk_lean": 164.32867848934774}, "velocities": {"right_hip": 345.0, "right_knee": 303.6931687685298, "right_ankle": 235.17046281243688, "right_shoulder": 204.03876253618398, "right_elbow": 868.9116845382946, "right_wrist": 868.7419377913726, "right_index": 1231.3498136720677, "nose": 318.91708554127774, "left_shoulder": 348.61738501107, "left_hip": 347.7050983124842}, "accelerations": {"right_hip": -1050.0, "right_knee": 353.6501146855494, "right_ankle": -948.2953718756318, "right_shoulder": -80.93271819780284, "right_elbow": -1828.0120403919182, "right_wrist": -3973.149329691787, "right_index": 426.53048302530124, "nose": 472.55531397155266, "left_shoulder": -1613.8261498892996, "left_hip": -422.9490168751573}}], "keyframes": {"ball_lowest": {"index": 7, "description": "球的最低点", "timestamp": 1.1666666666666667, "angles": {"knee_angle": 99.63378889443301, "hip_angle": 94.32887926683367, "elbow_angle": 71.7404375278272, "shoulder_angle": 13.136286880685796, "wrist_angle": 162.2748510126106, "trunk_lean": 93.9778061484758}}, "lift_start": {"index": 8, "description": "开始持续抬球", "timestamp": 1.3333333333333333, "angles": {"knee_angle": 96.41143205198257, "hip_angle": 93.62016138820961, "elbow_angle": 73.56222998934683, "shoulder_angle": 17.189427284392966, "wrist_angle": 162.94650745755908, "trunk_lean": 92.90624320929601}}, "ball_rising_mid": {"index": 11, "description": "球上升中点", "timestamp": 1.8333333333333333, "angles": {"knee_angle": 90.33715877249513, "hip_angle": 93.2347965200178, "elbow_angle": 85.12197936221418, "shoulder_angle": 37.14911450098576, "wrist_angle": 164.70014673081147, "trunk_lean": 94.2226519887087}}, "ball_at_chest": {"index": 14, "description": "球到胸部高度", "timestamp": 2.3333333333333335, "angles": {"knee_angle": 84.47451127491807, "hip_angle": 97.20599800432414, "elbow_angle": 95.03367029653037, "shoulder_angle": 64.7807728476332, "wrist_angle": 162.4404549401541, "trunk_lean": 95.88828750239213}}, "squat_deepest": {"index": 16, "description": "重心最低点（下蹲最深）", "timestamp": 2.6666666666666665, "angles": {"knee_angle": 82.72851710251118, "hip_angle": 101.48022161997355, "elbow_angle": 93.71919181951095, "shoulder_angle": 80.11696372944763, "wrist_angle": 168.6068568651375, "trunk_lean": 100.62393850207974}}, "ball_at_shoulder": {"index": 16, "description": "球到肩部高度", "timestamp": 2.6666666666666665, "angles": {"knee_angle": 82.72851710251118, "hip_angle": 101.48022161997355, "elbow_angle": 93.71919181951095, "shoulder_angle": 80.11696372944763, "wrist_angle": 168.6068568651375, "trunk_lean": 100.62393850207974}}, "leg_power_start": {"index": 16, "description": "腿部开始发力（蹬伸）", "timestamp": 2.6666666666666665, "angles": {"knee_angle": 82.72851710251118, "hip_angle": 101.48022161997355, "elbow_angle": 93.71919181951095, "shoulder_angle": 80.11696372944763, "wrist_angle": 168.6068568651375, "trunk_lean": 100.62393850207974}}, "power_transfer": {"index": 19, "description": "力量传递", "timestamp": 3.1666666666666665, "angles": {"knee_angle": 94.15401680180148, "hip_angle": 122.88801193966158, "elbow_angle": 69.80266382133004, "shoulder_angle": 86.55135278729905, "wrist_angle": 131.24633300925314, "trunk_lean": 122.1985869537742}}, "elbow_max_bend": {"index": 23, "description": "肘关节最大弯曲（39.0°）", "timestamp": 3.8333333333333335, "angles": {"knee_angle": 128.7204163329853, "hip_angle": 155.40991828358267, "elbow_angle": 38.97072581318317, "shoulder_angle": 87.21906736633179, "wrist_angle": 159.39431306476297, "trunk_lean": 143.07566204437168}}, "wrist_snap": {"index": 24, "description": "手腕下压（snap）", "timestamp": 4.0, "angles": {"knee_angle": 134.94386592211336, "hip_angle": 159.41268155710276, "elbow_angle": 41.20116029785123, "shoulder_angle": 91.30567464622872, "wrist_angle": 158.29457104248894, "trunk_lean": 149.52495388679944}}, "release_prepare": {"index": 27, "description": "出手准备", "timestamp": 4.5, "angles": {"knee_angle": 153.02379747096032, "hip_angle": 171.05065215144134, "elbow_angle": 55.11438712737567, "shoulder_angle": 94.63149136379762, "wrist_angle": 162.8018953874575, "trunk_lean": 160.42668069461644}}, "elbow_extension_max": {"index": 31, "description": "肘关节伸展最快（24.0°/帧）", "timestamp": 5.166666666666667, "angles": {"knee_angle": 162.75355427901493, "hip_angle": 177.38104903178936, "elbow_angle": 134.72045700563015, "shoulder_angle": 109.81053492170024, "wrist_angle": 171.7045056313849, "trunk_lean": 164.32867848934774}}, "release": {"index": 31, "description": "出手瞬间", "timestamp": 5.166666666666667, "angles": {"knee_angle": 162.75355427901493, "hip_angle": 177.38104903178936, "elbow_angle": 134.72045700563015, "shoulder_angle": 109.81053492170024, "wrist_angle": 171.7045056313849, "trunk_lean": 164.32867848934774}}, "follow_through": {"index": 31, "description": "随球动作完成（手腕最高点）", "timestamp": 5.166666666666667, "angles": {"knee_angle": 162.75355427901493, "hip_angle": 177.38104903178936, "elbow_angle": 134.72045700563015, "shoulder_angle": 109.81053492170024, "wrist_angle": 171.7045056313849, "trunk_lean": 164.32867848934774}}}, "rhythm_analysis": {"phase_durations": {"ball_lowest_to_lift_start": {"frames": 1, "seconds": 0.03333333333333333, "from_frame": 7, "to_frame": 8}, "lift_start_to_ball_rising_mid": {"frames": 3, "seconds": 0.1, "from_frame": 8, "to_frame": 11}, "ball_rising_mid_to_ball_at_chest": {"frames": 3, "seconds": 0.1, "from_frame": 11, "to_frame": 14}, "ball_at_chest_to_squat_deepest": {"frames": 2, "seconds": 0.06666666666666667, "from_frame": 14, "to_frame": 16}, "squat_deepest_to_ball_at_shoulder": {"frames": 0, "seconds": 0.0, "from_frame": 16, "to_frame": 16}, "ball_at_shoulder_to_leg_power_start": {"frames": 0, "seconds": 0.0, "from_frame": 16, "to_frame": 16}, "leg_power_start_to_power_transfer": {"frames": 3, "seconds": 0.1, "from_frame": 16, "to_frame": 19}, "power_transfer_to_elbow_max_bend": {"frames": 4, "seconds": 0.13333333333333333, "from_frame": 19, "to_frame": 23}, "elbow_max_bend_to_wrist_snap": {"frames": 1, "seconds": 0.03333333333333333, "from_frame": 23, "to_frame": 24}, "wrist_snap_to_release_prepare": {"frames": 3, "seconds": 0.1, "from_frame": 24, "to_frame": 27}, "release_prepare_to_elbow_extension_max": {"frames": 4, "seconds": 0.13333333333333333, "from_frame": 27, "to_frame": 31}, "elbow_extension_max_to_release": {"frames": 0, "seconds": 0.0, "from_frame": 31, "to_frame": 31}, "release_to_follow_through": {"frames": 0, "seconds": 0.0, "from_frame": 31, "to_frame": 31}}, "total_duration": 0.8, "shooting_duration": 0.8, "rhythm_consistency": 0.8186068103221864, "key_phases": {"preparation": 0.3}, "phase_count": 13, "avg_phase_duration": 0.06153846153846154, "analysis_start": "ball_lowest"}, "force_sequence": {"initiation_times": {"right_ankle": {"frame": 14, "time": 0.4666666666666667, "velocity": 184.7213595499958, "acceleration": 115.85786437626906}, "right_knee": {"frame": 19, "time": 0.6333333333333333, "velocity": 326.0583498885897, "acceleration": 202.1909409041084}, "right_hip": {"frame": 8, "time": 0.26666666666666666, "velocity": 177.04570789056774, "acceleration": 80.00000000000001}, "right_shoulder": {"frame": 12, "time": 0.4, "velocity": 127.05666678010304, "acceleration": 54.498338626734295}, "right_elbow": {"frame": 10, "time": 0.3333333333333333, "velocity": 350.52787672797837, "acceleration": 52.28155134498644}, "right_wrist": {"frame": 9, "time": 0.3, "velocity": 358.628102094485, "acceleration": 95.60219778561043}}, "actual_sequence": ["right_hip", "right_wrist", "right_elbow", "right_shoulder", "right_ankle", "right_knee"], "time_intervals": [{"from": "right_hip", "to": "right_wrist", "time_diff_seconds": 0.03333333333333333, "frame_diff": 1}, {"from": "right_wrist", "to": "right_elbow", "time_diff_seconds": 0.03333333333333333, "frame_diff": 1}, {"from": "right_elbow", "to": "right_shoulder", "time_diff_seconds": 0.06666666666666667, "frame_diff": 2}, {"from": "right_shoulder", "to": "right_ankle", "time_diff_seconds": 0.06666666666666667, "frame_diff": 2}, {"from": "right_ankle", "to": "right_knee", "time_diff_seconds": 0.16666666666666666, "frame_diff": 5}], "pattern_analysis": {"pattern_type": "hip_upper_lower", "description": "髋部 → 上肢 → 下肢", "initiation_order": ["hip", "upper", "lower"], "key_parts": {"lower": 14, "hip": 8, "upper": 9}, "time_differences": {"hip_vs_lower": -6, "upper_vs_hip": 1, "upper_vs_lower": -5}, "summary": "hip → upper → lower"}, "joint_pairs_analysis": {"pairs": [{"pair_name": "手腕-肘部", "joint1": "right_wrist", "joint1_cn": "手腕", "joint2": "right_elbow", "joint2_cn": "肘部", "joint1_frame": 9, "joint2_frame": 10, "frame_diff": 1, "time_diff_seconds": 0.03333333333333333, "first_to_move": "手腕", "sequence": "手腕 → 肘部", "category": "upper_arm"}, {"pair_name": "肘部-肩部", "joint1": "right_elbow", "joint1_cn": "肘部", "joint2": "right_shoulder", "joint2_cn": "肩部", "joint1_frame": 10, "joint2_frame": 12, "frame_diff": 2, "time_diff_seconds": 0.06666666666666667, "first_to_move": "肘部", "sequence": "肘部 → 肩部", "category": "upper_arm"}, {"pair_name": "髋部-膝盖", "joint1": "right_hip", "joint1_cn": "髋部", "joint2": "right_knee", "joint2_cn": "膝盖", "joint1_frame": 8, "joint2_frame": 19, "frame_diff": 11, "time_diff_seconds": 0.36666666666666664, "first_to_move": "髋部", "sequence": "髋部 → 膝盖", "category": "lower_leg"}], "summary": "手腕-肘部: 手腕先动 (时间差 1帧); 肘部-肩部: 肘部先动 (时间差 2帧); 髋部-膝盖: 髋部先动 (时间差 11帧)"}, "movement_threshold": 20.0, "monitored_joints": ["right_ankle", "right_knee", "right_hip", "right_shoulder", "right_elbow", "right_wrist"], "analysis_range": {"start_frame": 7, "end_frame": 32, "start_keyframe": "ball_lowest"}}, "energy_transfer": {"lower_body_peak_velocity": 561.7944020290892, "upper_body_peak_velocity": 1015.4879425345443, "velocity_ratio": 1.8075793188162872, "transfer_timing": "reversed", "lower_peak_frame": 22, "upper_peak_frame": 18, "timing_difference": -4, "lower_body_joints": ["right_ankle", "right_knee", "right_hip"], "upper_body_joints": ["right_shoulder", "right_elbow", "right_wrist"], "analysis_range": {"start_frame": 7, "end_frame": 31, "start_keyframe": "ball_lowest"}}};
+    </script>
+
+    <!-- 加载自定义脚本 -->
+    <script src="assets/js/video_sync.js"></script>
+    <script src="assets/js/charts.js"></script>
+
+    <!-- 初始化 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化视频同步控制器
+            const video = document.getElementById('video-player');
+            const syncController = new VideoSyncController(video, analysisData);
+            
+            // 初始化图表管理器
+            const chartsManager = new ChartsManager(analysisData, syncController);
+            
+            // 创建实时图表
+            chartsManager.createRealtimeChart('realtime-chart');
+            
+            // 创建详细图表
+            chartsManager.createAngleChart('knee-angle-chart', 'knee_angle');
+            chartsManager.createAngleChart('elbow-angle-chart', 'elbow_angle');
+            chartsManager.createAngleChart('shoulder-angle-chart', 'shoulder_angle');
+            chartsManager.createAngleChart('trunk-lean-chart', 'trunk_lean');
+            
+            chartsManager.createVelocityChart('wrist-velocity-chart', 'right_wrist');
+            chartsManager.createVelocityChart('elbow-velocity-chart', 'right_elbow');
+            
+            console.log('Basketball shot analysis report initialized!');
+        });
+    </script>
+</body>
+</html>

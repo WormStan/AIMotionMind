@@ -1,0 +1,5740 @@
+{
+  "fps": 30,
+  "total_frames": 32,
+  "frames": [
+    {
+      "frame_number": 0,
+      "timestamp": 0.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 137.52506093938982,
+        "hip_angle": 130.83806426610684,
+        "elbow_angle": 121.43889116713794,
+        "shoulder_angle": 43.60916280251101,
+        "wrist_angle": 143.793723538311,
+        "trunk_lean": 100.12986354714613
+      },
+      "velocities": {
+        "right_hip": 312.1297807002722,
+        "right_knee": 300.3747659175118,
+        "right_ankle": 30.0,
+        "right_shoulder": 816.7772034037189,
+        "right_elbow": 300.0,
+        "right_wrist": 300.0,
+        "right_index": 465.2418725781247,
+        "nose": 61.84658438426491,
+        "left_shoulder": 138.2931668593933,
+        "left_hip": 275.3633962602873
+      },
+      "accelerations": {
+        "right_hip": 0.0,
+        "right_knee": 0.0,
+        "right_ankle": 0.0,
+        "right_shoulder": 0.0,
+        "right_elbow": 0.0,
+        "right_wrist": 0.0,
+        "right_index": 0.0,
+        "nose": 0.0,
+        "left_shoulder": 0.0,
+        "left_hip": 0.0
+      },
+      "com_height": 0.5469420552253723,
+      "shooting_arc": -6.091298854450364,
+      "landmarks": {
+        "nose": {
+          "x": 638,
+          "y": 743
+        },
+        "left_eye_inner": {
+          "x": 626,
+          "y": 733
+        },
+        "left_eye": {
+          "x": 625,
+          "y": 733
+        },
+        "left_eye_outer": {
+          "x": 623,
+          "y": 733
+        },
+        "right_eye_inner": {
+          "x": 624,
+          "y": 734
+        },
+        "right_eye": {
+          "x": 620,
+          "y": 735
+        },
+        "right_eye_outer": {
+          "x": 617,
+          "y": 735
+        },
+        "left_ear": {
+          "x": 590,
+          "y": 736
+        },
+        "right_ear": {
+          "x": 585,
+          "y": 742
+        },
+        "mouth_left": {
+          "x": 632,
+          "y": 757
+        },
+        "mouth_right": {
+          "x": 630,
+          "y": 758
+        },
+        "left_shoulder": {
+          "x": 422,
+          "y": 759
+        },
+        "right_shoulder": {
+          "x": 480,
+          "y": 822
+        },
+        "left_elbow": {
+          "x": 468,
+          "y": 827
+        },
+        "right_elbow": {
+          "x": 518,
+          "y": 964
+        },
+        "left_wrist": {
+          "x": 516,
+          "y": 898
+        },
+        "right_wrist": {
+          "x": 620,
+          "y": 984
+        },
+        "left_pinky": {
+          "x": 521,
+          "y": 911
+        },
+        "right_pinky": {
+          "x": 669,
+          "y": 980
+        },
+        "left_index": {
+          "x": 528,
+          "y": 908
+        },
+        "right_index": {
+          "x": 657,
+          "y": 946
+        },
+        "left_thumb": {
+          "x": 526,
+          "y": 904
+        },
+        "right_thumb": {
+          "x": 643,
+          "y": 945
+        },
+        "left_hip": {
+          "x": 422,
+          "y": 1044
+        },
+        "right_hip": {
+          "x": 436,
+          "y": 1055
+        },
+        "left_knee": {
+          "x": 460,
+          "y": 1296
+        },
+        "right_knee": {
+          "x": 520,
+          "y": 1304
+        },
+        "left_ankle": {
+          "x": 421,
+          "y": 1541
+        },
+        "right_ankle": {
+          "x": 490,
+          "y": 1563
+        },
+        "left_heel": {
+          "x": 392,
+          "y": 1583
+        },
+        "right_heel": {
+          "x": 443,
+          "y": 1589
+        },
+        "left_foot_index": {
+          "x": 512,
+          "y": 1591
+        },
+        "right_foot_index": {
+          "x": 582,
+          "y": 1592
+        }
+      }
+    },
+    {
+      "frame_number": 5,
+      "timestamp": 0.16666666666666666,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 128.41910694047726,
+        "hip_angle": 115.98906438025857,
+        "elbow_angle": 86.33481632983403,
+        "shoulder_angle": 21.05937493095115,
+        "wrist_angle": 151.80557147515927,
+        "trunk_lean": 102.2932137394297
+      },
+      "velocities": {
+        "right_hip": 726.7386196624457,
+        "right_knee": 321.90509455097225,
+        "right_ankle": 51.622776601683796,
+        "right_shoulder": 777.7562113962913,
+        "right_elbow": 352.9705854077836,
+        "right_wrist": 380.0,
+        "right_index": 663.7146389786902,
+        "nose": 82.46211251235322,
+        "left_shoulder": 999.1684320427875,
+        "left_hip": 747.9336398877567
+      },
+      "accelerations": {
+        "right_hip": 12438.265168865204,
+        "right_knee": 645.9098590038133,
+        "right_ankle": 648.6832980505139,
+        "right_shoulder": -1170.6297602228278,
+        "right_elbow": 1589.1175622335072,
+        "right_wrist": 2400.0,
+        "right_index": 5954.182992016967,
+        "nose": 618.4658438426492,
+        "left_shoulder": 25826.257955501824,
+        "left_hip": 14177.107308824083
+      },
+      "com_height": 0.5522496104240417,
+      "shooting_arc": -6.224809012954162,
+      "landmarks": {
+        "nose": {
+          "x": 634,
+          "y": 742
+        },
+        "left_eye_inner": {
+          "x": 624,
+          "y": 733
+        },
+        "left_eye": {
+          "x": 623,
+          "y": 732
+        },
+        "left_eye_outer": {
+          "x": 622,
+          "y": 732
+        },
+        "right_eye_inner": {
+          "x": 620,
+          "y": 734
+        },
+        "right_eye": {
+          "x": 617,
+          "y": 735
+        },
+        "right_eye_outer": {
+          "x": 613,
+          "y": 735
+        },
+        "left_ear": {
+          "x": 590,
+          "y": 736
+        },
+        "right_ear": {
+          "x": 586,
+          "y": 742
+        },
+        "mouth_left": {
+          "x": 595,
+          "y": 743
+        },
+        "mouth_right": {
+          "x": 601,
+          "y": 744
+        },
+        "left_shoulder": {
+          "x": 420,
+          "y": 750
+        },
+        "right_shoulder": {
+          "x": 534,
+          "y": 829
+        },
+        "left_elbow": {
+          "x": 394,
+          "y": 688
+        },
+        "right_elbow": {
+          "x": 518,
+          "y": 984
+        },
+        "left_wrist": {
+          "x": 348,
+          "y": 619
+        },
+        "right_wrist": {
+          "x": 620,
+          "y": 1004
+        },
+        "left_pinky": {
+          "x": 322,
+          "y": 605
+        },
+        "right_pinky": {
+          "x": 669,
+          "y": 1017
+        },
+        "left_index": {
+          "x": 328,
+          "y": 596
+        },
+        "right_index": {
+          "x": 658,
+          "y": 977
+        },
+        "left_thumb": {
+          "x": 346,
+          "y": 603
+        },
+        "right_thumb": {
+          "x": 644,
+          "y": 971
+        },
+        "left_hip": {
+          "x": 406,
+          "y": 1053
+        },
+        "right_hip": {
+          "x": 453,
+          "y": 1067
+        },
+        "left_knee": {
+          "x": 465,
+          "y": 1296
+        },
+        "right_knee": {
+          "x": 540,
+          "y": 1305
+        },
+        "left_ankle": {
+          "x": 418,
+          "y": 1542
+        },
+        "right_ankle": {
+          "x": 492,
+          "y": 1563
+        },
+        "left_heel": {
+          "x": 390,
+          "y": 1583
+        },
+        "right_heel": {
+          "x": 450,
+          "y": 1597
+        },
+        "left_foot_index": {
+          "x": 503,
+          "y": 1591
+        },
+        "right_foot_index": {
+          "x": 583,
+          "y": 1611
+        }
+      }
+    },
+    {
+      "frame_number": 10,
+      "timestamp": 0.3333333333333333,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 121.5190360900295,
+        "hip_angle": 114.7087737879533,
+        "elbow_angle": 77.33465071329286,
+        "shoulder_angle": 8.281433397544612,
+        "wrist_angle": 165.13093278269048,
+        "trunk_lean": 104.43035007591938
+      },
+      "velocities": {
+        "right_hip": 1011.1678727290035,
+        "right_knee": 532.1430549672586,
+        "right_ankle": 146.49110640673518,
+        "right_shoulder": 899.8217675536283,
+        "right_elbow": 576.5773831577626,
+        "right_wrist": 557.2004514666935,
+        "right_index": 844.8223417414387,
+        "nose": 174.65755708528206,
+        "left_shoulder": 1331.5838348146806,
+        "left_hip": 1027.9336398877567
+      },
+      "accelerations": {
+        "right_hip": 8532.877591996736,
+        "right_knee": 6307.138812488592,
+        "right_ankle": 2846.0498941515416,
+        "right_shoulder": 3661.9666847201106,
+        "right_elbow": 6708.203932499371,
+        "right_wrist": 5316.013544000805,
+        "right_index": 5433.231082882453,
+        "nose": 2765.8633371878655,
+        "left_shoulder": 9972.462083156794,
+        "left_hip": 8400.0
+      },
+      "com_height": 0.5779074430465698,
+      "shooting_arc": -7.407232300252038,
+      "landmarks": {
+        "nose": {
+          "x": 638,
+          "y": 743
+        },
+        "left_eye_inner": {
+          "x": 626,
+          "y": 733
+        },
+        "left_eye": {
+          "x": 625,
+          "y": 732
+        },
+        "left_eye_outer": {
+          "x": 624,
+          "y": 732
+        },
+        "right_eye_inner": {
+          "x": 620,
+          "y": 734
+        },
+        "right_eye": {
+          "x": 617,
+          "y": 735
+        },
+        "right_eye_outer": {
+          "x": 613,
+          "y": 735
+        },
+        "left_ear": {
+          "x": 597,
+          "y": 739
+        },
+        "right_ear": {
+          "x": 586,
+          "y": 744
+        },
+        "mouth_left": {
+          "x": 620,
+          "y": 748
+        },
+        "mouth_right": {
+          "x": 616,
+          "y": 749
+        },
+        "left_shoulder": {
+          "x": 495,
+          "y": 801
+        },
+        "right_shoulder": {
+          "x": 554,
+          "y": 841
+        },
+        "left_elbow": {
+          "x": 499,
+          "y": 944
+        },
+        "right_elbow": {
+          "x": 521,
+          "y": 999
+        },
+        "left_wrist": {
+          "x": 592,
+          "y": 994
+        },
+        "right_wrist": {
+          "x": 620,
+          "y": 1022
+        },
+        "left_pinky": {
+          "x": 620,
+          "y": 1018
+        },
+        "right_pinky": {
+          "x": 665,
+          "y": 1048
+        },
+        "left_index": {
+          "x": 624,
+          "y": 1000
+        },
+        "right_index": {
+          "x": 663,
+          "y": 1012
+        },
+        "left_thumb": {
+          "x": 618,
+          "y": 988
+        },
+        "right_thumb": {
+          "x": 651,
+          "y": 1001
+        },
+        "left_hip": {
+          "x": 434,
+          "y": 1102
+        },
+        "right_hip": {
+          "x": 470,
+          "y": 1116
+        },
+        "left_knee": {
+          "x": 482,
+          "y": 1303
+        },
+        "right_knee": {
+          "x": 552,
+          "y": 1307
+        },
+        "left_ankle": {
+          "x": 419,
+          "y": 1542
+        },
+        "right_ankle": {
+          "x": 495,
+          "y": 1564
+        },
+        "left_heel": {
+          "x": 390,
+          "y": 1582
+        },
+        "right_heel": {
+          "x": 456,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 500,
+          "y": 1591
+        },
+        "right_foot_index": {
+          "x": 587,
+          "y": 1617
+        }
+      }
+    },
+    {
+      "frame_number": 15,
+      "timestamp": 0.5,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 109.24608392145728,
+        "hip_angle": 107.36448959136385,
+        "elbow_angle": 78.83034312855068,
+        "shoulder_angle": 10.00521647894183,
+        "wrist_angle": 166.78473933651858,
+        "trunk_lean": 98.22816163366427
+      },
+      "velocities": {
+        "right_hip": 963.3935476809693,
+        "right_knee": 422.447062403625,
+        "right_ankle": 126.49110640673518,
+        "right_shoulder": 463.4701702150687,
+        "right_elbow": 434.88690210621553,
+        "right_wrist": 483.6915578734286,
+        "right_index": 677.8393039887857,
+        "nose": 197.45774320343398,
+        "left_shoulder": 1494.339365921391,
+        "left_hip": 915.0687204995533
+      },
+      "accelerations": {
+        "right_hip": -1433.2297514410277,
+        "right_knee": -3290.8797769090093,
+        "right_ankle": -600.0,
+        "right_shoulder": -13090.547920156789,
+        "right_elbow": -4250.714431546412,
+        "right_wrist": -2205.266807797946,
+        "right_index": -5009.491132579589,
+        "nose": 684.0055835445573,
+        "left_shoulder": 4882.6659332013105,
+        "left_hip": -3385.9475816461045
+      },
+      "com_height": 0.5926129519939423,
+      "shooting_arc": -6.585467266948529,
+      "landmarks": {
+        "nose": {
+          "x": 640,
+          "y": 752
+        },
+        "left_eye_inner": {
+          "x": 629,
+          "y": 738
+        },
+        "left_eye": {
+          "x": 629,
+          "y": 738
+        },
+        "left_eye_outer": {
+          "x": 630,
+          "y": 739
+        },
+        "right_eye_inner": {
+          "x": 622,
+          "y": 737
+        },
+        "right_eye": {
+          "x": 618,
+          "y": 737
+        },
+        "right_eye_outer": {
+          "x": 613,
+          "y": 737
+        },
+        "left_ear": {
+          "x": 607,
+          "y": 750
+        },
+        "right_ear": {
+          "x": 584,
+          "y": 748
+        },
+        "mouth_left": {
+          "x": 627,
+          "y": 768
+        },
+        "mouth_right": {
+          "x": 619,
+          "y": 767
+        },
+        "left_shoulder": {
+          "x": 499,
+          "y": 834
+        },
+        "right_shoulder": {
+          "x": 561,
+          "y": 851
+        },
+        "left_elbow": {
+          "x": 506,
+          "y": 998
+        },
+        "right_elbow": {
+          "x": 531,
+          "y": 1019
+        },
+        "left_wrist": {
+          "x": 617,
+          "y": 1034
+        },
+        "right_wrist": {
+          "x": 625,
+          "y": 1039
+        },
+        "left_pinky": {
+          "x": 644,
+          "y": 1051
+        },
+        "right_pinky": {
+          "x": 665,
+          "y": 1061
+        },
+        "left_index": {
+          "x": 651,
+          "y": 1035
+        },
+        "right_index": {
+          "x": 665,
+          "y": 1030
+        },
+        "left_thumb": {
+          "x": 641,
+          "y": 1027
+        },
+        "right_thumb": {
+          "x": 655,
+          "y": 1021
+        },
+        "left_hip": {
+          "x": 434,
+          "y": 1130
+        },
+        "right_hip": {
+          "x": 475,
+          "y": 1144
+        },
+        "left_knee": {
+          "x": 486,
+          "y": 1321
+        },
+        "right_knee": {
+          "x": 571,
+          "y": 1316
+        },
+        "left_ankle": {
+          "x": 418,
+          "y": 1542
+        },
+        "right_ankle": {
+          "x": 504,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 390,
+          "y": 1582
+        },
+        "right_heel": {
+          "x": 468,
+          "y": 1601
+        },
+        "left_foot_index": {
+          "x": 486,
+          "y": 1591
+        },
+        "right_foot_index": {
+          "x": 586,
+          "y": 1616
+        }
+      }
+    },
+    {
+      "frame_number": 20,
+      "timestamp": 0.6666666666666666,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 106.41829810376345,
+        "hip_angle": 102.69632856564425,
+        "elbow_angle": 79.91692129926254,
+        "shoulder_angle": 9.874440765011432,
+        "wrist_angle": 161.2427734051571,
+        "trunk_lean": 95.91567175825718
+      },
+      "velocities": {
+        "right_hip": 474.7414484853718,
+        "right_knee": 386.8150644680868,
+        "right_ankle": 114.86832980505137,
+        "right_shoulder": 358.2945791699137,
+        "right_elbow": 392.3699268703046,
+        "right_wrist": 405.6719481452844,
+        "right_index": 406.74802590786516,
+        "nose": 166.22668694725735,
+        "left_shoulder": 720.7830190927958,
+        "left_hip": 370.7106781186547
+      },
+      "accelerations": {
+        "right_hip": -14659.562975867924,
+        "right_knee": -1068.9599380661462,
+        "right_ankle": -348.6832980505143,
+        "right_shoulder": -3155.2677313546515,
+        "right_elbow": -1275.5092570773281,
+        "right_wrist": -2340.5882918443276,
+        "right_index": -8132.738342427616,
+        "nose": -936.9316876852988,
+        "left_shoulder": -23206.690404857854,
+        "left_hip": -16330.741271426956
+      },
+      "com_height": 0.5864251554012299,
+      "shooting_arc": -12.457065328801013,
+      "landmarks": {
+        "nose": {
+          "x": 644,
+          "y": 757
+        },
+        "left_eye_inner": {
+          "x": 633,
+          "y": 741
+        },
+        "left_eye": {
+          "x": 632,
+          "y": 741
+        },
+        "left_eye_outer": {
+          "x": 631,
+          "y": 741
+        },
+        "right_eye_inner": {
+          "x": 628,
+          "y": 741
+        },
+        "right_eye": {
+          "x": 623,
+          "y": 741
+        },
+        "right_eye_outer": {
+          "x": 617,
+          "y": 742
+        },
+        "left_ear": {
+          "x": 606,
+          "y": 752
+        },
+        "right_ear": {
+          "x": 584,
+          "y": 754
+        },
+        "mouth_left": {
+          "x": 634,
+          "y": 773
+        },
+        "mouth_right": {
+          "x": 628,
+          "y": 777
+        },
+        "left_shoulder": {
+          "x": 516,
+          "y": 853
+        },
+        "right_shoulder": {
+          "x": 570,
+          "y": 857
+        },
+        "left_elbow": {
+          "x": 497,
+          "y": 1007
+        },
+        "right_elbow": {
+          "x": 534,
+          "y": 1014
+        },
+        "left_wrist": {
+          "x": 587,
+          "y": 1093
+        },
+        "right_wrist": {
+          "x": 629,
+          "y": 1051
+        },
+        "left_pinky": {
+          "x": 627,
+          "y": 1101
+        },
+        "right_pinky": {
+          "x": 665,
+          "y": 1074
+        },
+        "left_index": {
+          "x": 612,
+          "y": 1097
+        },
+        "right_index": {
+          "x": 668,
+          "y": 1044
+        },
+        "left_thumb": {
+          "x": 597,
+          "y": 1095
+        },
+        "right_thumb": {
+          "x": 661,
+          "y": 1034
+        },
+        "left_hip": {
+          "x": 433,
+          "y": 1123
+        },
+        "right_hip": {
+          "x": 474,
+          "y": 1128
+        },
+        "left_knee": {
+          "x": 493,
+          "y": 1319
+        },
+        "right_knee": {
+          "x": 580,
+          "y": 1317
+        },
+        "left_ankle": {
+          "x": 416,
+          "y": 1540
+        },
+        "right_ankle": {
+          "x": 504,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 390,
+          "y": 1582
+        },
+        "right_heel": {
+          "x": 468,
+          "y": 1600
+        },
+        "left_foot_index": {
+          "x": 486,
+          "y": 1587
+        },
+        "right_foot_index": {
+          "x": 587,
+          "y": 1616
+        }
+      }
+    },
+    {
+      "frame_number": 25,
+      "timestamp": 0.8333333333333334,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 102.3676859791389,
+        "hip_angle": 97.31992097521716,
+        "elbow_angle": 75.96146422869305,
+        "shoulder_angle": 10.33854639102941,
+        "wrist_angle": 161.2595433706537,
+        "trunk_lean": 93.83118326715321
+      },
+      "velocities": {
+        "right_hip": 200.31219541881399,
+        "right_knee": 234.88662300025348,
+        "right_ankle": 30.0,
+        "right_shoulder": 350.24656552249047,
+        "right_elbow": 285.8101282275219,
+        "right_wrist": 306.5739934376574,
+        "right_index": 282.20886564004053,
+        "nose": 94.03124237432849,
+        "left_shoulder": 455.44965564589637,
+        "left_hip": 113.07135789365266
+      },
+      "accelerations": {
+        "right_hip": -8232.877591996734,
+        "right_knee": -4557.853244035,
+        "right_ankle": -2546.049894151541,
+        "right_shoulder": -241.44040942269612,
+        "right_elbow": -3196.7939592834814,
+        "right_wrist": -2972.938641228809,
+        "right_index": -3736.174808034739,
+        "nose": -2165.863337187866,
+        "left_shoulder": -7960.0009034069835,
+        "left_hip": -7729.179606750062
+      },
+      "com_height": 0.5863348841667175,
+      "shooting_arc": -11.71666378495223,
+      "landmarks": {
+        "nose": {
+          "x": 644,
+          "y": 756
+        },
+        "left_eye_inner": {
+          "x": 633,
+          "y": 741
+        },
+        "left_eye": {
+          "x": 631,
+          "y": 741
+        },
+        "left_eye_outer": {
+          "x": 631,
+          "y": 741
+        },
+        "right_eye_inner": {
+          "x": 627,
+          "y": 741
+        },
+        "right_eye": {
+          "x": 622,
+          "y": 741
+        },
+        "right_eye_outer": {
+          "x": 617,
+          "y": 742
+        },
+        "left_ear": {
+          "x": 605,
+          "y": 752
+        },
+        "right_ear": {
+          "x": 587,
+          "y": 755
+        },
+        "mouth_left": {
+          "x": 637,
+          "y": 773
+        },
+        "mouth_right": {
+          "x": 632,
+          "y": 776
+        },
+        "left_shoulder": {
+          "x": 529,
+          "y": 850
+        },
+        "right_shoulder": {
+          "x": 578,
+          "y": 867
+        },
+        "left_elbow": {
+          "x": 423,
+          "y": 990
+        },
+        "right_elbow": {
+          "x": 535,
+          "y": 1025
+        },
+        "left_wrist": {
+          "x": 383,
+          "y": 1093
+        },
+        "right_wrist": {
+          "x": 631,
+          "y": 1061
+        },
+        "left_pinky": {
+          "x": 363,
+          "y": 1106
+        },
+        "right_pinky": {
+          "x": 665,
+          "y": 1086
+        },
+        "left_index": {
+          "x": 376,
+          "y": 1103
+        },
+        "right_index": {
+          "x": 670,
+          "y": 1052
+        },
+        "left_thumb": {
+          "x": 389,
+          "y": 1099
+        },
+        "right_thumb": {
+          "x": 663,
+          "y": 1042
+        },
+        "left_hip": {
+          "x": 431,
+          "y": 1123
+        },
+        "right_hip": {
+          "x": 471,
+          "y": 1128
+        },
+        "left_knee": {
+          "x": 495,
+          "y": 1325
+        },
+        "right_knee": {
+          "x": 587,
+          "y": 1322
+        },
+        "left_ankle": {
+          "x": 416,
+          "y": 1540
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 388,
+          "y": 1581
+        },
+        "right_heel": {
+          "x": 469,
+          "y": 1600
+        },
+        "left_foot_index": {
+          "x": 485,
+          "y": 1586
+        },
+        "right_foot_index": {
+          "x": 589,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 30,
+      "timestamp": 1.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 100.95877316941095,
+        "hip_angle": 94.24365470290185,
+        "elbow_angle": 72.25985732558924,
+        "shoulder_angle": 11.130425762617115,
+        "wrist_angle": 160.59006206185856,
+        "trunk_lean": 93.45389743647041
+      },
+      "velocities": {
+        "right_hip": 76.05551275463989,
+        "right_knee": 189.05413116887507,
+        "right_ankle": 40.0,
+        "right_shoulder": 312.08002725857074,
+        "right_elbow": 312.9406467322442,
+        "right_wrist": 230.08288703092225,
+        "right_index": 199.85828031025918,
+        "nose": 52.3606797749979,
+        "left_shoulder": 300.49867996625704,
+        "left_hip": 93.35087491092575
+      },
+      "accelerations": {
+        "right_hip": -3727.7004799252227,
+        "right_knee": -1374.974754941352,
+        "right_ankle": 300.0,
+        "right_shoulder": -1144.996147917592,
+        "right_elbow": 813.9155551416695,
+        "right_wrist": -2294.733192202055,
+        "right_index": -2470.5175598934406,
+        "nose": -1250.1168779799177,
+        "left_shoulder": -4648.52927038918,
+        "left_hip": -591.6144894818071
+      },
+      "com_height": 0.5866609215736389,
+      "shooting_arc": -10.002995160746316,
+      "landmarks": {
+        "nose": {
+          "x": 644,
+          "y": 758
+        },
+        "left_eye_inner": {
+          "x": 632,
+          "y": 741
+        },
+        "left_eye": {
+          "x": 630,
+          "y": 741
+        },
+        "left_eye_outer": {
+          "x": 628,
+          "y": 741
+        },
+        "right_eye_inner": {
+          "x": 627,
+          "y": 742
+        },
+        "right_eye": {
+          "x": 622,
+          "y": 743
+        },
+        "right_eye_outer": {
+          "x": 617,
+          "y": 744
+        },
+        "left_ear": {
+          "x": 600,
+          "y": 757
+        },
+        "right_ear": {
+          "x": 587,
+          "y": 760
+        },
+        "mouth_left": {
+          "x": 638,
+          "y": 776
+        },
+        "mouth_right": {
+          "x": 634,
+          "y": 779
+        },
+        "left_shoulder": {
+          "x": 535,
+          "y": 853
+        },
+        "right_shoulder": {
+          "x": 587,
+          "y": 874
+        },
+        "left_elbow": {
+          "x": 494,
+          "y": 1012
+        },
+        "right_elbow": {
+          "x": 539,
+          "y": 1036
+        },
+        "left_wrist": {
+          "x": 568,
+          "y": 1070
+        },
+        "right_wrist": {
+          "x": 636,
+          "y": 1067
+        },
+        "left_pinky": {
+          "x": 584,
+          "y": 1091
+        },
+        "right_pinky": {
+          "x": 666,
+          "y": 1092
+        },
+        "left_index": {
+          "x": 590,
+          "y": 1098
+        },
+        "right_index": {
+          "x": 674,
+          "y": 1056
+        },
+        "left_thumb": {
+          "x": 600,
+          "y": 1058
+        },
+        "right_thumb": {
+          "x": 667,
+          "y": 1043
+        },
+        "left_hip": {
+          "x": 429,
+          "y": 1122
+        },
+        "right_hip": {
+          "x": 471,
+          "y": 1129
+        },
+        "left_knee": {
+          "x": 502,
+          "y": 1325
+        },
+        "right_knee": {
+          "x": 590,
+          "y": 1327
+        },
+        "left_ankle": {
+          "x": 417,
+          "y": 1537
+        },
+        "right_ankle": {
+          "x": 507,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 388,
+          "y": 1577
+        },
+        "right_heel": {
+          "x": 471,
+          "y": 1600
+        },
+        "left_foot_index": {
+          "x": 482,
+          "y": 1584
+        },
+        "right_foot_index": {
+          "x": 590,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 35,
+      "timestamp": 1.1666666666666667,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 99.63378889443301,
+        "hip_angle": 94.32887926683367,
+        "elbow_angle": 71.7404375278272,
+        "shoulder_angle": 13.136286880685796,
+        "wrist_angle": 162.2748510126106,
+        "trunk_lean": 93.9778061484758
+      },
+      "velocities": {
+        "right_hip": 97.04570789056773,
+        "right_knee": 167.06212087277729,
+        "right_ankle": 30.0,
+        "right_shoulder": 248.04878488424228,
+        "right_elbow": 280.5895333194381,
+        "right_wrist": 220.2979413319954,
+        "right_index": 234.015205694812,
+        "nose": 64.7213595499958,
+        "left_shoulder": 198.7048159266775,
+        "left_hip": 134.17850021390794
+      },
+      "accelerations": {
+        "right_hip": 629.705854077835,
+        "right_knee": -659.7603088829337,
+        "right_ankle": -300.0,
+        "right_shoulder": -1920.9372712298536,
+        "right_elbow": -970.5334023841834,
+        "right_wrist": -293.54837096780585,
+        "right_index": 1024.7077615365852,
+        "nose": 370.82039324993696,
+        "left_shoulder": -3053.8159211873863,
+        "left_hip": 1224.8287590894656
+      },
+      "com_height": 0.5886286795139313,
+      "shooting_arc": -7.426781497065921,
+      "landmarks": {
+        "nose": {
+          "x": 643,
+          "y": 760
+        },
+        "left_eye_inner": {
+          "x": 629,
+          "y": 744
+        },
+        "left_eye": {
+          "x": 627,
+          "y": 743
+        },
+        "left_eye_outer": {
+          "x": 625,
+          "y": 743
+        },
+        "right_eye_inner": {
+          "x": 627,
+          "y": 745
+        },
+        "right_eye": {
+          "x": 622,
+          "y": 747
+        },
+        "right_eye_outer": {
+          "x": 616,
+          "y": 749
+        },
+        "left_ear": {
+          "x": 597,
+          "y": 762
+        },
+        "right_ear": {
+          "x": 587,
+          "y": 767
+        },
+        "mouth_left": {
+          "x": 637,
+          "y": 780
+        },
+        "mouth_right": {
+          "x": 634,
+          "y": 782
+        },
+        "left_shoulder": {
+          "x": 543,
+          "y": 859
+        },
+        "right_shoulder": {
+          "x": 587,
+          "y": 881
+        },
+        "left_elbow": {
+          "x": 509,
+          "y": 1014
+        },
+        "right_elbow": {
+          "x": 542,
+          "y": 1044
+        },
+        "left_wrist": {
+          "x": 592,
+          "y": 1064
+        },
+        "right_wrist": {
+          "x": 641,
+          "y": 1067
+        },
+        "left_pinky": {
+          "x": 597,
+          "y": 1087
+        },
+        "right_pinky": {
+          "x": 671,
+          "y": 1091
+        },
+        "left_index": {
+          "x": 609,
+          "y": 1085
+        },
+        "right_index": {
+          "x": 680,
+          "y": 1055
+        },
+        "left_thumb": {
+          "x": 621,
+          "y": 1048
+        },
+        "right_thumb": {
+          "x": 672,
+          "y": 1043
+        },
+        "left_hip": {
+          "x": 430,
+          "y": 1127
+        },
+        "right_hip": {
+          "x": 473,
+          "y": 1132
+        },
+        "left_knee": {
+          "x": 515,
+          "y": 1327
+        },
+        "right_knee": {
+          "x": 592,
+          "y": 1331
+        },
+        "left_ankle": {
+          "x": 417,
+          "y": 1532
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 388,
+          "y": 1570
+        },
+        "right_heel": {
+          "x": 471,
+          "y": 1600
+        },
+        "left_foot_index": {
+          "x": 478,
+          "y": 1582
+        },
+        "right_foot_index": {
+          "x": 588,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 40,
+      "timestamp": 1.3333333333333333,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 96.41143205198257,
+        "hip_angle": 93.62016138820961,
+        "elbow_angle": 73.56222998934683,
+        "shoulder_angle": 17.189427284392966,
+        "wrist_angle": 162.94650745755908,
+        "trunk_lean": 92.90624320929601
+      },
+      "velocities": {
+        "right_hip": 177.04570789056774,
+        "right_knee": 165.3211444192481,
+        "right_ankle": 30.0,
+        "right_shoulder": 175.26229863050511,
+        "right_elbow": 262.0311122302029,
+        "right_wrist": 263.02590430887454,
+        "right_index": 280.4029646097582,
+        "nose": 95.71155468592364,
+        "left_shoulder": 182.61297173761167,
+        "left_hip": 204.0132650118389
+      },
+      "accelerations": {
+        "right_hip": 2400.0000000000005,
+        "right_knee": -52.22929360587557,
+        "right_ankle": 0.0,
+        "right_shoulder": -2183.594587612115,
+        "right_elbow": -556.7526326770559,
+        "right_wrist": 1281.8388893063748,
+        "right_index": 1391.6327674483862,
+        "nose": 929.7058540778355,
+        "left_shoulder": -482.75532567197473,
+        "left_hip": 2095.042943937929
+      },
+      "com_height": 0.5914659202098846,
+      "shooting_arc": -4.486467636493511,
+      "landmarks": {
+        "nose": {
+          "x": 642,
+          "y": 762
+        },
+        "left_eye_inner": {
+          "x": 627,
+          "y": 746
+        },
+        "left_eye": {
+          "x": 625,
+          "y": 746
+        },
+        "left_eye_outer": {
+          "x": 622,
+          "y": 746
+        },
+        "right_eye_inner": {
+          "x": 625,
+          "y": 749
+        },
+        "right_eye": {
+          "x": 621,
+          "y": 751
+        },
+        "right_eye_outer": {
+          "x": 616,
+          "y": 753
+        },
+        "left_ear": {
+          "x": 594,
+          "y": 767
+        },
+        "right_ear": {
+          "x": 587,
+          "y": 772
+        },
+        "mouth_left": {
+          "x": 637,
+          "y": 783
+        },
+        "mouth_right": {
+          "x": 634,
+          "y": 786
+        },
+        "left_shoulder": {
+          "x": 542,
+          "y": 862
+        },
+        "right_shoulder": {
+          "x": 583,
+          "y": 886
+        },
+        "left_elbow": {
+          "x": 508,
+          "y": 1013
+        },
+        "right_elbow": {
+          "x": 547,
+          "y": 1050
+        },
+        "left_wrist": {
+          "x": 576,
+          "y": 1082
+        },
+        "right_wrist": {
+          "x": 650,
+          "y": 1065
+        },
+        "left_pinky": {
+          "x": 584,
+          "y": 1086
+        },
+        "right_pinky": {
+          "x": 683,
+          "y": 1087
+        },
+        "left_index": {
+          "x": 596,
+          "y": 1082
+        },
+        "right_index": {
+          "x": 690,
+          "y": 1049
+        },
+        "left_thumb": {
+          "x": 600,
+          "y": 1077
+        },
+        "right_thumb": {
+          "x": 682,
+          "y": 1038
+        },
+        "left_hip": {
+          "x": 431,
+          "y": 1133
+        },
+        "right_hip": {
+          "x": 472,
+          "y": 1137
+        },
+        "left_knee": {
+          "x": 522,
+          "y": 1330
+        },
+        "right_knee": {
+          "x": 597,
+          "y": 1335
+        },
+        "left_ankle": {
+          "x": 416,
+          "y": 1531
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1562
+        },
+        "left_heel": {
+          "x": 387,
+          "y": 1569
+        },
+        "right_heel": {
+          "x": 470,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 475,
+          "y": 1579
+        },
+        "right_foot_index": {
+          "x": 589,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 45,
+      "timestamp": 1.5,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 92.76290523274346,
+        "hip_angle": 92.15378276125998,
+        "elbow_angle": 75.11012681013257,
+        "shoulder_angle": 20.9685769148886,
+        "wrist_angle": 164.4341451427399,
+        "trunk_lean": 92.46281980106835
+      },
+      "velocities": {
+        "right_hip": 210.99019513592785,
+        "right_knee": 160.5997848692523,
+        "right_ankle": 40.0,
+        "right_shoulder": 141.31781138514498,
+        "right_elbow": 298.2463253829919,
+        "right_wrist": 358.628102094485,
+        "right_index": 368.2360267799611,
+        "nose": 127.20252298227079,
+        "left_shoulder": 127.33433128760744,
+        "left_hip": 223.7337479945658
+      },
+      "accelerations": {
+        "right_hip": 1018.3346173608032,
+        "right_knee": -141.6407864998743,
+        "right_ankle": 300.0,
+        "right_shoulder": -1018.334617360804,
+        "right_elbow": 1086.456394583671,
+        "right_wrist": 2868.065933568313,
+        "right_index": 2634.991865106086,
+        "nose": 944.7290488904144,
+        "left_shoulder": -1658.359213500127,
+        "left_hip": 591.6144894818063
+      },
+      "com_height": 0.5962289273738861,
+      "shooting_arc": -1.9525893239098362,
+      "landmarks": {
+        "nose": {
+          "x": 637,
+          "y": 763
+        },
+        "left_eye_inner": {
+          "x": 623,
+          "y": 748
+        },
+        "left_eye": {
+          "x": 620,
+          "y": 748
+        },
+        "left_eye_outer": {
+          "x": 617,
+          "y": 749
+        },
+        "right_eye_inner": {
+          "x": 621,
+          "y": 751
+        },
+        "right_eye": {
+          "x": 618,
+          "y": 753
+        },
+        "right_eye_outer": {
+          "x": 613,
+          "y": 756
+        },
+        "left_ear": {
+          "x": 590,
+          "y": 769
+        },
+        "right_ear": {
+          "x": 586,
+          "y": 775
+        },
+        "mouth_left": {
+          "x": 635,
+          "y": 784
+        },
+        "mouth_right": {
+          "x": 632,
+          "y": 789
+        },
+        "left_shoulder": {
+          "x": 541,
+          "y": 867
+        },
+        "right_shoulder": {
+          "x": 584,
+          "y": 890
+        },
+        "left_elbow": {
+          "x": 538,
+          "y": 1007
+        },
+        "right_elbow": {
+          "x": 556,
+          "y": 1054
+        },
+        "left_wrist": {
+          "x": 631,
+          "y": 1054
+        },
+        "right_wrist": {
+          "x": 661,
+          "y": 1060
+        },
+        "left_pinky": {
+          "x": 654,
+          "y": 1063
+        },
+        "right_pinky": {
+          "x": 697,
+          "y": 1080
+        },
+        "left_index": {
+          "x": 665,
+          "y": 1060
+        },
+        "right_index": {
+          "x": 699,
+          "y": 1044
+        },
+        "left_thumb": {
+          "x": 662,
+          "y": 1074
+        },
+        "right_thumb": {
+          "x": 689,
+          "y": 1034
+        },
+        "left_hip": {
+          "x": 433,
+          "y": 1142
+        },
+        "right_hip": {
+          "x": 472,
+          "y": 1146
+        },
+        "left_knee": {
+          "x": 533,
+          "y": 1334
+        },
+        "right_knee": {
+          "x": 601,
+          "y": 1339
+        },
+        "left_ankle": {
+          "x": 417,
+          "y": 1531
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1561
+        },
+        "left_heel": {
+          "x": 387,
+          "y": 1567
+        },
+        "right_heel": {
+          "x": 469,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 475,
+          "y": 1579
+        },
+        "right_foot_index": {
+          "x": 588,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 50,
+      "timestamp": 1.6666666666666667,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 92.17605226945497,
+        "hip_angle": 92.9630129200706,
+        "elbow_angle": 81.47223085199731,
+        "shoulder_angle": 28.246443015757112,
+        "wrist_angle": 160.93901548246322,
+        "trunk_lean": 93.45202082662908
+      },
+      "velocities": {
+        "right_hip": 180.0,
+        "right_knee": 132.6240552495637,
+        "right_ankle": 30.0,
+        "right_shoulder": 99.6472487858144,
+        "right_elbow": 350.52787672797837,
+        "right_wrist": 476.6706179378425,
+        "right_index": 463.51318988722596,
+        "nose": 199.71017301232428,
+        "left_shoulder": 149.56320275726867,
+        "left_hip": 204.13717894776025
+      },
+      "accelerations": {
+        "right_hip": -929.7058540778355,
+        "right_knee": -839.2718885906578,
+        "right_ankle": -300.0,
+        "right_shoulder": -1250.1168779799175,
+        "right_elbow": 1568.4465403495933,
+        "right_wrist": 3541.275475300726,
+        "right_index": 2858.314893217946,
+        "nose": 2175.2295009016043,
+        "left_shoulder": 666.8661440898369,
+        "left_hip": -587.8970714041662
+      },
+      "com_height": 0.5996728241443634,
+      "shooting_arc": -0.012922421837625537,
+      "landmarks": {
+        "nose": {
+          "x": 632,
+          "y": 765
+        },
+        "left_eye_inner": {
+          "x": 616,
+          "y": 751
+        },
+        "left_eye": {
+          "x": 614,
+          "y": 751
+        },
+        "left_eye_outer": {
+          "x": 611,
+          "y": 752
+        },
+        "right_eye_inner": {
+          "x": 615,
+          "y": 753
+        },
+        "right_eye": {
+          "x": 611,
+          "y": 756
+        },
+        "right_eye_outer": {
+          "x": 606,
+          "y": 759
+        },
+        "left_ear": {
+          "x": 583,
+          "y": 771
+        },
+        "right_ear": {
+          "x": 581,
+          "y": 777
+        },
+        "mouth_left": {
+          "x": 630,
+          "y": 786
+        },
+        "mouth_right": {
+          "x": 628,
+          "y": 791
+        },
+        "left_shoulder": {
+          "x": 537,
+          "y": 869
+        },
+        "right_shoulder": {
+          "x": 581,
+          "y": 892
+        },
+        "left_elbow": {
+          "x": 531,
+          "y": 1018
+        },
+        "right_elbow": {
+          "x": 568,
+          "y": 1056
+        },
+        "left_wrist": {
+          "x": 636,
+          "y": 1047
+        },
+        "right_wrist": {
+          "x": 675,
+          "y": 1056
+        },
+        "left_pinky": {
+          "x": 668,
+          "y": 1058
+        },
+        "right_pinky": {
+          "x": 713,
+          "y": 1069
+        },
+        "left_index": {
+          "x": 683,
+          "y": 1032
+        },
+        "right_index": {
+          "x": 710,
+          "y": 1034
+        },
+        "left_thumb": {
+          "x": 665,
+          "y": 1032
+        },
+        "right_thumb": {
+          "x": 699,
+          "y": 1025
+        },
+        "left_hip": {
+          "x": 432,
+          "y": 1149
+        },
+        "right_hip": {
+          "x": 472,
+          "y": 1153
+        },
+        "left_knee": {
+          "x": 547,
+          "y": 1338
+        },
+        "right_knee": {
+          "x": 601,
+          "y": 1343
+        },
+        "left_ankle": {
+          "x": 417,
+          "y": 1531
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1563
+        },
+        "left_heel": {
+          "x": 387,
+          "y": 1568
+        },
+        "right_heel": {
+          "x": 469,
+          "y": 1603
+        },
+        "left_foot_index": {
+          "x": 475,
+          "y": 1580
+        },
+        "right_foot_index": {
+          "x": 589,
+          "y": 1621
+        }
+      }
+    },
+    {
+      "frame_number": 55,
+      "timestamp": 1.8333333333333333,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 90.33715877249513,
+        "hip_angle": 93.2347965200178,
+        "elbow_angle": 85.12197936221418,
+        "shoulder_angle": 37.14911450098576,
+        "wrist_angle": 164.70014673081147,
+        "trunk_lean": 94.2226519887087
+      },
+      "velocities": {
+        "right_hip": 112.3606797749979,
+        "right_knee": 98.41619252963778,
+        "right_ankle": 34.14213562373095,
+        "right_shoulder": 72.55832815336875,
+        "right_elbow": 352.5380549212262,
+        "right_wrist": 485.8401582018967,
+        "right_index": 484.2500572458857,
+        "nose": 209.5476031793786,
+        "left_shoulder": 120.93368739633873,
+        "left_hip": 121.94173437483136
+      },
+      "accelerations": {
+        "right_hip": -2029.179606750063,
+        "right_knee": -1026.2358815977773,
+        "right_ankle": 124.26406871192853,
+        "right_shoulder": -812.6676189733695,
+        "right_elbow": 60.305345797435166,
+        "right_wrist": 275.08620792162617,
+        "right_index": 622.106020759793,
+        "nose": 295.12290501162965,
+        "left_shoulder": -858.8854608278983,
+        "left_hip": -2465.863337187867
+      },
+      "com_height": 0.6012945771217346,
+      "shooting_arc": 6.251610796149178,
+      "landmarks": {
+        "nose": {
+          "x": 623,
+          "y": 768
+        },
+        "left_eye_inner": {
+          "x": 606,
+          "y": 753
+        },
+        "left_eye": {
+          "x": 604,
+          "y": 753
+        },
+        "left_eye_outer": {
+          "x": 601,
+          "y": 754
+        },
+        "right_eye_inner": {
+          "x": 605,
+          "y": 755
+        },
+        "right_eye": {
+          "x": 601,
+          "y": 757
+        },
+        "right_eye_outer": {
+          "x": 597,
+          "y": 760
+        },
+        "left_ear": {
+          "x": 574,
+          "y": 772
+        },
+        "right_ear": {
+          "x": 572,
+          "y": 778
+        },
+        "mouth_left": {
+          "x": 621,
+          "y": 788
+        },
+        "mouth_right": {
+          "x": 619,
+          "y": 793
+        },
+        "left_shoulder": {
+          "x": 532,
+          "y": 871
+        },
+        "right_shoulder": {
+          "x": 579,
+          "y": 891
+        },
+        "left_elbow": {
+          "x": 546,
+          "y": 1023
+        },
+        "right_elbow": {
+          "x": 581,
+          "y": 1057
+        },
+        "left_wrist": {
+          "x": 664,
+          "y": 1017
+        },
+        "right_wrist": {
+          "x": 684,
+          "y": 1037
+        },
+        "left_pinky": {
+          "x": 704,
+          "y": 1026
+        },
+        "right_pinky": {
+          "x": 721,
+          "y": 1043
+        },
+        "left_index": {
+          "x": 702,
+          "y": 1000
+        },
+        "right_index": {
+          "x": 717,
+          "y": 1014
+        },
+        "left_thumb": {
+          "x": 683,
+          "y": 995
+        },
+        "right_thumb": {
+          "x": 705,
+          "y": 1006
+        },
+        "left_hip": {
+          "x": 433,
+          "y": 1153
+        },
+        "right_hip": {
+          "x": 472,
+          "y": 1155
+        },
+        "left_knee": {
+          "x": 550,
+          "y": 1341
+        },
+        "right_knee": {
+          "x": 604,
+          "y": 1345
+        },
+        "left_ankle": {
+          "x": 417,
+          "y": 1531
+        },
+        "right_ankle": {
+          "x": 506,
+          "y": 1563
+        },
+        "left_heel": {
+          "x": 385,
+          "y": 1568
+        },
+        "right_heel": {
+          "x": 467,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 470,
+          "y": 1582
+        },
+        "right_foot_index": {
+          "x": 589,
+          "y": 1622
+        }
+      }
+    },
+    {
+      "frame_number": 60,
+      "timestamp": 2.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 89.18282933168416,
+        "hip_angle": 93.30610817074368,
+        "elbow_angle": 87.24416589723938,
+        "shoulder_angle": 42.99863893752618,
+        "wrist_angle": 167.32478801191994,
+        "trunk_lean": 94.78534686695772
+      },
+      "velocities": {
+        "right_hip": 72.3606797749979,
+        "right_knee": 122.44743490396627,
+        "right_ankle": 24.14213562373095,
+        "right_shoulder": 127.05666678010304,
+        "right_elbow": 350.88280431526186,
+        "right_wrist": 581.8988798881778,
+        "right_index": 646.0728636979012,
+        "nose": 216.52358041101573,
+        "left_shoulder": 98.57300762134084,
+        "left_hip": 82.8538328578604
+      },
+      "accelerations": {
+        "right_hip": -1200.0,
+        "right_knee": 720.9372712298546,
+        "right_ankle": -300.0,
+        "right_shoulder": 1634.950158802029,
+        "right_elbow": -49.65751817893022,
+        "right_wrist": 2881.761650588433,
+        "right_index": 4854.684193560464,
+        "nose": 209.27931694911393,
+        "left_shoulder": -670.8203932499367,
+        "left_hip": -1172.6370455091287
+      },
+      "com_height": 0.6022699177265167,
+      "shooting_arc": 10.52081317689464,
+      "landmarks": {
+        "nose": {
+          "x": 617,
+          "y": 769
+        },
+        "left_eye_inner": {
+          "x": 599,
+          "y": 754
+        },
+        "left_eye": {
+          "x": 596,
+          "y": 754
+        },
+        "left_eye_outer": {
+          "x": 592,
+          "y": 755
+        },
+        "right_eye_inner": {
+          "x": 599,
+          "y": 755
+        },
+        "right_eye": {
+          "x": 596,
+          "y": 758
+        },
+        "right_eye_outer": {
+          "x": 592,
+          "y": 760
+        },
+        "left_ear": {
+          "x": 568,
+          "y": 772
+        },
+        "right_ear": {
+          "x": 568,
+          "y": 777
+        },
+        "mouth_left": {
+          "x": 615,
+          "y": 790
+        },
+        "mouth_right": {
+          "x": 612,
+          "y": 794
+        },
+        "left_shoulder": {
+          "x": 530,
+          "y": 872
+        },
+        "right_shoulder": {
+          "x": 578,
+          "y": 890
+        },
+        "left_elbow": {
+          "x": 563,
+          "y": 1028
+        },
+        "right_elbow": {
+          "x": 591,
+          "y": 1058
+        },
+        "left_wrist": {
+          "x": 679,
+          "y": 1003
+        },
+        "right_wrist": {
+          "x": 689,
+          "y": 1025
+        },
+        "left_pinky": {
+          "x": 714,
+          "y": 1007
+        },
+        "right_pinky": {
+          "x": 727,
+          "y": 1029
+        },
+        "left_index": {
+          "x": 711,
+          "y": 982
+        },
+        "right_index": {
+          "x": 720,
+          "y": 1002
+        },
+        "left_thumb": {
+          "x": 694,
+          "y": 979
+        },
+        "right_thumb": {
+          "x": 707,
+          "y": 996
+        },
+        "left_hip": {
+          "x": 433,
+          "y": 1154
+        },
+        "right_hip": {
+          "x": 471,
+          "y": 1157
+        },
+        "left_knee": {
+          "x": 550,
+          "y": 1343
+        },
+        "right_knee": {
+          "x": 605,
+          "y": 1347
+        },
+        "left_ankle": {
+          "x": 416,
+          "y": 1532
+        },
+        "right_ankle": {
+          "x": 505,
+          "y": 1564
+        },
+        "left_heel": {
+          "x": 380,
+          "y": 1565
+        },
+        "right_heel": {
+          "x": 466,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 468,
+          "y": 1583
+        },
+        "right_foot_index": {
+          "x": 588,
+          "y": 1622
+        }
+      }
+    },
+    {
+      "frame_number": 65,
+      "timestamp": 2.1666666666666665,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 86.19259573476063,
+        "hip_angle": 94.88721801312467,
+        "elbow_angle": 91.79492496374056,
+        "shoulder_angle": 52.723663199295395,
+        "wrist_angle": 167.2023557332391,
+        "trunk_lean": 95.05985517246256
+      },
+      "velocities": {
+        "right_hip": 83.9834563766817,
+        "right_knee": 100.53405777305734,
+        "right_ankle": 68.86349517372675,
+        "right_shoulder": 205.194743216314,
+        "right_elbow": 431.4489873084988,
+        "right_wrist": 654.5036319465104,
+        "right_index": 787.730053287004,
+        "nose": 182.48287590894657,
+        "left_shoulder": 58.863495173726754,
+        "left_hip": 77.67828935632369
+      },
+      "accelerations": {
+        "right_hip": 348.6832980505139,
+        "right_knee": -657.4013139272678,
+        "right_ankle": 1341.640786499874,
+        "right_shoulder": 2344.142293086329,
+        "right_elbow": 2416.985489797107,
+        "right_wrist": 2178.142561749977,
+        "right_index": 4249.715687673084,
+        "nose": -1021.2211350620748,
+        "left_shoulder": -1191.2853734284224,
+        "left_hip": -155.26630504610125
+      },
+      "com_height": 0.6036986410617828,
+      "shooting_arc": 18.180051747275137,
+      "landmarks": {
+        "nose": {
+          "x": 611,
+          "y": 770
+        },
+        "left_eye_inner": {
+          "x": 594,
+          "y": 754
+        },
+        "left_eye": {
+          "x": 591,
+          "y": 755
+        },
+        "left_eye_outer": {
+          "x": 587,
+          "y": 755
+        },
+        "right_eye_inner": {
+          "x": 594,
+          "y": 756
+        },
+        "right_eye": {
+          "x": 590,
+          "y": 758
+        },
+        "right_eye_outer": {
+          "x": 586,
+          "y": 761
+        },
+        "left_ear": {
+          "x": 563,
+          "y": 772
+        },
+        "right_ear": {
+          "x": 562,
+          "y": 777
+        },
+        "mouth_left": {
+          "x": 608,
+          "y": 790
+        },
+        "mouth_right": {
+          "x": 606,
+          "y": 795
+        },
+        "left_shoulder": {
+          "x": 528,
+          "y": 873
+        },
+        "right_shoulder": {
+          "x": 569,
+          "y": 891
+        },
+        "left_elbow": {
+          "x": 572,
+          "y": 1021
+        },
+        "right_elbow": {
+          "x": 603,
+          "y": 1058
+        },
+        "left_wrist": {
+          "x": 687,
+          "y": 983
+        },
+        "right_wrist": {
+          "x": 699,
+          "y": 1003
+        },
+        "left_pinky": {
+          "x": 722,
+          "y": 980
+        },
+        "right_pinky": {
+          "x": 736,
+          "y": 1001
+        },
+        "left_index": {
+          "x": 713,
+          "y": 954
+        },
+        "right_index": {
+          "x": 728,
+          "y": 972
+        },
+        "left_thumb": {
+          "x": 696,
+          "y": 956
+        },
+        "right_thumb": {
+          "x": 712,
+          "y": 971
+        },
+        "left_hip": {
+          "x": 434,
+          "y": 1157
+        },
+        "right_hip": {
+          "x": 471,
+          "y": 1160
+        },
+        "left_knee": {
+          "x": 551,
+          "y": 1347
+        },
+        "right_knee": {
+          "x": 610,
+          "y": 1351
+        },
+        "left_ankle": {
+          "x": 415,
+          "y": 1533
+        },
+        "right_ankle": {
+          "x": 504,
+          "y": 1564
+        },
+        "left_heel": {
+          "x": 377,
+          "y": 1565
+        },
+        "right_heel": {
+          "x": 464,
+          "y": 1602
+        },
+        "left_foot_index": {
+          "x": 465,
+          "y": 1584
+        },
+        "right_foot_index": {
+          "x": 586,
+          "y": 1623
+        }
+      }
+    },
+    {
+      "frame_number": 70,
+      "timestamp": 2.3333333333333335,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 84.47451127491807,
+        "hip_angle": 97.20599800432414,
+        "elbow_angle": 95.03367029653037,
+        "shoulder_angle": 64.7807728476332,
+        "wrist_angle": 162.4404549401541,
+        "trunk_lean": 95.88828750239213
+      },
+      "velocities": {
+        "right_hip": 75.76491222541475,
+        "right_knee": 108.17337799805944,
+        "right_ankle": 184.7213595499958,
+        "right_shoulder": 311.4685533805061,
+        "right_elbow": 507.8682912268312,
+        "right_wrist": 844.5036319465104,
+        "right_index": 1054.5493683138068,
+        "nose": 232.10886077783698,
+        "left_shoulder": 107.21349351738361,
+        "left_hip": 99.30106595800748
+      },
+      "accelerations": {
+        "right_hip": -246.55632453800862,
+        "right_knee": 229.17960675006285,
+        "right_ankle": 3475.7359312880717,
+        "right_shoulder": 3188.214304925762,
+        "right_elbow": 2292.5791175499735,
+        "right_wrist": 5700.0,
+        "right_index": 8004.5794508040835,
+        "nose": 1488.7795460667123,
+        "left_shoulder": 1450.4999503097058,
+        "left_hip": 648.6832980505139
+      },
+      "com_height": 0.6048572957515717,
+      "shooting_arc": 29.710004287233584,
+      "landmarks": {
+        "nose": {
+          "x": 605,
+          "y": 771
+        },
+        "left_eye_inner": {
+          "x": 588,
+          "y": 755
+        },
+        "left_eye": {
+          "x": 585,
+          "y": 755
+        },
+        "left_eye_outer": {
+          "x": 581,
+          "y": 756
+        },
+        "right_eye_inner": {
+          "x": 588,
+          "y": 757
+        },
+        "right_eye": {
+          "x": 585,
+          "y": 759
+        },
+        "right_eye_outer": {
+          "x": 581,
+          "y": 761
+        },
+        "left_ear": {
+          "x": 557,
+          "y": 772
+        },
+        "right_ear": {
+          "x": 557,
+          "y": 776
+        },
+        "mouth_left": {
+          "x": 598,
+          "y": 791
+        },
+        "mouth_right": {
+          "x": 598,
+          "y": 795
+        },
+        "left_shoulder": {
+          "x": 527,
+          "y": 874
+        },
+        "right_shoulder": {
+          "x": 559,
+          "y": 890
+        },
+        "left_elbow": {
+          "x": 589,
+          "y": 1016
+        },
+        "right_elbow": {
+          "x": 624,
+          "y": 1056
+        },
+        "left_wrist": {
+          "x": 681,
+          "y": 955
+        },
+        "right_wrist": {
+          "x": 703,
+          "y": 975
+        },
+        "left_pinky": {
+          "x": 718,
+          "y": 940
+        },
+        "right_pinky": {
+          "x": 737,
+          "y": 960
+        },
+        "left_index": {
+          "x": 701,
+          "y": 922
+        },
+        "right_index": {
+          "x": 723,
+          "y": 937
+        },
+        "left_thumb": {
+          "x": 686,
+          "y": 928
+        },
+        "right_thumb": {
+          "x": 708,
+          "y": 943
+        },
+        "left_hip": {
+          "x": 437,
+          "y": 1159
+        },
+        "right_hip": {
+          "x": 470,
+          "y": 1163
+        },
+        "left_knee": {
+          "x": 559,
+          "y": 1347
+        },
+        "right_knee": {
+          "x": 611,
+          "y": 1352
+        },
+        "left_ankle": {
+          "x": 413,
+          "y": 1533
+        },
+        "right_ankle": {
+          "x": 500,
+          "y": 1566
+        },
+        "left_heel": {
+          "x": 376,
+          "y": 1564
+        },
+        "right_heel": {
+          "x": 459,
+          "y": 1601
+        },
+        "left_foot_index": {
+          "x": 464,
+          "y": 1586
+        },
+        "right_foot_index": {
+          "x": 582,
+          "y": 1626
+        }
+      }
+    },
+    {
+      "frame_number": 75,
+      "timestamp": 2.5,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 82.16322092405585,
+        "hip_angle": 100.33229615092209,
+        "elbow_angle": 95.35259847494875,
+        "shoulder_angle": 72.75323150502044,
+        "wrist_angle": 164.47825752492517,
+        "trunk_lean": 97.78383716985468
+      },
+      "velocities": {
+        "right_hip": 68.12559200041265,
+        "right_knee": 75.76491222541475,
+        "right_ankle": 203.0056307974577,
+        "right_shoulder": 230.91470199913184,
+        "right_elbow": 660.9982969017846,
+        "right_wrist": 992.9708965372423,
+        "right_index": 1128.7735556220332,
+        "nose": 261.835086856229,
+        "left_shoulder": 256.0252414286226,
+        "left_hip": 87.67828935632367
+      },
+      "accelerations": {
+        "right_hip": -229.17960675006285,
+        "right_knee": -972.2539731793406,
+        "right_ankle": 548.5281374238571,
+        "right_shoulder": -2416.6155414412274,
+        "right_elbow": 4593.9001702486,
+        "right_wrist": 4454.017937721957,
+        "right_index": 2226.7256192467926,
+        "nose": 891.7867823517605,
+        "left_shoulder": 4464.352437337171,
+        "left_hip": -348.6832980505143
+      },
+      "com_height": 0.6055071949958801,
+      "shooting_arc": 40.4893686182392,
+      "landmarks": {
+        "nose": {
+          "x": 594,
+          "y": 772
+        },
+        "left_eye_inner": {
+          "x": 579,
+          "y": 755
+        },
+        "left_eye": {
+          "x": 575,
+          "y": 755
+        },
+        "left_eye_outer": {
+          "x": 572,
+          "y": 756
+        },
+        "right_eye_inner": {
+          "x": 579,
+          "y": 757
+        },
+        "right_eye": {
+          "x": 576,
+          "y": 758
+        },
+        "right_eye_outer": {
+          "x": 572,
+          "y": 760
+        },
+        "left_ear": {
+          "x": 549,
+          "y": 771
+        },
+        "right_ear": {
+          "x": 546,
+          "y": 776
+        },
+        "mouth_left": {
+          "x": 585,
+          "y": 791
+        },
+        "mouth_right": {
+          "x": 586,
+          "y": 795
+        },
+        "left_shoulder": {
+          "x": 520,
+          "y": 873
+        },
+        "right_shoulder": {
+          "x": 547,
+          "y": 889
+        },
+        "left_elbow": {
+          "x": 598,
+          "y": 1004
+        },
+        "right_elbow": {
+          "x": 637,
+          "y": 1044
+        },
+        "left_wrist": {
+          "x": 677,
+          "y": 930
+        },
+        "right_wrist": {
+          "x": 703,
+          "y": 943
+        },
+        "left_pinky": {
+          "x": 712,
+          "y": 908
+        },
+        "right_pinky": {
+          "x": 738,
+          "y": 917
+        },
+        "left_index": {
+          "x": 697,
+          "y": 892
+        },
+        "right_index": {
+          "x": 721,
+          "y": 898
+        },
+        "left_thumb": {
+          "x": 678,
+          "y": 903
+        },
+        "right_thumb": {
+          "x": 705,
+          "y": 908
+        },
+        "left_hip": {
+          "x": 440,
+          "y": 1160
+        },
+        "right_hip": {
+          "x": 469,
+          "y": 1164
+        },
+        "left_knee": {
+          "x": 557,
+          "y": 1359
+        },
+        "right_knee": {
+          "x": 608,
+          "y": 1352
+        },
+        "left_ankle": {
+          "x": 412,
+          "y": 1535
+        },
+        "right_ankle": {
+          "x": 487,
+          "y": 1566
+        },
+        "left_heel": {
+          "x": 369,
+          "y": 1563
+        },
+        "right_heel": {
+          "x": 447,
+          "y": 1599
+        },
+        "left_foot_index": {
+          "x": 459,
+          "y": 1588
+        },
+        "right_foot_index": {
+          "x": 574,
+          "y": 1627
+        }
+      }
+    },
+    {
+      "frame_number": 80,
+      "timestamp": 2.6666666666666665,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 82.72851710251118,
+        "hip_angle": 101.48022161997355,
+        "elbow_angle": 93.71919181951095,
+        "shoulder_angle": 80.11696372944763,
+        "wrist_angle": 168.6068568651375,
+        "trunk_lean": 100.62393850207974
+      },
+      "velocities": {
+        "right_hip": 86.50281539872886,
+        "right_knee": 75.76491222541475,
+        "right_ankle": 214.8528137423857,
+        "right_shoulder": 336.328548607663,
+        "right_elbow": 918.2360622332795,
+        "right_wrist": 1270.9311797750213,
+        "right_index": 1433.855117031764,
+        "nose": 371.00746155324686,
+        "left_shoulder": 355.9006483148055,
+        "left_hip": 101.62277660168381
+      },
+      "accelerations": {
+        "right_hip": 551.3167019494861,
+        "right_knee": 0.0,
+        "right_ankle": 355.4154883478398,
+        "right_shoulder": 3162.415398255934,
+        "right_elbow": 7717.132959944849,
+        "right_wrist": 8338.80849713337,
+        "right_index": 9152.446842291922,
+        "nose": 3275.1712409105357,
+        "left_shoulder": 2996.262206585486,
+        "left_hip": 418.3346173608041
+      },
+      "com_height": 0.6060819327831268,
+      "shooting_arc": 50.12608096943364,
+      "landmarks": {
+        "nose": {
+          "x": 585,
+          "y": 771
+        },
+        "left_eye_inner": {
+          "x": 570,
+          "y": 755
+        },
+        "left_eye": {
+          "x": 567,
+          "y": 755
+        },
+        "left_eye_outer": {
+          "x": 563,
+          "y": 756
+        },
+        "right_eye_inner": {
+          "x": 570,
+          "y": 756
+        },
+        "right_eye": {
+          "x": 566,
+          "y": 758
+        },
+        "right_eye_outer": {
+          "x": 563,
+          "y": 760
+        },
+        "left_ear": {
+          "x": 540,
+          "y": 769
+        },
+        "right_ear": {
+          "x": 537,
+          "y": 774
+        },
+        "mouth_left": {
+          "x": 577,
+          "y": 791
+        },
+        "mouth_right": {
+          "x": 577,
+          "y": 794
+        },
+        "left_shoulder": {
+          "x": 503,
+          "y": 871
+        },
+        "right_shoulder": {
+          "x": 548,
+          "y": 889
+        },
+        "left_elbow": {
+          "x": 595,
+          "y": 981
+        },
+        "right_elbow": {
+          "x": 648,
+          "y": 1019
+        },
+        "left_wrist": {
+          "x": 671,
+          "y": 910
+        },
+        "right_wrist": {
+          "x": 702,
+          "y": 904
+        },
+        "left_pinky": {
+          "x": 695,
+          "y": 877
+        },
+        "right_pinky": {
+          "x": 732,
+          "y": 873
+        },
+        "left_index": {
+          "x": 688,
+          "y": 867
+        },
+        "right_index": {
+          "x": 715,
+          "y": 860
+        },
+        "left_thumb": {
+          "x": 675,
+          "y": 880
+        },
+        "right_thumb": {
+          "x": 704,
+          "y": 872
+        },
+        "left_hip": {
+          "x": 440,
+          "y": 1162
+        },
+        "right_hip": {
+          "x": 471,
+          "y": 1165
+        },
+        "left_knee": {
+          "x": 553,
+          "y": 1355
+        },
+        "right_knee": {
+          "x": 609,
+          "y": 1355
+        },
+        "left_ankle": {
+          "x": 411,
+          "y": 1537
+        },
+        "right_ankle": {
+          "x": 489,
+          "y": 1568
+        },
+        "left_heel": {
+          "x": 369,
+          "y": 1564
+        },
+        "right_heel": {
+          "x": 448,
+          "y": 1599
+        },
+        "left_foot_index": {
+          "x": 461,
+          "y": 1590
+        },
+        "right_foot_index": {
+          "x": 573,
+          "y": 1629
+        }
+      }
+    },
+    {
+      "frame_number": 85,
+      "timestamp": 2.8333333333333335,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 83.88795280883576,
+        "hip_angle": 108.1328625321419,
+        "elbow_angle": 90.83650176529997,
+        "shoulder_angle": 86.22498848441387,
+        "wrist_angle": 121.75544414477415,
+        "trunk_lean": 106.29394423952945
+      },
+      "velocities": {
+        "right_hip": 202.74472787905088,
+        "right_knee": 77.38768882709854,
+        "right_ankle": 94.8528137423857,
+        "right_shoulder": 396.1901665929395,
+        "right_elbow": 1003.806097071872,
+        "right_wrist": 1291.0782068089202,
+        "right_index": 1415.364137991197,
+        "nose": 449.23347402250624,
+        "left_shoulder": 476.2397019415787,
+        "left_hip": 130.82762530298217
+      },
+      "accelerations": {
+        "right_hip": 3487.2573744096608,
+        "right_knee": 48.68329805051388,
+        "right_ankle": -3600.0,
+        "right_shoulder": 1795.8485395582948,
+        "right_elbow": 2567.101045157775,
+        "right_wrist": 604.4108110169668,
+        "right_index": -554.7293712170108,
+        "nose": 2346.7803740777817,
+        "left_shoulder": 3610.171608803196,
+        "left_hip": 876.1454610389508
+      },
+      "com_height": 0.6047208905220032,
+      "shooting_arc": 64.27592998081396,
+      "landmarks": {
+        "nose": {
+          "x": 570,
+          "y": 763
+        },
+        "left_eye_inner": {
+          "x": 557,
+          "y": 745
+        },
+        "left_eye": {
+          "x": 555,
+          "y": 744
+        },
+        "left_eye_outer": {
+          "x": 551,
+          "y": 744
+        },
+        "right_eye_inner": {
+          "x": 557,
+          "y": 747
+        },
+        "right_eye": {
+          "x": 553,
+          "y": 748
+        },
+        "right_eye_outer": {
+          "x": 549,
+          "y": 750
+        },
+        "left_ear": {
+          "x": 526,
+          "y": 757
+        },
+        "right_ear": {
+          "x": 522,
+          "y": 760
+        },
+        "mouth_left": {
+          "x": 562,
+          "y": 783
+        },
+        "mouth_right": {
+          "x": 562,
+          "y": 785
+        },
+        "left_shoulder": {
+          "x": 496,
+          "y": 862
+        },
+        "right_shoulder": {
+          "x": 538,
+          "y": 871
+        },
+        "left_elbow": {
+          "x": 608,
+          "y": 949
+        },
+        "right_elbow": {
+          "x": 664,
+          "y": 975
+        },
+        "left_wrist": {
+          "x": 665,
+          "y": 862
+        },
+        "right_wrist": {
+          "x": 699,
+          "y": 848
+        },
+        "left_pinky": {
+          "x": 685,
+          "y": 825
+        },
+        "right_pinky": {
+          "x": 699,
+          "y": 811
+        },
+        "left_index": {
+          "x": 683,
+          "y": 812
+        },
+        "right_index": {
+          "x": 682,
+          "y": 803
+        },
+        "left_thumb": {
+          "x": 669,
+          "y": 823
+        },
+        "right_thumb": {
+          "x": 678,
+          "y": 815
+        },
+        "left_hip": {
+          "x": 444,
+          "y": 1159
+        },
+        "right_hip": {
+          "x": 475,
+          "y": 1162
+        },
+        "left_knee": {
+          "x": 544,
+          "y": 1354
+        },
+        "right_knee": {
+          "x": 608,
+          "y": 1356
+        },
+        "left_ankle": {
+          "x": 408,
+          "y": 1538
+        },
+        "right_ankle": {
+          "x": 485,
+          "y": 1572
+        },
+        "left_heel": {
+          "x": 369,
+          "y": 1563
+        },
+        "right_heel": {
+          "x": 443,
+          "y": 1601
+        },
+        "left_foot_index": {
+          "x": 461,
+          "y": 1590
+        },
+        "right_foot_index": {
+          "x": 568,
+          "y": 1631
+        }
+      }
+    },
+    {
+      "frame_number": 90,
+      "timestamp": 3.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 88.3183514285941,
+        "hip_angle": 114.64986035534098,
+        "elbow_angle": 77.44415751699111,
+        "shoulder_angle": 86.15956900031436,
+        "wrist_angle": 124.21617881385205,
+        "trunk_lean": 114.01137631748026
+      },
+      "velocities": {
+        "right_hip": 351.26412301040364,
+        "right_knee": 123.86740898448129,
+        "right_ankle": 94.8528137423857,
+        "right_shoulder": 619.6425171915145,
+        "right_elbow": 1141.1636064323945,
+        "right_wrist": 1285.657703979724,
+        "right_index": 1382.9347558339407,
+        "nose": 547.359245282264,
+        "left_shoulder": 583.9937878749688,
+        "left_hip": 280.8276253029822
+      },
+      "accelerations": {
+        "right_hip": 4455.581853940583,
+        "right_knee": 1394.3916047214823,
+        "right_ankle": 0.0,
+        "right_shoulder": 6703.57051795725,
+        "right_elbow": 4120.725280815675,
+        "right_wrist": -162.615084875888,
+        "right_index": -972.8814647176864,
+        "nose": 2943.7731377927344,
+        "left_shoulder": 3232.6225780017035,
+        "left_hip": 4500.000000000001
+      },
+      "com_height": 0.6003134250640869,
+      "shooting_arc": 80.42106897887426,
+      "landmarks": {
+        "nose": {
+          "x": 560,
+          "y": 747
+        },
+        "left_eye_inner": {
+          "x": 546,
+          "y": 730
+        },
+        "left_eye": {
+          "x": 543,
+          "y": 729
+        },
+        "left_eye_outer": {
+          "x": 540,
+          "y": 729
+        },
+        "right_eye_inner": {
+          "x": 545,
+          "y": 731
+        },
+        "right_eye": {
+          "x": 543,
+          "y": 732
+        },
+        "right_eye_outer": {
+          "x": 540,
+          "y": 733
+        },
+        "left_ear": {
+          "x": 513,
+          "y": 742
+        },
+        "right_ear": {
+          "x": 514,
+          "y": 744
+        },
+        "mouth_left": {
+          "x": 552,
+          "y": 765
+        },
+        "mouth_right": {
+          "x": 554,
+          "y": 768
+        },
+        "left_shoulder": {
+          "x": 482,
+          "y": 849
+        },
+        "right_shoulder": {
+          "x": 537,
+          "y": 853
+        },
+        "left_elbow": {
+          "x": 600,
+          "y": 921
+        },
+        "right_elbow": {
+          "x": 672,
+          "y": 950
+        },
+        "left_wrist": {
+          "x": 658,
+          "y": 829
+        },
+        "right_wrist": {
+          "x": 685,
+          "y": 817
+        },
+        "left_pinky": {
+          "x": 652,
+          "y": 790
+        },
+        "right_pinky": {
+          "x": 682,
+          "y": 779
+        },
+        "left_index": {
+          "x": 653,
+          "y": 777
+        },
+        "right_index": {
+          "x": 660,
+          "y": 773
+        },
+        "left_thumb": {
+          "x": 642,
+          "y": 791
+        },
+        "right_thumb": {
+          "x": 654,
+          "y": 790
+        },
+        "left_hip": {
+          "x": 445,
+          "y": 1153
+        },
+        "right_hip": {
+          "x": 482,
+          "y": 1151
+        },
+        "left_knee": {
+          "x": 530,
+          "y": 1348
+        },
+        "right_knee": {
+          "x": 605,
+          "y": 1355
+        },
+        "left_ankle": {
+          "x": 404,
+          "y": 1537
+        },
+        "right_ankle": {
+          "x": 484,
+          "y": 1572
+        },
+        "left_heel": {
+          "x": 367,
+          "y": 1562
+        },
+        "right_heel": {
+          "x": 436,
+          "y": 1601
+        },
+        "left_foot_index": {
+          "x": 462,
+          "y": 1590
+        },
+        "right_foot_index": {
+          "x": 564,
+          "y": 1630
+        }
+      }
+    },
+    {
+      "frame_number": 95,
+      "timestamp": 3.1666666666666665,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 94.15401680180148,
+        "hip_angle": 122.88801193966158,
+        "elbow_angle": 69.80266382133004,
+        "shoulder_angle": 86.55135278729905,
+        "wrist_angle": 131.24633300925314,
+        "trunk_lean": 122.1985869537742
+      },
+      "velocities": {
+        "right_hip": 512.2143541076935,
+        "right_knee": 326.0583498885897,
+        "right_ankle": 124.30752391788816,
+        "right_shoulder": 682.0580716717492,
+        "right_elbow": 1115.8074065133003,
+        "right_wrist": 1124.4795323210876,
+        "right_index": 1074.2998038309363,
+        "nose": 554.5596967489577,
+        "left_shoulder": 695.5865288186246,
+        "left_hip": 511.5410022553462
+      },
+      "accelerations": {
+        "right_hip": 4828.5069329186945,
+        "right_knee": 6065.7282271232525,
+        "right_ankle": 883.6413052650737,
+        "right_shoulder": 1872.466634407042,
+        "right_elbow": -760.6859975728275,
+        "right_wrist": -4835.345149759089,
+        "right_index": -9259.048560090132,
+        "nose": 216.01354400080822,
+        "left_shoulder": 3347.782228309675,
+        "left_hip": 6921.40130857092
+      },
+      "com_height": 0.5917237997055054,
+      "shooting_arc": 92.15071043266076,
+      "landmarks": {
+        "nose": {
+          "x": 550,
+          "y": 731
+        },
+        "left_eye_inner": {
+          "x": 536,
+          "y": 713
+        },
+        "left_eye": {
+          "x": 533,
+          "y": 712
+        },
+        "left_eye_outer": {
+          "x": 531,
+          "y": 711
+        },
+        "right_eye_inner": {
+          "x": 538,
+          "y": 716
+        },
+        "right_eye": {
+          "x": 536,
+          "y": 717
+        },
+        "right_eye_outer": {
+          "x": 534,
+          "y": 717
+        },
+        "left_ear": {
+          "x": 507,
+          "y": 724
+        },
+        "right_ear": {
+          "x": 510,
+          "y": 727
+        },
+        "mouth_left": {
+          "x": 542,
+          "y": 750
+        },
+        "mouth_right": {
+          "x": 545,
+          "y": 750
+        },
+        "left_shoulder": {
+          "x": 475,
+          "y": 822
+        },
+        "right_shoulder": {
+          "x": 533,
+          "y": 830
+        },
+        "left_elbow": {
+          "x": 592,
+          "y": 868
+        },
+        "right_elbow": {
+          "x": 670,
+          "y": 909
+        },
+        "left_wrist": {
+          "x": 633,
+          "y": 789
+        },
+        "right_wrist": {
+          "x": 667,
+          "y": 783
+        },
+        "left_pinky": {
+          "x": 627,
+          "y": 754
+        },
+        "right_pinky": {
+          "x": 663,
+          "y": 746
+        },
+        "left_index": {
+          "x": 622,
+          "y": 743
+        },
+        "right_index": {
+          "x": 640,
+          "y": 744
+        },
+        "left_thumb": {
+          "x": 614,
+          "y": 755
+        },
+        "right_thumb": {
+          "x": 633,
+          "y": 760
+        },
+        "left_hip": {
+          "x": 445,
+          "y": 1136
+        },
+        "right_hip": {
+          "x": 488,
+          "y": 1135
+        },
+        "left_knee": {
+          "x": 520,
+          "y": 1340
+        },
+        "right_knee": {
+          "x": 599,
+          "y": 1350
+        },
+        "left_ankle": {
+          "x": 402,
+          "y": 1533
+        },
+        "right_ankle": {
+          "x": 482,
+          "y": 1570
+        },
+        "left_heel": {
+          "x": 365,
+          "y": 1556
+        },
+        "right_heel": {
+          "x": 435,
+          "y": 1599
+        },
+        "left_foot_index": {
+          "x": 461,
+          "y": 1586
+        },
+        "right_foot_index": {
+          "x": 560,
+          "y": 1627
+        }
+      }
+    },
+    {
+      "frame_number": 100,
+      "timestamp": 3.3333333333333335,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 101.41033446294844,
+        "hip_angle": 131.81860544496624,
+        "elbow_angle": 61.041134382317075,
+        "shoulder_angle": 86.93648149175442,
+        "wrist_angle": 140.08286655232982,
+        "trunk_lean": 128.16768254381
+      },
+      "velocities": {
+        "right_hip": 601.8303060036405,
+        "right_knee": 502.52209375375406,
+        "right_ankle": 226.11092279287766,
+        "right_shoulder": 717.6508393477789,
+        "right_elbow": 1213.4581736525486,
+        "right_wrist": 1097.382022137159,
+        "right_index": 1021.3394217470471,
+        "nose": 576.8303052051155,
+        "left_shoulder": 695.5865288186246,
+        "left_hip": 710.713376952364
+      },
+      "accelerations": {
+        "right_hip": 2688.4785568784127,
+        "right_knee": 5293.912315954931,
+        "right_ankle": 3054.101966249685,
+        "right_shoulder": 1067.78303028089,
+        "right_elbow": 2929.523014177448,
+        "right_wrist": -812.925305517856,
+        "right_index": -1588.8114625166747,
+        "nose": 668.1182536847336,
+        "left_shoulder": 0.0,
+        "left_hip": 5975.171240910534
+      },
+      "com_height": 0.5789137482643127,
+      "shooting_arc": 105.93651949179691,
+      "landmarks": {
+        "nose": {
+          "x": 545,
+          "y": 714
+        },
+        "left_eye_inner": {
+          "x": 535,
+          "y": 697
+        },
+        "left_eye": {
+          "x": 531,
+          "y": 695
+        },
+        "left_eye_outer": {
+          "x": 528,
+          "y": 693
+        },
+        "right_eye_inner": {
+          "x": 536,
+          "y": 700
+        },
+        "right_eye": {
+          "x": 534,
+          "y": 700
+        },
+        "right_eye_outer": {
+          "x": 532,
+          "y": 700
+        },
+        "left_ear": {
+          "x": 507,
+          "y": 703
+        },
+        "right_ear": {
+          "x": 510,
+          "y": 707
+        },
+        "mouth_left": {
+          "x": 535,
+          "y": 733
+        },
+        "mouth_right": {
+          "x": 538,
+          "y": 732
+        },
+        "left_shoulder": {
+          "x": 470,
+          "y": 800
+        },
+        "right_shoulder": {
+          "x": 521,
+          "y": 806
+        },
+        "left_elbow": {
+          "x": 587,
+          "y": 856
+        },
+        "right_elbow": {
+          "x": 665,
+          "y": 865
+        },
+        "left_wrist": {
+          "x": 620,
+          "y": 770
+        },
+        "right_wrist": {
+          "x": 646,
+          "y": 749
+        },
+        "left_pinky": {
+          "x": 613,
+          "y": 740
+        },
+        "right_pinky": {
+          "x": 635,
+          "y": 717
+        },
+        "left_index": {
+          "x": 610,
+          "y": 733
+        },
+        "right_index": {
+          "x": 619,
+          "y": 716
+        },
+        "left_thumb": {
+          "x": 604,
+          "y": 739
+        },
+        "right_thumb": {
+          "x": 616,
+          "y": 730
+        },
+        "left_hip": {
+          "x": 447,
+          "y": 1108
+        },
+        "right_hip": {
+          "x": 490,
+          "y": 1114
+        },
+        "left_knee": {
+          "x": 514,
+          "y": 1327
+        },
+        "right_knee": {
+          "x": 587,
+          "y": 1332
+        },
+        "left_ankle": {
+          "x": 400,
+          "y": 1526
+        },
+        "right_ankle": {
+          "x": 477,
+          "y": 1563
+        },
+        "left_heel": {
+          "x": 365,
+          "y": 1550
+        },
+        "right_heel": {
+          "x": 432,
+          "y": 1595
+        },
+        "left_foot_index": {
+          "x": 455,
+          "y": 1577
+        },
+        "right_foot_index": {
+          "x": 556,
+          "y": 1624
+        }
+      }
+    },
+    {
+      "frame_number": 105,
+      "timestamp": 3.5,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 108.80470363594448,
+        "hip_angle": 137.31314708195035,
+        "elbow_angle": 53.015351567433626,
+        "shoulder_angle": 88.96724880798082,
+        "wrist_angle": 147.70975539595267,
+        "trunk_lean": 132.7763971987393
+      },
+      "velocities": {
+        "right_hip": 640.9502310972899,
+        "right_knee": 652.4546820145151,
+        "right_ankle": 342.04870256397527,
+        "right_shoulder": 735.9920549894873,
+        "right_elbow": 1174.1848824824845,
+        "right_wrist": 1095.4275250838252,
+        "right_index": 1017.9163935211245,
+        "nose": 611.7574803139623,
+        "left_shoulder": 669.8397932224408,
+        "left_hip": 742.9508611139308
+      },
+      "accelerations": {
+        "right_hip": 1173.5977528094816,
+        "right_knee": 4497.977647822832,
+        "right_ankle": 3478.133393132928,
+        "right_shoulder": 550.2364692512538,
+        "right_elbow": -1178.1987351019234,
+        "right_wrist": -58.634911600015585,
+        "right_index": -102.69084677767864,
+        "nose": 1047.8152532654065,
+        "left_shoulder": -772.4020678855152,
+        "left_hip": 967.1245248470052
+      },
+      "com_height": 0.566951721906662,
+      "shooting_arc": 117.39073167488058,
+      "landmarks": {
+        "nose": {
+          "x": 543,
+          "y": 693
+        },
+        "left_eye_inner": {
+          "x": 538,
+          "y": 678
+        },
+        "left_eye": {
+          "x": 534,
+          "y": 677
+        },
+        "left_eye_outer": {
+          "x": 531,
+          "y": 676
+        },
+        "right_eye_inner": {
+          "x": 536,
+          "y": 678
+        },
+        "right_eye": {
+          "x": 532,
+          "y": 677
+        },
+        "right_eye_outer": {
+          "x": 529,
+          "y": 676
+        },
+        "left_ear": {
+          "x": 508,
+          "y": 680
+        },
+        "right_ear": {
+          "x": 506,
+          "y": 682
+        },
+        "mouth_left": {
+          "x": 532,
+          "y": 713
+        },
+        "mouth_right": {
+          "x": 530,
+          "y": 710
+        },
+        "left_shoulder": {
+          "x": 472,
+          "y": 781
+        },
+        "right_shoulder": {
+          "x": 516,
+          "y": 785
+        },
+        "left_elbow": {
+          "x": 599,
+          "y": 837
+        },
+        "right_elbow": {
+          "x": 664,
+          "y": 829
+        },
+        "left_wrist": {
+          "x": 646,
+          "y": 806
+        },
+        "right_wrist": {
+          "x": 632,
+          "y": 721
+        },
+        "left_pinky": {
+          "x": 627,
+          "y": 779
+        },
+        "right_pinky": {
+          "x": 616,
+          "y": 690
+        },
+        "left_index": {
+          "x": 644,
+          "y": 792
+        },
+        "right_index": {
+          "x": 602,
+          "y": 689
+        },
+        "left_thumb": {
+          "x": 655,
+          "y": 804
+        },
+        "right_thumb": {
+          "x": 601,
+          "y": 703
+        },
+        "left_hip": {
+          "x": 457,
+          "y": 1084
+        },
+        "right_hip": {
+          "x": 490,
+          "y": 1092
+        },
+        "left_knee": {
+          "x": 505,
+          "y": 1311
+        },
+        "right_knee": {
+          "x": 575,
+          "y": 1315
+        },
+        "left_ankle": {
+          "x": 396,
+          "y": 1518
+        },
+        "right_ankle": {
+          "x": 475,
+          "y": 1552
+        },
+        "left_heel": {
+          "x": 364,
+          "y": 1543
+        },
+        "right_heel": {
+          "x": 426,
+          "y": 1582
+        },
+        "left_foot_index": {
+          "x": 455,
+          "y": 1571
+        },
+        "right_foot_index": {
+          "x": 553,
+          "y": 1620
+        }
+      }
+    },
+    {
+      "frame_number": 110,
+      "timestamp": 3.6666666666666665,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 118.73788703784751,
+        "hip_angle": 144.92905599217838,
+        "elbow_angle": 44.617503242869944,
+        "shoulder_angle": 90.95460054840827,
+        "wrist_angle": 153.63693849848235,
+        "trunk_lean": 138.23130891049172
+      },
+      "velocities": {
+        "right_hip": 660.2172886644267,
+        "right_knee": 648.7245217413688,
+        "right_ankle": 376.441395681472,
+        "right_shoulder": 812.4826906808457,
+        "right_elbow": 1081.3530859727937,
+        "right_wrist": 1050.4856580494272,
+        "right_index": 1057.0179226879989,
+        "nose": 694.7492654724227,
+        "left_shoulder": 883.5471624986473,
+        "left_hip": 610.8981716347519
+      },
+      "accelerations": {
+        "right_hip": 578.0117270141045,
+        "right_knee": -111.90480819439017,
+        "right_ankle": 1031.7807935249016,
+        "right_shoulder": 2294.7190707407526,
+        "right_elbow": -2784.9538952907233,
+        "right_wrist": -1348.25601103194,
+        "right_index": 1173.0458750062303,
+        "nose": 2489.753554753812,
+        "left_shoulder": 6411.221078286194,
+        "left_hip": -3961.5806843753694
+      },
+      "com_height": 0.5562514662742615,
+      "shooting_arc": 128.74663723663497,
+      "landmarks": {
+        "nose": {
+          "x": 547,
+          "y": 671
+        },
+        "left_eye_inner": {
+          "x": 543,
+          "y": 654
+        },
+        "left_eye": {
+          "x": 541,
+          "y": 654
+        },
+        "left_eye_outer": {
+          "x": 538,
+          "y": 655
+        },
+        "right_eye_inner": {
+          "x": 539,
+          "y": 651
+        },
+        "right_eye": {
+          "x": 535,
+          "y": 650
+        },
+        "right_eye_outer": {
+          "x": 530,
+          "y": 648
+        },
+        "left_ear": {
+          "x": 512,
+          "y": 656
+        },
+        "right_ear": {
+          "x": 503,
+          "y": 655
+        },
+        "mouth_left": {
+          "x": 539,
+          "y": 693
+        },
+        "mouth_right": {
+          "x": 535,
+          "y": 693
+        },
+        "left_shoulder": {
+          "x": 476,
+          "y": 756
+        },
+        "right_shoulder": {
+          "x": 513,
+          "y": 760
+        },
+        "left_elbow": {
+          "x": 595,
+          "y": 791
+        },
+        "right_elbow": {
+          "x": 667,
+          "y": 792
+        },
+        "left_wrist": {
+          "x": 615,
+          "y": 713
+        },
+        "right_wrist": {
+          "x": 619,
+          "y": 685
+        },
+        "left_pinky": {
+          "x": 594,
+          "y": 681
+        },
+        "right_pinky": {
+          "x": 599,
+          "y": 656
+        },
+        "left_index": {
+          "x": 584,
+          "y": 673
+        },
+        "right_index": {
+          "x": 586,
+          "y": 658
+        },
+        "left_thumb": {
+          "x": 595,
+          "y": 690
+        },
+        "right_thumb": {
+          "x": 586,
+          "y": 671
+        },
+        "left_hip": {
+          "x": 460,
+          "y": 1064
+        },
+        "right_hip": {
+          "x": 490,
+          "y": 1071
+        },
+        "left_knee": {
+          "x": 493,
+          "y": 1298
+        },
+        "right_knee": {
+          "x": 557,
+          "y": 1301
+        },
+        "left_ankle": {
+          "x": 393,
+          "y": 1508
+        },
+        "right_ankle": {
+          "x": 467,
+          "y": 1540
+        },
+        "left_heel": {
+          "x": 364,
+          "y": 1538
+        },
+        "right_heel": {
+          "x": 419,
+          "y": 1568
+        },
+        "left_foot_index": {
+          "x": 455,
+          "y": 1563
+        },
+        "right_foot_index": {
+          "x": 542,
+          "y": 1612
+        }
+      }
+    },
+    {
+      "frame_number": 115,
+      "timestamp": 3.8333333333333335,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 128.7204163329853,
+        "hip_angle": 155.40991828358267,
+        "elbow_angle": 38.97072581318317,
+        "shoulder_angle": 87.21906736633179,
+        "wrist_angle": 159.39431306476297,
+        "trunk_lean": 143.07566204437168
+      },
+      "velocities": {
+        "right_hip": 595.459035627027,
+        "right_knee": 570.6380012745207,
+        "right_ankle": 344.63799680648253,
+        "right_shoulder": 769.2391242479375,
+        "right_elbow": 1122.3376462680433,
+        "right_wrist": 1127.56432526208,
+        "right_index": 1089.2401614221285,
+        "nose": 578.6673641801841,
+        "left_shoulder": 852.4974307532192,
+        "left_hip": 594.2086728466807
+      },
+      "accelerations": {
+        "right_hip": -1942.7475911219926,
+        "right_knee": -2342.595614005444,
+        "right_ankle": -954.1019662496836,
+        "right_shoulder": -1297.3069929872463,
+        "right_elbow": 1229.5368088574878,
+        "right_wrist": 2312.3600163795845,
+        "right_index": 966.667162023889,
+        "nose": -3482.457038767159,
+        "left_shoulder": -931.4919523628419,
+        "left_hip": -500.68496364213615
+      },
+      "com_height": 0.5489058196544647,
+      "shooting_arc": 135.9355569537065,
+      "landmarks": {
+        "nose": {
+          "x": 548,
+          "y": 645
+        },
+        "left_eye_inner": {
+          "x": 550,
+          "y": 625
+        },
+        "left_eye": {
+          "x": 554,
+          "y": 626
+        },
+        "left_eye_outer": {
+          "x": 558,
+          "y": 627
+        },
+        "right_eye_inner": {
+          "x": 543,
+          "y": 617
+        },
+        "right_eye": {
+          "x": 536,
+          "y": 613
+        },
+        "right_eye_outer": {
+          "x": 526,
+          "y": 611
+        },
+        "left_ear": {
+          "x": 538,
+          "y": 628
+        },
+        "right_ear": {
+          "x": 499,
+          "y": 619
+        },
+        "mouth_left": {
+          "x": 541,
+          "y": 666
+        },
+        "mouth_right": {
+          "x": 526,
+          "y": 663
+        },
+        "left_shoulder": {
+          "x": 505,
+          "y": 723
+        },
+        "right_shoulder": {
+          "x": 496,
+          "y": 730
+        },
+        "left_elbow": {
+          "x": 626,
+          "y": 762
+        },
+        "right_elbow": {
+          "x": 667,
+          "y": 757
+        },
+        "left_wrist": {
+          "x": 599,
+          "y": 672
+        },
+        "right_wrist": {
+          "x": 606,
+          "y": 652
+        },
+        "left_pinky": {
+          "x": 570,
+          "y": 646
+        },
+        "right_pinky": {
+          "x": 575,
+          "y": 623
+        },
+        "left_index": {
+          "x": 572,
+          "y": 635
+        },
+        "right_index": {
+          "x": 569,
+          "y": 623
+        },
+        "left_thumb": {
+          "x": 573,
+          "y": 646
+        },
+        "right_thumb": {
+          "x": 572,
+          "y": 634
+        },
+        "left_hip": {
+          "x": 474,
+          "y": 1059
+        },
+        "right_hip": {
+          "x": 489,
+          "y": 1048
+        },
+        "left_knee": {
+          "x": 486,
+          "y": 1280
+        },
+        "right_knee": {
+          "x": 543,
+          "y": 1285
+        },
+        "left_ankle": {
+          "x": 392,
+          "y": 1495
+        },
+        "right_ankle": {
+          "x": 468,
+          "y": 1528
+        },
+        "left_heel": {
+          "x": 365,
+          "y": 1525
+        },
+        "right_heel": {
+          "x": 421,
+          "y": 1555
+        },
+        "left_foot_index": {
+          "x": 455,
+          "y": 1554
+        },
+        "right_foot_index": {
+          "x": 539,
+          "y": 1608
+        }
+      }
+    },
+    {
+      "frame_number": 120,
+      "timestamp": 4.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 134.94386592211336,
+        "hip_angle": 159.41268155710276,
+        "elbow_angle": 41.20116029785123,
+        "shoulder_angle": 91.30567464622872,
+        "wrist_angle": 158.29457104248894,
+        "trunk_lean": 149.52495388679944
+      },
+      "velocities": {
+        "right_hip": 493.1623317697171,
+        "right_knee": 509.0360860256255,
+        "right_ankle": 314.43348829783673,
+        "right_shoulder": 656.7294407794952,
+        "right_elbow": 1020.3816627593568,
+        "right_wrist": 1090.0646711146285,
+        "right_index": 1095.4905086631743,
+        "nose": 495.4172549063871,
+        "left_shoulder": 871.3470629044847,
+        "left_hip": 515.6643574536437
+      },
+      "accelerations": {
+        "right_hip": -3068.901115719296,
+        "right_knee": -1848.0574574668553,
+        "right_ankle": -906.135255259374,
+        "right_shoulder": -3375.2905040532687,
+        "right_elbow": -3058.679505260594,
+        "right_wrist": -1124.989624423547,
+        "right_index": 187.51041723137405,
+        "nose": -2497.5032782139106,
+        "left_shoulder": 565.4889645379649,
+        "left_hip": -2356.3294617911097
+      },
+      "com_height": 0.5387413501739502,
+      "shooting_arc": 138.02832071782618,
+      "landmarks": {
+        "nose": {
+          "x": 539,
+          "y": 642
+        },
+        "left_eye_inner": {
+          "x": 541,
+          "y": 622
+        },
+        "left_eye": {
+          "x": 543,
+          "y": 622
+        },
+        "left_eye_outer": {
+          "x": 545,
+          "y": 622
+        },
+        "right_eye_inner": {
+          "x": 531,
+          "y": 620
+        },
+        "right_eye": {
+          "x": 523,
+          "y": 618
+        },
+        "right_eye_outer": {
+          "x": 515,
+          "y": 617
+        },
+        "left_ear": {
+          "x": 524,
+          "y": 624
+        },
+        "right_ear": {
+          "x": 487,
+          "y": 627
+        },
+        "mouth_left": {
+          "x": 534,
+          "y": 659
+        },
+        "mouth_right": {
+          "x": 523,
+          "y": 659
+        },
+        "left_shoulder": {
+          "x": 489,
+          "y": 723
+        },
+        "right_shoulder": {
+          "x": 499,
+          "y": 713
+        },
+        "left_elbow": {
+          "x": 592,
+          "y": 818
+        },
+        "right_elbow": {
+          "x": 670,
+          "y": 717
+        },
+        "left_wrist": {
+          "x": 608,
+          "y": 858
+        },
+        "right_wrist": {
+          "x": 605,
+          "y": 613
+        },
+        "left_pinky": {
+          "x": 591,
+          "y": 876
+        },
+        "right_pinky": {
+          "x": 580,
+          "y": 585
+        },
+        "left_index": {
+          "x": 599,
+          "y": 878
+        },
+        "right_index": {
+          "x": 566,
+          "y": 588
+        },
+        "left_thumb": {
+          "x": 594,
+          "y": 871
+        },
+        "right_thumb": {
+          "x": 567,
+          "y": 599
+        },
+        "left_hip": {
+          "x": 470,
+          "y": 1035
+        },
+        "right_hip": {
+          "x": 493,
+          "y": 1033
+        },
+        "left_knee": {
+          "x": 467,
+          "y": 1266
+        },
+        "right_knee": {
+          "x": 538,
+          "y": 1273
+        },
+        "left_ankle": {
+          "x": 392,
+          "y": 1485
+        },
+        "right_ankle": {
+          "x": 468,
+          "y": 1520
+        },
+        "left_heel": {
+          "x": 366,
+          "y": 1517
+        },
+        "right_heel": {
+          "x": 425,
+          "y": 1549
+        },
+        "left_foot_index": {
+          "x": 456,
+          "y": 1547
+        },
+        "right_foot_index": {
+          "x": 535,
+          "y": 1603
+        }
+      }
+    },
+    {
+      "frame_number": 125,
+      "timestamp": 4.166666666666667,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 145.34713857751254,
+        "hip_angle": 164.39122672672403,
+        "elbow_angle": 45.22035906089282,
+        "shoulder_angle": 93.67838712606094,
+        "wrist_angle": 157.08597797181386,
+        "trunk_lean": 156.1450177395568
+      },
+      "velocities": {
+        "right_hip": 323.7726684082725,
+        "right_knee": 424.4956545195894,
+        "right_ankle": 337.19575314267735,
+        "right_shoulder": 384.71174668096705,
+        "right_elbow": 966.5235206585736,
+        "right_wrist": 1108.744808147154,
+        "right_index": 1084.938844111254,
+        "nose": 289.0766663525784,
+        "left_shoulder": 696.0369858235905,
+        "left_hip": 430.2492231838262
+      },
+      "accelerations": {
+        "right_hip": -5081.689900843338,
+        "right_knee": -2536.212945181083,
+        "right_ankle": 682.8679453452185,
+        "right_shoulder": -8160.530822955845,
+        "right_elbow": -1615.744263023496,
+        "right_wrist": 560.4041109757623,
+        "right_index": -316.5499365576102,
+        "nose": -6190.217656614261,
+        "left_shoulder": -5259.302312426826,
+        "left_hip": -2562.454028094525
+      },
+      "com_height": 0.5331375896930695,
+      "shooting_arc": 136.4386538569862,
+      "landmarks": {
+        "nose": {
+          "x": 538,
+          "y": 628
+        },
+        "left_eye_inner": {
+          "x": 532,
+          "y": 606
+        },
+        "left_eye": {
+          "x": 531,
+          "y": 605
+        },
+        "left_eye_outer": {
+          "x": 530,
+          "y": 604
+        },
+        "right_eye_inner": {
+          "x": 526,
+          "y": 606
+        },
+        "right_eye": {
+          "x": 520,
+          "y": 607
+        },
+        "right_eye_outer": {
+          "x": 514,
+          "y": 607
+        },
+        "left_ear": {
+          "x": 505,
+          "y": 611
+        },
+        "right_ear": {
+          "x": 488,
+          "y": 617
+        },
+        "mouth_left": {
+          "x": 532,
+          "y": 647
+        },
+        "mouth_right": {
+          "x": 526,
+          "y": 648
+        },
+        "left_shoulder": {
+          "x": 467,
+          "y": 707
+        },
+        "right_shoulder": {
+          "x": 504,
+          "y": 700
+        },
+        "left_elbow": {
+          "x": 497,
+          "y": 791
+        },
+        "right_elbow": {
+          "x": 677,
+          "y": 691
+        },
+        "left_wrist": {
+          "x": 493,
+          "y": 811
+        },
+        "right_wrist": {
+          "x": 611,
+          "y": 579
+        },
+        "left_pinky": {
+          "x": 489,
+          "y": 825
+        },
+        "right_pinky": {
+          "x": 590,
+          "y": 550
+        },
+        "left_index": {
+          "x": 489,
+          "y": 828
+        },
+        "right_index": {
+          "x": 572,
+          "y": 553
+        },
+        "left_thumb": {
+          "x": 491,
+          "y": 816
+        },
+        "right_thumb": {
+          "x": 572,
+          "y": 567
+        },
+        "left_hip": {
+          "x": 467,
+          "y": 1023
+        },
+        "right_hip": {
+          "x": 497,
+          "y": 1023
+        },
+        "left_knee": {
+          "x": 459,
+          "y": 1248
+        },
+        "right_knee": {
+          "x": 529,
+          "y": 1259
+        },
+        "left_ankle": {
+          "x": 393,
+          "y": 1473
+        },
+        "right_ankle": {
+          "x": 475,
+          "y": 1511
+        },
+        "left_heel": {
+          "x": 369,
+          "y": 1504
+        },
+        "right_heel": {
+          "x": 433,
+          "y": 1538
+        },
+        "left_foot_index": {
+          "x": 456,
+          "y": 1544
+        },
+        "right_foot_index": {
+          "x": 535,
+          "y": 1600
+        }
+      }
+    },
+    {
+      "frame_number": 130,
+      "timestamp": 4.333333333333333,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 154.12251009989075,
+        "hip_angle": 168.99124529042848,
+        "elbow_angle": 50.789612824715086,
+        "shoulder_angle": 96.75303053547205,
+        "wrist_angle": 156.49538953729763,
+        "trunk_lean": 160.52210147375035
+      },
+      "velocities": {
+        "right_hip": 258.5309214456723,
+        "right_knee": 376.95776703194264,
+        "right_ankle": 337.81833062566284,
+        "right_shoulder": 319.78827780733644,
+        "right_elbow": 675.8537084278148,
+        "right_wrist": 922.5774046282422,
+        "right_index": 1027.764306103303,
+        "nose": 311.2553356547233,
+        "left_shoulder": 694.1508688320096,
+        "left_hip": 287.4374781831063
+      },
+      "accelerations": {
+        "right_hip": -1957.2524088780074,
+        "right_knee": -1426.1366246294024,
+        "right_ankle": 18.67732448956474,
+        "right_shoulder": -1947.7040662089184,
+        "right_elbow": -8720.094366922764,
+        "right_wrist": -5585.02210556735,
+        "right_index": -1715.2361402385304,
+        "nose": 665.3600790643469,
+        "left_shoulder": -56.583509747428025,
+        "left_hip": -4284.352350021597
+      },
+      "com_height": 0.5299674570560455,
+      "shooting_arc": 134.7994352086466,
+      "landmarks": {
+        "nose": {
+          "x": 536,
+          "y": 623
+        },
+        "left_eye_inner": {
+          "x": 524,
+          "y": 600
+        },
+        "left_eye": {
+          "x": 523,
+          "y": 599
+        },
+        "left_eye_outer": {
+          "x": 522,
+          "y": 598
+        },
+        "right_eye_inner": {
+          "x": 519,
+          "y": 600
+        },
+        "right_eye": {
+          "x": 515,
+          "y": 599
+        },
+        "right_eye_outer": {
+          "x": 509,
+          "y": 599
+        },
+        "left_ear": {
+          "x": 496,
+          "y": 603
+        },
+        "right_ear": {
+          "x": 482,
+          "y": 609
+        },
+        "mouth_left": {
+          "x": 533,
+          "y": 640
+        },
+        "mouth_right": {
+          "x": 527,
+          "y": 641
+        },
+        "left_shoulder": {
+          "x": 446,
+          "y": 691
+        },
+        "right_shoulder": {
+          "x": 502,
+          "y": 693
+        },
+        "left_elbow": {
+          "x": 468,
+          "y": 685
+        },
+        "right_elbow": {
+          "x": 683,
+          "y": 662
+        },
+        "left_wrist": {
+          "x": 415,
+          "y": 621
+        },
+        "right_wrist": {
+          "x": 616,
+          "y": 542
+        },
+        "left_pinky": {
+          "x": 398,
+          "y": 607
+        },
+        "right_pinky": {
+          "x": 600,
+          "y": 511
+        },
+        "left_index": {
+          "x": 395,
+          "y": 602
+        },
+        "right_index": {
+          "x": 580,
+          "y": 516
+        },
+        "left_thumb": {
+          "x": 404,
+          "y": 605
+        },
+        "right_thumb": {
+          "x": 581,
+          "y": 529
+        },
+        "left_hip": {
+          "x": 465,
+          "y": 1017
+        },
+        "right_hip": {
+          "x": 498,
+          "y": 1017
+        },
+        "left_knee": {
+          "x": 456,
+          "y": 1236
+        },
+        "right_knee": {
+          "x": 521,
+          "y": 1249
+        },
+        "left_ankle": {
+          "x": 396,
+          "y": 1463
+        },
+        "right_ankle": {
+          "x": 481,
+          "y": 1498
+        },
+        "left_heel": {
+          "x": 374,
+          "y": 1490
+        },
+        "right_heel": {
+          "x": 442,
+          "y": 1522
+        },
+        "left_foot_index": {
+          "x": 458,
+          "y": 1540
+        },
+        "right_foot_index": {
+          "x": 535,
+          "y": 1596
+        }
+      }
+    },
+    {
+      "frame_number": 135,
+      "timestamp": 4.5,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 153.02379747096032,
+        "hip_angle": 171.05065215144134,
+        "elbow_angle": 55.11438712737567,
+        "shoulder_angle": 94.63149136379762,
+        "wrist_angle": 162.8018953874575,
+        "trunk_lean": 160.42668069461644
+      },
+      "velocities": {
+        "right_hip": 221.53830342163693,
+        "right_knee": 260.5245972610102,
+        "right_ankle": 313.80078811574907,
+        "right_shoulder": 258.60689179456176,
+        "right_elbow": 681.1860724260092,
+        "right_wrist": 975.8210514990263,
+        "right_index": 1172.7586780140082,
+        "nose": 241.60932529719605,
+        "left_shoulder": 482.9490839602829,
+        "left_hip": 224.57193471755866
+      },
+      "accelerations": {
+        "right_hip": -1109.7785407210606,
+        "right_knee": -3492.995093127974,
+        "right_ankle": -720.526275297413,
+        "right_shoulder": -1835.4415803832403,
+        "right_elbow": 159.9709199458323,
+        "right_wrist": 1597.3094061235236,
+        "right_index": 4349.831157321158,
+        "nose": -2089.3803107258173,
+        "left_shoulder": -6336.053546151799,
+        "left_hip": -1885.966303966429
+      },
+      "com_height": 0.524991363286972,
+      "shooting_arc": 131.3050061178003,
+      "landmarks": {
+        "nose": {
+          "x": 532,
+          "y": 612
+        },
+        "left_eye_inner": {
+          "x": 520,
+          "y": 593
+        },
+        "left_eye": {
+          "x": 519,
+          "y": 591
+        },
+        "left_eye_outer": {
+          "x": 518,
+          "y": 590
+        },
+        "right_eye_inner": {
+          "x": 516,
+          "y": 593
+        },
+        "right_eye": {
+          "x": 511,
+          "y": 592
+        },
+        "right_eye_outer": {
+          "x": 506,
+          "y": 592
+        },
+        "left_ear": {
+          "x": 492,
+          "y": 594
+        },
+        "right_ear": {
+          "x": 479,
+          "y": 599
+        },
+        "mouth_left": {
+          "x": 530,
+          "y": 627
+        },
+        "mouth_right": {
+          "x": 524,
+          "y": 629
+        },
+        "left_shoulder": {
+          "x": 437,
+          "y": 678
+        },
+        "right_shoulder": {
+          "x": 492,
+          "y": 689
+        },
+        "left_elbow": {
+          "x": 450,
+          "y": 646
+        },
+        "right_elbow": {
+          "x": 684,
+          "y": 651
+        },
+        "left_wrist": {
+          "x": 389,
+          "y": 562
+        },
+        "right_wrist": {
+          "x": 620,
+          "y": 522
+        },
+        "left_pinky": {
+          "x": 350,
+          "y": 514
+        },
+        "right_pinky": {
+          "x": 607,
+          "y": 487
+        },
+        "left_index": {
+          "x": 353,
+          "y": 511
+        },
+        "right_index": {
+          "x": 589,
+          "y": 488
+        },
+        "left_thumb": {
+          "x": 378,
+          "y": 541
+        },
+        "right_thumb": {
+          "x": 589,
+          "y": 503
+        },
+        "left_hip": {
+          "x": 466,
+          "y": 1007
+        },
+        "right_hip": {
+          "x": 498,
+          "y": 1008
+        },
+        "left_knee": {
+          "x": 458,
+          "y": 1233
+        },
+        "right_knee": {
+          "x": 523,
+          "y": 1241
+        },
+        "left_ankle": {
+          "x": 400,
+          "y": 1459
+        },
+        "right_ankle": {
+          "x": 482,
+          "y": 1490
+        },
+        "left_heel": {
+          "x": 378,
+          "y": 1485
+        },
+        "right_heel": {
+          "x": 444,
+          "y": 1514
+        },
+        "left_foot_index": {
+          "x": 463,
+          "y": 1534
+        },
+        "right_foot_index": {
+          "x": 536,
+          "y": 1591
+        }
+      }
+    },
+    {
+      "frame_number": 140,
+      "timestamp": 4.666666666666667,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 155.92993671068575,
+        "hip_angle": 174.9276847825412,
+        "elbow_angle": 69.08542291056017,
+        "shoulder_angle": 96.03831930506482,
+        "wrist_angle": 157.32447309242508,
+        "trunk_lean": 162.40937076496155
+      },
+      "velocities": {
+        "right_hip": 310.71067811865476,
+        "right_knee": 221.9048316123448,
+        "right_ankle": 280.6225774829855,
+        "right_shoulder": 256.51647102041136,
+        "right_elbow": 735.6151773859543,
+        "right_wrist": 1024.476914367321,
+        "right_index": 1190.4410685222333,
+        "nose": 278.31152860722517,
+        "left_shoulder": 388.94150831140115,
+        "left_hip": 291.3263815141911
+      },
+      "accelerations": {
+        "right_hip": 2675.171240910535,
+        "right_knee": -1158.5929694599613,
+        "right_ankle": -995.3463189829074,
+        "right_shoulder": -62.71262322451207,
+        "right_elbow": 1632.8731487983532,
+        "right_wrist": 1459.6758860488364,
+        "right_index": 530.4717152467538,
+        "nose": 1101.0660993008737,
+        "left_shoulder": -2820.2272694664525,
+        "left_hip": 2002.633403898973
+      },
+      "com_height": 0.5216404795646667,
+      "shooting_arc": 120.78943786594701,
+      "landmarks": {
+        "nose": {
+          "x": 533,
+          "y": 605
+        },
+        "left_eye_inner": {
+          "x": 522,
+          "y": 585
+        },
+        "left_eye": {
+          "x": 520,
+          "y": 584
+        },
+        "left_eye_outer": {
+          "x": 519,
+          "y": 584
+        },
+        "right_eye_inner": {
+          "x": 517,
+          "y": 585
+        },
+        "right_eye": {
+          "x": 512,
+          "y": 585
+        },
+        "right_eye_outer": {
+          "x": 507,
+          "y": 585
+        },
+        "left_ear": {
+          "x": 492,
+          "y": 591
+        },
+        "right_ear": {
+          "x": 477,
+          "y": 595
+        },
+        "mouth_left": {
+          "x": 529,
+          "y": 622
+        },
+        "mouth_right": {
+          "x": 524,
+          "y": 623
+        },
+        "left_shoulder": {
+          "x": 431,
+          "y": 677
+        },
+        "right_shoulder": {
+          "x": 487,
+          "y": 683
+        },
+        "left_elbow": {
+          "x": 434,
+          "y": 674
+        },
+        "right_elbow": {
+          "x": 679,
+          "y": 624
+        },
+        "left_wrist": {
+          "x": 401,
+          "y": 650
+        },
+        "right_wrist": {
+          "x": 632,
+          "y": 484
+        },
+        "left_pinky": {
+          "x": 385,
+          "y": 639
+        },
+        "right_pinky": {
+          "x": 625,
+          "y": 438
+        },
+        "left_index": {
+          "x": 389,
+          "y": 634
+        },
+        "right_index": {
+          "x": 599,
+          "y": 439
+        },
+        "left_thumb": {
+          "x": 400,
+          "y": 639
+        },
+        "right_thumb": {
+          "x": 595,
+          "y": 456
+        },
+        "left_hip": {
+          "x": 465,
+          "y": 1001
+        },
+        "right_hip": {
+          "x": 499,
+          "y": 1001
+        },
+        "left_knee": {
+          "x": 459,
+          "y": 1228
+        },
+        "right_knee": {
+          "x": 519,
+          "y": 1238
+        },
+        "left_ankle": {
+          "x": 404,
+          "y": 1449
+        },
+        "right_ankle": {
+          "x": 482,
+          "y": 1481
+        },
+        "left_heel": {
+          "x": 379,
+          "y": 1476
+        },
+        "right_heel": {
+          "x": 444,
+          "y": 1505
+        },
+        "left_foot_index": {
+          "x": 469,
+          "y": 1515
+        },
+        "right_foot_index": {
+          "x": 538,
+          "y": 1579
+        }
+      }
+    },
+    {
+      "frame_number": 145,
+      "timestamp": 4.833333333333333,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 159.69472800159983,
+        "hip_angle": 177.56000925881355,
+        "elbow_angle": 90.01473187713871,
+        "shoulder_angle": 100.02591020816683,
+        "wrist_angle": 140.4699084026681,
+        "trunk_lean": 164.63187519289409
+      },
+      "velocities": {
+        "right_hip": 340.71067811865476,
+        "right_knee": 221.9048316123448,
+        "right_ankle": 280.6225774829855,
+        "right_shoulder": 253.21623996682683,
+        "right_elbow": 900.2978970580338,
+        "right_wrist": 1103.5355677853074,
+        "right_index": 1271.6987327076477,
+        "nose": 253.4599740729578,
+        "left_shoulder": 329.82257466909886,
+        "left_hip": 310.8276253029822
+      },
+      "accelerations": {
+        "right_hip": 900.0,
+        "right_knee": 0.0,
+        "right_ankle": 0.0,
+        "right_shoulder": -99.00693160753576,
+        "right_elbow": 4940.481590162382,
+        "right_wrist": 2371.759602539596,
+        "right_index": 2437.7299255624303,
+        "nose": -745.5466360280209,
+        "left_shoulder": -1773.5680092690689,
+        "left_hip": 585.037313663733
+      },
+      "com_height": 0.5144475698471069,
+      "shooting_arc": 104.32650737617091,
+      "landmarks": {
+        "nose": {
+          "x": 532,
+          "y": 596
+        },
+        "left_eye_inner": {
+          "x": 522,
+          "y": 578
+        },
+        "left_eye": {
+          "x": 520,
+          "y": 577
+        },
+        "left_eye_outer": {
+          "x": 518,
+          "y": 577
+        },
+        "right_eye_inner": {
+          "x": 516,
+          "y": 579
+        },
+        "right_eye": {
+          "x": 509,
+          "y": 579
+        },
+        "right_eye_outer": {
+          "x": 503,
+          "y": 581
+        },
+        "left_ear": {
+          "x": 492,
+          "y": 585
+        },
+        "right_ear": {
+          "x": 473,
+          "y": 590
+        },
+        "mouth_left": {
+          "x": 529,
+          "y": 614
+        },
+        "mouth_right": {
+          "x": 523,
+          "y": 616
+        },
+        "left_shoulder": {
+          "x": 439,
+          "y": 662
+        },
+        "right_shoulder": {
+          "x": 486,
+          "y": 676
+        },
+        "left_elbow": {
+          "x": 438,
+          "y": 637
+        },
+        "right_elbow": {
+          "x": 677,
+          "y": 589
+        },
+        "left_wrist": {
+          "x": 387,
+          "y": 558
+        },
+        "right_wrist": {
+          "x": 657,
+          "y": 450
+        },
+        "left_pinky": {
+          "x": 362,
+          "y": 534
+        },
+        "right_pinky": {
+          "x": 655,
+          "y": 415
+        },
+        "left_index": {
+          "x": 363,
+          "y": 526
+        },
+        "right_index": {
+          "x": 628,
+          "y": 412
+        },
+        "left_thumb": {
+          "x": 379,
+          "y": 531
+        },
+        "right_thumb": {
+          "x": 624,
+          "y": 422
+        },
+        "left_hip": {
+          "x": 465,
+          "y": 988
+        },
+        "right_hip": {
+          "x": 499,
+          "y": 986
+        },
+        "left_knee": {
+          "x": 461,
+          "y": 1220
+        },
+        "right_knee": {
+          "x": 515,
+          "y": 1230
+        },
+        "left_ankle": {
+          "x": 410,
+          "y": 1438
+        },
+        "right_ankle": {
+          "x": 482,
+          "y": 1470
+        },
+        "left_heel": {
+          "x": 385,
+          "y": 1465
+        },
+        "right_heel": {
+          "x": 446,
+          "y": 1494
+        },
+        "left_foot_index": {
+          "x": 472,
+          "y": 1498
+        },
+        "right_foot_index": {
+          "x": 540,
+          "y": 1567
+        }
+      }
+    },
+    {
+      "frame_number": 150,
+      "timestamp": 5.0,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 162.1236549699284,
+        "hip_angle": 177.48995677139325,
+        "elbow_angle": 110.72250203402733,
+        "shoulder_angle": 104.56973404612843,
+        "wrist_angle": 138.56554331496835,
+        "trunk_lean": 165.1326707865142
+      },
+      "velocities": {
+        "right_hip": 380.0,
+        "right_knee": 291.9048316123448,
+        "right_ankle": 266.7803085416246,
+        "right_shoulder": 206.73651980944408,
+        "right_elbow": 929.8454192180252,
+        "right_wrist": 1001.1802487810988,
+        "right_index": 1217.1321309045577,
+        "nose": 303.165241742226,
+        "left_shoulder": 402.41159000737997,
+        "left_hip": 361.80339887498945
+      },
+      "accelerations": {
+        "right_hip": 1178.6796564403573,
+        "right_knee": 2100.000000000001,
+        "right_ankle": -415.26806824082655,
+        "right_shoulder": -1394.3916047214827,
+        "right_elbow": 886.4256647997433,
+        "right_wrist": -3070.6595701262577,
+        "right_index": -1636.9980540926986,
+        "nose": 1491.1580300780454,
+        "left_shoulder": 2177.6704601484334,
+        "left_hip": 1529.2732071602177
+      },
+      "com_height": 0.5081197619438171,
+      "shooting_arc": 87.06548408886334,
+      "landmarks": {
+        "nose": {
+          "x": 534,
+          "y": 587
+        },
+        "left_eye_inner": {
+          "x": 522,
+          "y": 568
+        },
+        "left_eye": {
+          "x": 520,
+          "y": 568
+        },
+        "left_eye_outer": {
+          "x": 518,
+          "y": 569
+        },
+        "right_eye_inner": {
+          "x": 518,
+          "y": 568
+        },
+        "right_eye": {
+          "x": 512,
+          "y": 568
+        },
+        "right_eye_outer": {
+          "x": 506,
+          "y": 569
+        },
+        "left_ear": {
+          "x": 491,
+          "y": 576
+        },
+        "right_ear": {
+          "x": 476,
+          "y": 579
+        },
+        "mouth_left": {
+          "x": 529,
+          "y": 607
+        },
+        "mouth_right": {
+          "x": 524,
+          "y": 607
+        },
+        "left_shoulder": {
+          "x": 432,
+          "y": 655
+        },
+        "right_shoulder": {
+          "x": 489,
+          "y": 666
+        },
+        "left_elbow": {
+          "x": 375,
+          "y": 602
+        },
+        "right_elbow": {
+          "x": 668,
+          "y": 563
+        },
+        "left_wrist": {
+          "x": 354,
+          "y": 539
+        },
+        "right_wrist": {
+          "x": 672,
+          "y": 426
+        },
+        "left_pinky": {
+          "x": 350,
+          "y": 536
+        },
+        "right_pinky": {
+          "x": 679,
+          "y": 390
+        },
+        "left_index": {
+          "x": 355,
+          "y": 531
+        },
+        "right_index": {
+          "x": 653,
+          "y": 384
+        },
+        "left_thumb": {
+          "x": 374,
+          "y": 534
+        },
+        "right_thumb": {
+          "x": 648,
+          "y": 396
+        },
+        "left_hip": {
+          "x": 465,
+          "y": 976
+        },
+        "right_hip": {
+          "x": 499,
+          "y": 974
+        },
+        "left_knee": {
+          "x": 462,
+          "y": 1210
+        },
+        "right_knee": {
+          "x": 513,
+          "y": 1222
+        },
+        "left_ankle": {
+          "x": 418,
+          "y": 1432
+        },
+        "right_ankle": {
+          "x": 483,
+          "y": 1462
+        },
+        "left_heel": {
+          "x": 390,
+          "y": 1460
+        },
+        "right_heel": {
+          "x": 447,
+          "y": 1487
+        },
+        "left_foot_index": {
+          "x": 478,
+          "y": 1489
+        },
+        "right_foot_index": {
+          "x": 548,
+          "y": 1559
+        }
+      }
+    },
+    {
+      "frame_number": 155,
+      "timestamp": 5.166666666666667,
+      "pose_detected": true,
+      "angles": {
+        "knee_angle": 162.75355427901493,
+        "hip_angle": 177.38104903178936,
+        "elbow_angle": 134.72045700563015,
+        "shoulder_angle": 109.81053492170024,
+        "wrist_angle": 171.7045056313849,
+        "trunk_lean": 164.32867848934774
+      },
+      "velocities": {
+        "right_hip": 345.0,
+        "right_knee": 303.6931687685298,
+        "right_ankle": 235.17046281243688,
+        "right_shoulder": 204.03876253618398,
+        "right_elbow": 868.9116845382946,
+        "right_wrist": 868.7419377913726,
+        "right_index": 1231.3498136720677,
+        "nose": 318.91708554127774,
+        "left_shoulder": 348.61738501107,
+        "left_hip": 347.7050983124842
+      },
+      "accelerations": {
+        "right_hip": -1050.0,
+        "right_knee": 353.6501146855494,
+        "right_ankle": -948.2953718756318,
+        "right_shoulder": -80.93271819780284,
+        "right_elbow": -1828.0120403919182,
+        "right_wrist": -3973.149329691787,
+        "right_index": 426.53048302530124,
+        "nose": 472.55531397155266,
+        "left_shoulder": -1613.8261498892996,
+        "left_hip": -422.9490168751573
+      },
+      "com_height": 0.5024836361408234,
+      "shooting_arc": 68.62126005528252,
+      "landmarks": {
+        "nose": {
+          "x": 535,
+          "y": 575
+        },
+        "left_eye_inner": {
+          "x": 523,
+          "y": 558
+        },
+        "left_eye": {
+          "x": 521,
+          "y": 558
+        },
+        "left_eye_outer": {
+          "x": 519,
+          "y": 558
+        },
+        "right_eye_inner": {
+          "x": 519,
+          "y": 559
+        },
+        "right_eye": {
+          "x": 513,
+          "y": 559
+        },
+        "right_eye_outer": {
+          "x": 507,
+          "y": 559
+        },
+        "left_ear": {
+          "x": 492,
+          "y": 566
+        },
+        "right_ear": {
+          "x": 478,
+          "y": 571
+        },
+        "mouth_left": {
+          "x": 530,
+          "y": 597
+        },
+        "mouth_right": {
+          "x": 525,
+          "y": 598
+        },
+        "left_shoulder": {
+          "x": 435,
+          "y": 642
+        },
+        "right_shoulder": {
+          "x": 488,
+          "y": 663
+        },
+        "left_elbow": {
+          "x": 526,
+          "y": 547
+        },
+        "right_elbow": {
+          "x": 646,
+          "y": 542
+        },
+        "left_wrist": {
+          "x": 612,
+          "y": 417
+        },
+        "right_wrist": {
+          "x": 678,
+          "y": 397
+        },
+        "left_pinky": {
+          "x": 634,
+          "y": 388
+        },
+        "right_pinky": {
+          "x": 707,
+          "y": 359
+        },
+        "left_index": {
+          "x": 629,
+          "y": 378
+        },
+        "right_index": {
+          "x": 684,
+          "y": 352
+        },
+        "left_thumb": {
+          "x": 623,
+          "y": 388
+        },
+        "right_thumb": {
+          "x": 671,
+          "y": 366
+        },
+        "left_hip": {
+          "x": 470,
+          "y": 966
+        },
+        "right_hip": {
+          "x": 499,
+          "y": 963
+        },
+        "left_knee": {
+          "x": 464,
+          "y": 1201
+        },
+        "right_knee": {
+          "x": 513,
+          "y": 1210
+        },
+        "left_ankle": {
+          "x": 422,
+          "y": 1428
+        },
+        "right_ankle": {
+          "x": 486,
+          "y": 1455
+        },
+        "left_heel": {
+          "x": 395,
+          "y": 1457
+        },
+        "right_heel": {
+          "x": 449,
+          "y": 1480
+        },
+        "left_foot_index": {
+          "x": 483,
+          "y": 1486
+        },
+        "right_foot_index": {
+          "x": 553,
+          "y": 1552
+        }
+      }
+    }
+  ],
+  "keyframes": {
+    "ball_lowest": {
+      "index": 7,
+      "description": "球的最低点",
+      "timestamp": 1.1666666666666667,
+      "angles": {
+        "knee_angle": 99.63378889443301,
+        "hip_angle": 94.32887926683367,
+        "elbow_angle": 71.7404375278272,
+        "shoulder_angle": 13.136286880685796,
+        "wrist_angle": 162.2748510126106,
+        "trunk_lean": 93.9778061484758
+      },
+      "image_path": ""
+    },
+    "lift_start": {
+      "index": 8,
+      "description": "开始持续抬球",
+      "timestamp": 1.3333333333333333,
+      "angles": {
+        "knee_angle": 96.41143205198257,
+        "hip_angle": 93.62016138820961,
+        "elbow_angle": 73.56222998934683,
+        "shoulder_angle": 17.189427284392966,
+        "wrist_angle": 162.94650745755908,
+        "trunk_lean": 92.90624320929601
+      },
+      "image_path": ""
+    },
+    "ball_rising_mid": {
+      "index": 11,
+      "description": "球上升中点",
+      "timestamp": 1.8333333333333333,
+      "angles": {
+        "knee_angle": 90.33715877249513,
+        "hip_angle": 93.2347965200178,
+        "elbow_angle": 85.12197936221418,
+        "shoulder_angle": 37.14911450098576,
+        "wrist_angle": 164.70014673081147,
+        "trunk_lean": 94.2226519887087
+      },
+      "image_path": ""
+    },
+    "ball_at_chest": {
+      "index": 14,
+      "description": "球到胸部高度",
+      "timestamp": 2.3333333333333335,
+      "angles": {
+        "knee_angle": 84.47451127491807,
+        "hip_angle": 97.20599800432414,
+        "elbow_angle": 95.03367029653037,
+        "shoulder_angle": 64.7807728476332,
+        "wrist_angle": 162.4404549401541,
+        "trunk_lean": 95.88828750239213
+      },
+      "image_path": ""
+    },
+    "squat_deepest": {
+      "index": 16,
+      "description": "重心最低点（下蹲最深）",
+      "timestamp": 2.6666666666666665,
+      "angles": {
+        "knee_angle": 82.72851710251118,
+        "hip_angle": 101.48022161997355,
+        "elbow_angle": 93.71919181951095,
+        "shoulder_angle": 80.11696372944763,
+        "wrist_angle": 168.6068568651375,
+        "trunk_lean": 100.62393850207974
+      },
+      "image_path": ""
+    },
+    "ball_at_shoulder": {
+      "index": 16,
+      "description": "球到肩部高度",
+      "timestamp": 2.6666666666666665,
+      "angles": {
+        "knee_angle": 82.72851710251118,
+        "hip_angle": 101.48022161997355,
+        "elbow_angle": 93.71919181951095,
+        "shoulder_angle": 80.11696372944763,
+        "wrist_angle": 168.6068568651375,
+        "trunk_lean": 100.62393850207974
+      },
+      "image_path": ""
+    },
+    "leg_power_start": {
+      "index": 16,
+      "description": "腿部开始发力（蹬伸）",
+      "timestamp": 2.6666666666666665,
+      "angles": {
+        "knee_angle": 82.72851710251118,
+        "hip_angle": 101.48022161997355,
+        "elbow_angle": 93.71919181951095,
+        "shoulder_angle": 80.11696372944763,
+        "wrist_angle": 168.6068568651375,
+        "trunk_lean": 100.62393850207974
+      },
+      "image_path": ""
+    },
+    "power_transfer": {
+      "index": 19,
+      "description": "力量传递",
+      "timestamp": 3.1666666666666665,
+      "angles": {
+        "knee_angle": 94.15401680180148,
+        "hip_angle": 122.88801193966158,
+        "elbow_angle": 69.80266382133004,
+        "shoulder_angle": 86.55135278729905,
+        "wrist_angle": 131.24633300925314,
+        "trunk_lean": 122.1985869537742
+      },
+      "image_path": ""
+    },
+    "elbow_max_bend": {
+      "index": 23,
+      "description": "肘关节最大弯曲（39.0°）",
+      "timestamp": 3.8333333333333335,
+      "angles": {
+        "knee_angle": 128.7204163329853,
+        "hip_angle": 155.40991828358267,
+        "elbow_angle": 38.97072581318317,
+        "shoulder_angle": 87.21906736633179,
+        "wrist_angle": 159.39431306476297,
+        "trunk_lean": 143.07566204437168
+      },
+      "image_path": ""
+    },
+    "wrist_snap": {
+      "index": 24,
+      "description": "手腕下压（snap）",
+      "timestamp": 4.0,
+      "angles": {
+        "knee_angle": 134.94386592211336,
+        "hip_angle": 159.41268155710276,
+        "elbow_angle": 41.20116029785123,
+        "shoulder_angle": 91.30567464622872,
+        "wrist_angle": 158.29457104248894,
+        "trunk_lean": 149.52495388679944
+      },
+      "image_path": ""
+    },
+    "release_prepare": {
+      "index": 27,
+      "description": "出手准备",
+      "timestamp": 4.5,
+      "angles": {
+        "knee_angle": 153.02379747096032,
+        "hip_angle": 171.05065215144134,
+        "elbow_angle": 55.11438712737567,
+        "shoulder_angle": 94.63149136379762,
+        "wrist_angle": 162.8018953874575,
+        "trunk_lean": 160.42668069461644
+      },
+      "image_path": ""
+    },
+    "elbow_extension_max": {
+      "index": 31,
+      "description": "肘关节伸展最快（24.0°/帧）",
+      "timestamp": 5.166666666666667,
+      "angles": {
+        "knee_angle": 162.75355427901493,
+        "hip_angle": 177.38104903178936,
+        "elbow_angle": 134.72045700563015,
+        "shoulder_angle": 109.81053492170024,
+        "wrist_angle": 171.7045056313849,
+        "trunk_lean": 164.32867848934774
+      },
+      "image_path": ""
+    },
+    "release": {
+      "index": 31,
+      "description": "出手瞬间",
+      "timestamp": 5.166666666666667,
+      "angles": {
+        "knee_angle": 162.75355427901493,
+        "hip_angle": 177.38104903178936,
+        "elbow_angle": 134.72045700563015,
+        "shoulder_angle": 109.81053492170024,
+        "wrist_angle": 171.7045056313849,
+        "trunk_lean": 164.32867848934774
+      },
+      "image_path": ""
+    },
+    "follow_through": {
+      "index": 31,
+      "description": "随球动作完成（手腕最高点）",
+      "timestamp": 5.166666666666667,
+      "angles": {
+        "knee_angle": 162.75355427901493,
+        "hip_angle": 177.38104903178936,
+        "elbow_angle": 134.72045700563015,
+        "shoulder_angle": 109.81053492170024,
+        "wrist_angle": 171.7045056313849,
+        "trunk_lean": 164.32867848934774
+      },
+      "image_path": ""
+    }
+  }
+}
