@@ -64,7 +64,7 @@ export function getDeviceInfo() {
  */
 export async function verifyDevice(deviceId) {
   try {
-    const response = await fetch('/api/auth/verify', {
+    const response = await fetch('/auth/verify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
