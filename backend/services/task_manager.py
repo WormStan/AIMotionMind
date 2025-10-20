@@ -3,9 +3,16 @@
 """
 import threading
 import uuid
+import sys
+import os
 from datetime import datetime
 from typing import Dict, Optional
 import traceback
+
+# 导入自定义异常
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(BASE_DIR, 'backend'))
+from exceptions import VideoAnalysisError
 
 
 class TaskManager:
@@ -93,18 +100,36 @@ class TaskManager:
                 'result': result
             })
 
-        except Exception as e:
-            # 任务失败
-            error_msg = str(e)
+        except VideoAnalysisError as e:
+            # 捕获自定义的视频分析错误，使用用户友好的错误信息
+            error_msg = e.user_message if hasattr(e, 'user_message') else str(e)
             error_trace = traceback.format_exc()
 
             self.update_task(task_id, {
                 'status': 'failed',
-                'message': f'分析失败: {error_msg}',
+                'message': error_msg,
                 'completed_at': datetime.now().isoformat(),
                 'error': {
                     'message': error_msg,
-                    'trace': error_trace
+                    'trace': error_trace,
+                    'type': 'VideoAnalysisError'
+                }
+            })
+        except Exception as e:
+            # 任务失败 - 其他未预期的错误
+            error_msg = f'分析过程发生错误: {str(e)}'
+            user_msg = '视频分析失败，请检查视频是否完整、格式是否正确.'
+            error_trace = traceback.format_exc()
+
+            self.update_task(task_id, {
+                'status': 'failed',
+                'message': user_msg,
+                'completed_at': datetime.now().isoformat(),
+                'error': {
+                    'message': error_msg,
+                    'user_message': user_msg,
+                    'trace': error_trace,
+                    'type': 'UnexpectedError'
                 }
             })
 

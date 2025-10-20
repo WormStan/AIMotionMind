@@ -30,6 +30,21 @@ from collections import OrderedDict
 
 class KeyframeDetector:
     """篮球投篮关键帧检测器"""
+    
+    @staticmethod
+    def _safe_get_landmarks(frame_data: Dict) -> Optional[Dict]:
+        """
+        安全获取landmarks，处理None情况
+        
+        Args:
+            frame_data: 帧数据字典
+            
+        Returns:
+            landmarks字典，如果不存在或为None则返回None
+        """
+        landmarks = frame_data.get("landmarks")
+        return landmarks if landmarks is not None else None
+    """篮球投篮关键帧检测器"""
 
     @staticmethod
     def detect_keyframes(frames_data: List[Dict]) -> Dict[str, Dict]:
@@ -48,6 +63,21 @@ class KeyframeDetector:
 
         print("\n开始检测关键帧...")
         print("=" * 70)
+        
+        # 验证输入数据
+        if not frames_data:
+            raise ValueError("视频帧数据为空，无法进行关键帧检测")
+        
+        # 统计有效帧数（有姿态检测结果的帧）
+        valid_frames = [f for f in frames_data if KeyframeDetector._safe_get_landmarks(f) is not None]
+        if len(valid_frames) < 5:
+            raise ValueError(
+                f"有效帧数不足（{len(valid_frames)}/5）。"
+                "视频中可能没有清晰可见的人物，或姿态检测失败。"
+                "请确保视频中人物清晰、光线充足、无遮挡。"
+            )
+        
+        print(f"✓ 总帧数: {len(frames_data)}, 有效帧数: {len(valid_frames)}")
 
         # 第一步：先在完整视频中检测球最低点（这是投篮动作的起点）
         ball_lowest_kf = KeyframeDetector._detect_ball_lowest(frames_data)
@@ -311,7 +341,13 @@ class KeyframeDetector:
         """检测球的最低点（使用右手腕Y坐标）"""
         ball_heights = []
         for f in frames_data:
-            landmarks = f.get("landmarks", {})
+            landmarks = KeyframeDetector._safe_get_landmarks(f)
+            
+            # 检查landmarks是否为None
+            if landmarks is None:
+                ball_heights.append(0.0)
+                continue
+                
             right_wrist = landmarks.get("right_wrist")
 
             if right_wrist:

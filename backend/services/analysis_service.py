@@ -16,6 +16,10 @@ from core.data_manager import DataManager
 from core.video_processor import VideoProcessor
 from config import BASKETBALL_SHOT_CONFIG, OUTPUT_DIR
 
+# 导入自定义异常
+sys.path.insert(0, os.path.join(BASE_DIR, 'backend'))
+from exceptions import VideoAnalysisError, PoseDetectionError, KeyframeDetectionError, InsufficientFramesError
+
 
 
 class AnalysisService:
@@ -108,9 +112,22 @@ class AnalysisService:
             if progress_callback:
                 progress_callback(35, '开始姿态检测和指标计算...')
 
-            analyzer = BasketballShotAnalyzer(self.config)
-            analysis_results = analyzer.analyze_frames(
-                frames_data, processor.fps)
+            try:
+                analyzer = BasketballShotAnalyzer(self.config)
+                analysis_results = analyzer.analyze_frames(
+                    frames_data, processor.fps)
+            except ValueError as e:
+                # 捕获关键帧检测失败的错误
+                error_msg = str(e)
+                if "有效帧数不足" in error_msg or "姿态检测失败" in error_msg:
+                    raise InsufficientFramesError(len([f for f in frames_data if f.get("pose_detected")]))
+                elif "关键帧" in error_msg:
+                    raise KeyframeDetectionError(error_msg)
+                else:
+                    raise PoseDetectionError(error_msg)
+            except AttributeError as e:
+                # 捕获NoneType相关的错误
+                raise PoseDetectionError(f"姿态数据处理失败: {str(e)}")
 
             # 更新进度：60%
             if progress_callback:
@@ -217,10 +234,18 @@ class AnalysisService:
                 'timestamp': timestamp
             }
 
-        except Exception as e:
+        except VideoAnalysisError as e:
+            # 捕获自定义的视频分析错误，提供用户友好的错误信息
             if progress_callback:
-                progress_callback(-1, f'分析失败: {str(e)}')
-            raise
+                progress_callback(-1, e.user_message)
+            raise VideoAnalysisError(str(e), e.user_message)
+        except Exception as e:
+            # 捕获其他未预期的错误
+            error_msg = f'分析失败: {str(e)}'
+            user_msg = "视频分析过程中发生错误。请检查视频是否完整、格式是否正确。"
+            if progress_callback:
+                progress_callback(-1, user_msg)
+            raise VideoAnalysisError(error_msg, user_msg)
 
     def get_analysis_result(self, analysis_id: str, sport_type: str = 'basketball', device_id: str = None):
         """
